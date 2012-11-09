@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+namespace VH.Engine.Levels {
+
+    public class Map {
+
+        #region constants
+
+        public const int MAX_WIDTH = 100;
+        public const int MAX_HEIGHT = 100;
+
+        /*public const char FLOOR = '.';
+        public const char CORRIDOR = (char)129;
+        public const char WALL = '#';
+        public const char OPEN_DOOR = '/';
+        public const char CLOSED_DOOR = '+';
+        public const char WATER = '~';
+        public const char DOWN_STAIR = '>';
+        public const char UP_STAIR = '<';
+        public const char KNOWN_TRAP = '_';
+        public const char UNKNOW_TRAP = (char)130;*/
+        public const char UNKNOWN = ' ';
+        //public const char GRASS = (char)131;
+        //public const char TREE = '&';
+
+        #endregion
+
+        #region fields
+
+        private char[,] map;
+        private char[,] mem;
+        private int width;
+        private int height;
+
+        #endregion
+
+        #region constructors
+
+        public Map(int width, int height) {
+            this.width = width;
+            this.height = height;
+            map = new char[width, height];
+            mem = new char[width, height];
+            for (int i = 0; i < width; ++i) {
+                for (int j = 0; j < height; ++j) {
+                    Mem[i, j] = Map.UNKNOWN;
+                }
+            }
+        }
+
+        #endregion
+
+        #region properties
+
+        public int Width {
+            get { return width; }
+        }
+
+        public int Height {
+            get { return height; }
+        }
+
+        public char this[int i, int j] {
+            get {
+                if (i < 0 || j < 0 || i >= Width || j >= Height) return Map.UNKNOWN;
+                return map[i, j]; 
+            }
+            set {
+                if (i >= 0 && j >= 0 && i < Width && j < Height) map[i, j] = value; 
+            }
+        }
+
+        public char this[Position position] {
+            get { return this[position.X, position.Y]; }
+            set { this[position.X, position.Y] = value; }
+        }
+
+        public char[,] Mem {
+            get { return mem; }
+        }
+
+        #endregion
+
+        #region public methods
+
+        /// <summary>
+        /// Indicates, whether light can pass a specified terrain feature.
+        /// Useful for computing FoV
+        /// </summary>
+        /// <param name="c">a character reoresenting the terrain feature</param>
+        /// <returns>true, if light can pass the terrain feature</returns>
+        public static bool IsTransparent(char c) {
+            return Terrain.Get(c).Transparent;
+        }
+
+        public virtual void Save(string name) { 
+            // just do nothing and let the data float around in the memory
+        }
+
+        public virtual void Load(string name) { 
+            //do nothing, as the data is already floating around in memory
+        }
+
+        #endregion
+
+    }
+}

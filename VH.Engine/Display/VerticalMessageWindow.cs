@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace VH.Engine.Display {
+
+    public class VerticalMessageWindow: MessageWindow {
+
+        #region constants
+
+        private const string ENTER = "<ENTER>";
+
+        #endregion
+
+        #region fields
+
+        private int row = 0;
+
+        #endregion
+
+        #region constructors
+
+        public VerticalMessageWindow(int x, int y, int width, int height, IConsole console) :
+            base(x, y, width, height, console) { }
+
+        #endregion
+
+        #region public methods
+
+        /// <summary>
+        /// Shows the message.
+        /// </summary>
+        /// <param name="message">The message to show.</param>
+        public override void ShowMessage(string message) {
+            console.ForegroundColor = ConsoleColor.Gray;
+            string[] messages = message.Split(new char[] {'\n', '\r'});
+            for (int i = 0; i < messages.Length; ++i) {
+                showMessage(messages[i]);
+            }
+        }
+
+        public override void Clear() {
+            for (int i = 0; i < row; ++i) {
+                Write(clearer, 0, i);
+            }
+            row = 0;
+        }
+
+        #endregion
+
+        #region private methods
+
+        private void showMessage(string message) {
+            if (message.Length <= Width) showSimpleMessage(message);
+            else split(message);
+        }
+
+        private void showSimpleMessage(string message) {
+            base.GoTo(0, row++);
+            if (row == Height - 1) {
+                base.Write(ENTER);
+                console.ReadLine();
+                Clear();
+                row = 0;
+                base.GoTo(0, row++);
+            }
+            base.Write(message);
+        }
+
+        private void split(string message) {
+            string submessage = message.Substring(0, Width);
+            int i = submessage.LastIndexOf(' ');
+            if (i == -1) i = Width;
+            string message1 = message.Substring(0, i);
+            string message2 = message.Substring(i);
+            showMessage(message1);
+            showMessage(message2);
+        }
+
+        #endregion
+
+    }
+}

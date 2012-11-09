@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+  <message key="pick-up" person2="%Podniosłeś %" person3="% podniósł %" />
+  <message key="drop" person2="%Upuściłeś %" person3="% upuścił %" />
+  <message key="open-door" person2="%Otwarłeś dzwi" person3="% otwarł drzwi" />
+  <message key="which-direction" person2="W którą stronę?" person3="" />
+  <message key="close-door" person2="%Zamknąłeś dzwi" person3="% zamknął drzwi" />
+  <message key="go-up" person2="%Wszedłeś po schodach" person3="% wszedł po schodach" />
+  <message key="go-down" person2="%Zszedłeś po schodach" person3="% zszedł po schodach" />
+  <message key="no-stairs" person2="Tutaj nie ma schodów" person3="" />
+  <message key="no-door" person2="Tutaj nie ma otwartych drzwi" person3="" />
+  <message key="stuck-door" person2="Drzwi się zacięły!" person3="% spróbował otworzyć drzwi, ale się zacięły" />
+  <message key="no-items" person2="Nie ma tu nic do podniesienia" person3="" />
+  <message key="no-suitable-items" person2="Nie masz odpowiedniego przedmiotu!" person3="" />
+</messages>
