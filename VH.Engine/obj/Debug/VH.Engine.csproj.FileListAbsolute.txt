@@ -3,3 +3,8 @@ C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\bin\D
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Debug\VH.Engine.dll
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Debug\VH.Engine.pdb
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH.Engine\bin\Debug\VH.Engine.dll
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH.Engine\bin\Debug\VH.Engine.pdb
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH.Engine\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH.Engine\obj\Debug\VH.Engine.dll
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH.Engine\obj\Debug\VH.Engine.pdb

@@ -17,11 +17,15 @@ namespace VH.Game.World.Beings.Actions {
         }
 
         public override bool Perform() {
-            
             ((IBackPackBeing)performer).BackPack.Remove(item);
             item.Position = performer.Position.Clone();
-            notify(item.UseKind, item);
-            item.Use(performer);
+            if (((ISkillsBeing)performer).Skills["reading"].Roll()) {
+                notify(item.UseKind, item);
+                item.Use(performer);
+            }
+            else {
+                notify("read-failed", item);
+            }
             base.Perform();
             return true;
         }

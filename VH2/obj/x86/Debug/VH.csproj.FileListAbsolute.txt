@@ -17,3 +17,22 @@ C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH2\bin\Debug\D
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH2\bin\Debug\Data\Resources\splash.txt
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH2\bin\Debug\Data\Resources\terrain.xml
 C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH2\bin\Debug\Data\Resources\monster-generation.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Conf\keybindings.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\items.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\levels.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\messages.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\monster-generation.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\monsters.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\splash.txt
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\translations.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\Data\Resources\terrain.xml
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\VH.Engine.dll
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\VH.Engine.pdb
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\VH.Properties.Resources.resources
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\VH2.exe
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\obj\x86\Debug\VH2.pdb
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\VH2.exe
+C:\Users\IBM_ADMIN\Documents\vampirehunt\VH2\bin\Debug\VH2.pdb

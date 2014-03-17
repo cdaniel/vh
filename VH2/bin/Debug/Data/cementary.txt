@@ -63,3 +63,5 @@ aaa, Grabarz Zabity przez ćmę na poziomie Town
 aaa, Grabarz Zabity przez utonięcie na poziomie Town
 aaa, Grabarz Zabity przez  na poziomie D03
 aaa, Grabarz Zabity przez  na poziomie Town
+asd, Grabarz Zabity przez utonięcie na poziomie Town
+AS, Grabarz Zabity przez  na poziomie Town

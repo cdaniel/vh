@@ -71,7 +71,8 @@ namespace VH.Game.World.Beings {
                 new VhSkill("digging", Translator.Instance["digging"], 0, Stats["St"], Stats["In"]),
                 new VhSkill("searching", Translator.Instance["searching"], 0, Stats["Pe"], Stats["In"]),
                 new VhSkill("identification", Translator.Instance["identification"], 0, Stats["In"], Stats["In"]),
-                new VhSkill("magick", Translator.Instance["magick"], 0, Stats["In"], Stats["In"])
+                new VhSkill("magick", Translator.Instance["magick"], 0, Stats["In"], Stats["In"]),
+                new VhSkill("reading", Translator.Instance["reading"], 0, Stats["In"], Stats["In"])
             );
 
             Accusativ = Translator.Instance["you"];

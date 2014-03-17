@@ -51,4 +51,8 @@
   <message key="trip" person2="%Potykasz się o coś" person3="% potyka się o leżące przedmioty"/>
   <message key="cant-examine" person2="%Z powodu ślepoty nie masz pojęcia co to jest" person3="% maca przedmiot"/>
   <message key="wand-destroy" person2="%Patrzysz jak wędka znika" person3="% patrzy jak wędka znika" />
+  <message key="read-failed" person2="%Nie udaje ci się przeczytać %" person3="% gapi się głupkowato na %"/>
+  <message key="cast-light" person2="%Wokół robi się jaśniej" person3="Wokół % robi się jaśniej" />
+  <message key="spell-failed" person2="%Jesteś za kiepski w magji" person3="% patrzy dookoła zdziwiony"/>
+  <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="Wokół % zapada ciemność"/>
 </messages>

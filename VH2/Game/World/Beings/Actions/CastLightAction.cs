@@ -16,15 +16,20 @@ namespace VH.Game.World.Beings.Actions {
         public CastLightAction(Being performer) : base(performer) { }
 
         public override bool Perform() {
-            for (int i = -RANGE; i <= RANGE; ++i) {
-                for (int j = -RANGE; j <= RANGE; ++j) {
-                    if (i * i + j * j <= RANGE * RANGE) {
-                        int x = Performer.Position.X + i;
-                        int y = Performer.Position.Y + j;
-                        Terrain terrain = Terrain.Get(GameController.Instance.Map[x, y]);
-                        GameController.Instance.Map[x, y] = getLitTerrain(terrain).Character;
+            if (((ISkillsBeing)performer).Skills["magick"].Roll()) {
+                for (int i = -RANGE; i <= RANGE; ++i) {
+                    for (int j = -RANGE; j <= RANGE; ++j) {
+                        if (i * i + j * j <= RANGE * RANGE) {
+                            int x = Performer.Position.X + i;
+                            int y = Performer.Position.Y + j;
+                            Terrain terrain = Terrain.Get(GameController.Instance.Map[x, y]);
+                            GameController.Instance.Map[x, y] = getLitTerrain(terrain).Character;
+                        }
                     }
                 }
+                notify("cast-light");
+            } else {
+                notify("spell-failed");
             }
             return true;
         }
