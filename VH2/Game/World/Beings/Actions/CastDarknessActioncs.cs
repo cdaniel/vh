@@ -43,5 +43,5 @@ namespace VH.Game.World.Beings.Actions {
         }
 
     }
-    }
 }
+

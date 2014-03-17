@@ -38,7 +38,6 @@ namespace VH.Game.World.Beings.Professions {
             BackPack backpack = (being as IBackPackBeing).BackPack;
             backpack.Add(facade.CreateItemById("booze"));
             backpack.Add(facade.CreateItemById("booze"));
-            backpack.Add(facade.CreateItemById("scroll of light"));
 
             foreach (Item item in backpack.Items) {
                 if (item is MagicalItem) {
