@@ -7,13 +7,14 @@ using VH.Engine.Display;
 using VH.Engine.World.Beings.AI;
 using System.Globalization;
 using VH.Engine.Tools;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.World.Beings {
 
     /// <summary>
     /// Represents a Being. Any lifeform in the game is derived from this class.
     /// </summary>
-    public abstract class Being: AbstractEntity, Creatable {
+    public abstract class Being: AbstractEntity {
 
         #region constants
 
@@ -96,7 +97,7 @@ namespace VH.Engine.World.Beings {
         /// Creating means setting all the field values based on values stored in the xml.
         /// </summary>
         /// <param name="prototype"></param>
-        public virtual void Create(XmlElement prototype) {
+        public override void Create(XmlElement prototype) {
             base.Create(prototype);
             race = prototype.Attributes[RACE].Value;
             if (prototype.Attributes[WALKABLE_TERRAIN] != null) walkableTerrain = prototype.Attributes[WALKABLE_TERRAIN].Value;
@@ -110,6 +111,21 @@ namespace VH.Engine.World.Beings {
         public virtual void DecreaseHealth(int damage, string reason) {
             Health -= damage;
             killReason = reason;
+        }
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("walkable-terrain", walkableTerrain);
+            AddAttribute("race", race);
+            AddAttribute("speed", "" + speed);
+            AddElement(temps);
+            AddElement(ai);
+            return element;
+        }
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            walkableTerrain = 
         }
 
         #endregion

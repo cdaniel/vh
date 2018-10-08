@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using VH.Engine.Persistency;
 
 namespace VH.Engine.Levels {
 
-    public class Map {
+    public class Map: AbstractPersistent {
 
         #region constants
 
@@ -52,16 +52,20 @@ namespace VH.Engine.Levels {
             }
         }
 
+        public Map() { }
+
         #endregion
 
         #region properties
 
         public int Width {
             get { return width; }
+            set { width = value; }
         }
 
         public int Height {
             get { return height; }
+            set { width = value; }
         }
 
         public char this[int i, int j] {

@@ -65,3 +65,4 @@ aaa, Grabarz Zabity przez  na poziomie D03
 aaa, Grabarz Zabity przez  na poziomie Town
 asd, Grabarz Zabity przez utonięcie na poziomie Town
 AS, Grabarz Zabity przez  na poziomie Town
+ppp, Znachor Zabity przez nietoperza na poziomie D02

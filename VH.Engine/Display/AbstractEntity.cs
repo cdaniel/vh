@@ -5,6 +5,8 @@ using System.Text;
 using VH.Engine.Levels;
 using System.Xml;
 using VH.Engine.World;
+using VH.Engine.Persistency;
+using System.IO;
 
 namespace VH.Engine.Display {
 
@@ -17,7 +19,7 @@ namespace VH.Engine.Display {
     /// Represents an entity that can be displayed on the screen. 
     /// Not for level squares representation.
     /// </summary>
-    public abstract class AbstractEntity : Creatable {
+    public abstract class AbstractEntity : AbstractPersistent, Creatable  {
 
         #region constants
 

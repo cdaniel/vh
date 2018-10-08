@@ -8,13 +8,14 @@ using VH.Engine.Display;
 using System.Reflection;
 using System.Windows.Forms;
 using VH.Engine.Tools;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.World.Beings.AI {
 
     /// <summary>
     /// Represents intelligence of a Being
     /// </summary>
-    public abstract class AbstractAi {
+    public abstract class AbstractAi: AbstractPersistent {
 
         #region fields
 

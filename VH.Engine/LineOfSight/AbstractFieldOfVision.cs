@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VH.Engine.Levels;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.LineOfSight {
 
-    public abstract class AbstractFieldOfVision {
+    public abstract class AbstractFieldOfVision: AbstractPersistent {
 
         #region constants
 

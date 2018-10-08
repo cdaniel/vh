@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Xml;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.Levels {
 
     /// <summary>
     /// Represents location of an entity (Item or Being) in Level coorditates.
     /// </summary>
-    public class Position {
+    public class Position: AbstractPersistent {
 
         #region fields
 
@@ -44,6 +45,13 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("x", x);
+            AddAttribute("y", y);
+            return element;
+        }
 
         public Position AddStep(Step step) {
             Position position = new Position(x, y);

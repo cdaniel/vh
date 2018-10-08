@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.Levels {
 
@@ -9,7 +11,7 @@ namespace VH.Engine.Levels {
     /// Represents a passage (such as a stairway) from this Level
     /// to another Level
     /// </summary>
-    public class Passage {
+    public class Passage: AbstractPersistent {
 
         #region fields
 
@@ -35,6 +37,16 @@ namespace VH.Engine.Levels {
         public Position Position {
             get { return position; }
             set { position = value; }
+        }
+
+        #endregion
+
+        #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element =  base.ToXml(doc);
+            AddElement(position);
+            return element;
         }
 
         #endregion

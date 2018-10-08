@@ -12,13 +12,15 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.LineOfSight;
 using VH.Engine.World.Beings;
 using VH.Engine.Time;
+using VH.Engine.Persistency;
+using System.Xml;
 
 namespace VH.Engine.Game {
 
     /// <summary>
     /// Main game object that handles all the game flow.
     /// </summary>
-    public abstract class GameController {
+    public abstract class GameController: AbstractPersistent {
 
         #region singleton
 
@@ -145,6 +147,15 @@ namespace VH.Engine.Game {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("gametime-ticks", gametimeTicks);
+            AddElement(pc);
+            AddElement(level);
+            AddElement(fieldOfVision);
+            return element;
+        }
 
         public virtual void PlacePC() {
             int i;

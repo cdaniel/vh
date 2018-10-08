@@ -6,6 +6,8 @@ using System.Collections;
 using VH.Engine.World.Items;
 using VH.Engine.World.Beings;
 using VH.Engine.Game;
+using VH.Engine.Persistency;
+using System.Xml;
 
 namespace VH.Engine.Levels {
 
@@ -13,7 +15,7 @@ namespace VH.Engine.Levels {
     /// Describes relationship between levels.
     /// Defines which level can be reached from a given level.
     /// </summary>
-    public class Level {
+    public class Level: AbstractPersistent {
 
         #region fields
 
@@ -25,7 +27,7 @@ namespace VH.Engine.Levels {
         private int levelWidth;
         private int levelHeight;
         private int danger;
-        
+
         private List<Passage> upPassages = new List<Passage>();
         private List<Passage> downPassages = new List<Passage>();
 
@@ -36,7 +38,7 @@ namespace VH.Engine.Levels {
 
         #region constructors
 
-        public Level(string name, IMapGenerator mapGenerator, 
+        public Level(string name, IMapGenerator mapGenerator,
                 int levelWidth, int levelHeight) {
             this.name = name;
             this.mapGenerator = mapGenerator;
@@ -47,8 +49,10 @@ namespace VH.Engine.Levels {
         public Level(string name, IMapGenerator levelGenerator,
                 int levelWidth, int levelHeight, int danger)
             : this(name, levelGenerator, levelWidth, levelHeight) {
-                this.danger = danger;
+            this.danger = danger;
         }
+
+        public Level() { } 
 
         #endregion
 
@@ -105,6 +109,22 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element =  base.ToXml(doc);
+            AddAttribute("persistent", persistent);
+            AddAttribute("bidirectional", bidirectional);
+            AddAttribute("name", name);
+            AddAttribute("level-width", levelWidth);
+            AddAttribute("level-height", levelHeight);
+            AddAttribute("danger", danger);
+            AddElement(map);
+            AddElements("monsters", monsters.Cast<AbstractPersistent>());
+            AddElements("items", items.Cast<AbstractPersistent>());
+            AddElements("up-passages", upPassages.Cast<AbstractPersistent>());
+            AddElements("down-passages", downPassages.Cast<AbstractPersistent>());
+            return element;
+        }
 
         /// <summary>
         /// Enters the LevelStructure. 

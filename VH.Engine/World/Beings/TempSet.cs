@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using VH.Engine.Persistency;
+using System.Xml;
 
 namespace VH.Engine.World.Beings {
 
@@ -11,7 +13,7 @@ namespace VH.Engine.World.Beings {
     /// such as blindness, paralysis etc. 
     /// which are supposed to be stored directly as boolean values rather than computed.
     /// </summary>
-    public class TempSet {
+    public class TempSet: AbstractPersistent {
 
         #region fields
 
@@ -36,6 +38,18 @@ namespace VH.Engine.World.Beings {
                 if (temps[key] == null) temps.Add(key, value);
                 else temps[key] = value;
             }
+        }
+
+        #endregion
+
+        #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element =  base.ToXml(doc);
+            foreach (string key in temps.Keys) {
+                AddAttribute(key, temps[key].ToString());
+            }
+            return element;
         }
 
         #endregion

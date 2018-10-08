@@ -76,7 +76,7 @@ namespace VH.Engine.Levels {
         private int MIN_CELL_SIZE = 10;
         private int MIN_ROOM_SIZE = 5;
         private int MAX_ROOMS = 100;
-        private float HIDDEN_DOOR_RATE = 0.2f;
+        private float HIDDEN_DOOR_RATE = 0.02f;
 
         #endregion
 

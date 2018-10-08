@@ -5,7 +5,7 @@
   <message key="open-door" person2="%Otwierasz drzwi" person3="% otwiera drzwi" />
   <message key="which-direction" person2="W którą stronę?" person3="" />
   <message key="close-door" person2="%Zamykasz drzwi" person3="% zamyka drzwi" />
-  <message key="go-up" person2="%Wchodzi po schodach" person3="% wchodzi po schodach" />
+  <message key="go-up" person2="%Wchodzisz po schodach" person3="% wchodzi po schodach" />
   <message key="go-down" person2="%Zchodzisz po schodach" person3="% zchodzi po schodach" />
   <message key="no-stairs" person2="Tutaj nie ma schodów" person3="" />
   <message key="no-door" person2="Tutaj nie ma otwartych drzwi" person3="" />
@@ -53,5 +53,6 @@
   <message key="wand-destroy" person2="%Patrzysz jak wędka znika" person3="% patrzy jak wędka znika" />
   <message key="read-failed" person2="%Nie udaje ci się przeczytać %" person3="% gapi się głupkowato na %"/>
   <message key="cast-light" person2="%Wokół robi się jaśniej" person3="Wokół % robi się jaśniej" />
-  <message key="spell-failed" person2="%Jesteś za kiepski w magji" person3="% patrzy dookoła zdziwiony"/> 
+  <message key="spell-failed" person2="%Jesteś za kiepski w magji" person3="% patrzy dookoła zdziwiony"/>
+  <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="Wokół % zapada ciemność"/>
 </messages>

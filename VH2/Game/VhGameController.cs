@@ -21,6 +21,8 @@ using System.Windows.Forms;
 using VH.Engine.Translations;
 using VH.Game.World.Beings.Professions;
 using System.IO;
+using System.Xml;
+using System.Xml.Schema;
 
 namespace VH.Game {
 
@@ -146,7 +148,28 @@ namespace VH.Game {
             }
         }
 
-        #endregion 
+        #endregion
+
+        #region IXmlSerializable
+
+        public XmlSchema GetSchema() {
+            throw new NotImplementedException();
+        }
+
+        public void ReadXml(XmlReader reader) {
+            throw new NotImplementedException();
+        }
+
+        public void WriteXml(XmlWriter writer) {
+            writer.WriteStartDocument();
+            writer.WriteStartElement("vh-saved-game");
+
+
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
+        }
+
+        #endregion
 
         #region private methods
 
@@ -312,8 +335,12 @@ namespace VH.Game {
         }
 
         private void saveGame() {
-            //XmlHandler.Save(this, Application.StartupPath + @"\Data\" + Pc.Name + "svg");
-            //Application.Exit();
+            string filename = Application.StartupPath + @"\Data\" + Pc.Name + ".svg";
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml("<?xml version='1.0' encoding='utf-8' ?> <vh2-saved-game/>");
+            doc.DocumentElement.AppendChild(ToXml(doc));
+            doc.Save(filename);
+            Application.Exit();
         }
 
         private void saveInHof() {

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using VH.Engine.Display;
 using System.Xml;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.World.Items {
 
     /// <summary>
     /// Represents an item.
     /// </summary>
-    public class Item: AbstractEntity  {
+    public class Item: AbstractEntity, IPersistent  {
 
         #region constants
 
@@ -40,6 +41,14 @@ namespace VH.Engine.World.Items {
 
         public override void Create(XmlElement prototype) {
             base.Create(prototype);
+        }
+
+        public void FromXml(XmlDocument doc, XmlElement element) {
+            throw new NotImplementedException();
+        }
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            return base.ToXml(doc);
         }
 
         #endregion
