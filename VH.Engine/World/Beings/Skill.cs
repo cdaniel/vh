@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 using VH.Engine.Random;
 
 namespace VH.Engine.World.Beings {
 
-    public class Skill {
+    public class Skill: AbstractPersistent {
 
         #region constants
 
@@ -64,6 +66,15 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            AddAttribute("id", id);
+            AddAttribute("name", name);
+            AddAttribute("skill-value", skillValue);
+            AddAttribute("max-value", maxValue);
+            AddAttribute("training-points", trainingPoints);
+            return base.ToXml(doc);
+        }
 
         public bool Roll(int difficulty) {
             float valueToMatch = (float)skillValue / MAX_SKILL_VALUE;
