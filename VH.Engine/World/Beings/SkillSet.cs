@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using VH.Engine.Persistency;
+using System.Xml;
 
 namespace VH.Engine.World.Beings {
 
-    public class SkillSet: IEnumerable {
+    public class SkillSet: AbstractPersistent, IEnumerable {
 
         #region fields
 
@@ -41,6 +43,12 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("title", title);
+            return element;
+        }
 
         public IEnumerator GetEnumerator() {
             foreach (Skill skill in skills) yield return skill;
