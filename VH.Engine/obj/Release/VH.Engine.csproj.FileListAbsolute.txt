@@ -1,5 +1,0 @@
-C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Release\ResolveAssemblyReference.cache
-C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\bin\Release\VH.Engine.dll
-C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\bin\Release\VH.Engine.pdb
-C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Release\VH.Engine.dll
-C:\Documents and Settings\Administrator\My Documents\vampirehunt\VH.Engine\obj\Release\VH.Engine.pdb
