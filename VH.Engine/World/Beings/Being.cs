@@ -125,7 +125,7 @@ namespace VH.Engine.World.Beings {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            walkableTerrain = 
+            //walkableTerrain = 
         }
 
         #endregion
