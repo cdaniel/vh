@@ -125,6 +125,19 @@ namespace VH.Engine.Display {
 
         #region public methods
 
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("id", id);
+            AddAttribute("character", character);
+            AddAttribute("name", name);
+            AddAttribute("accusativ", accusativ);
+            AddAttribute("plural", plural);
+            AddAttribute("danger", danger);
+            AddAttribute("color", color.ToString());
+            AddElement(position);
+            return element;
+        }
+
         public virtual void Create(XmlElement prototype) {
             id = prototype.Attributes[ID].Value;
             Character = prototype.Attributes[CHARACTER].Value[0];
