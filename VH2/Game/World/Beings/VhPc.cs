@@ -8,6 +8,7 @@ using VH.Engine.Translations;
 using VH.Engine.Random;
 using VH.Engine.Game;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace VH.Game.World.Beings {
 
@@ -43,6 +44,12 @@ namespace VH.Game.World.Beings {
         StatSet stats;
         SkillSet skills;
         AbstractProfession profession;
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddElement(skills);
+            return element;
+        }
 
         #endregion
 
