@@ -58,6 +58,14 @@ namespace VH.Engine.Levels {
 
         #region properties
 
+        public List<Passage> UpPassages {
+            get { return upPassages; }
+        }
+
+        public List<Passage> DownPassages {
+            get { return downPassages; }
+        }
+
         public Map Map {
             get { return map; }
             set { map = value; }

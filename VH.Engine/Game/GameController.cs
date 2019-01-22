@@ -152,7 +152,8 @@ namespace VH.Engine.Game {
             XmlElement element = base.ToXml(doc);
             AddAttribute("gametime-ticks", gametimeTicks);
             AddElement(pc);
-            AddElement(level);
+            //AddElement(level);
+            AddElement(new LevelPersistencyHelper(level));
             AddElement(fieldOfVision);
             return element;
         }

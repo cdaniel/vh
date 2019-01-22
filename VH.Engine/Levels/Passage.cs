@@ -46,6 +46,7 @@ namespace VH.Engine.Levels {
         public override XmlElement ToXml(XmlDocument doc) {
             XmlElement element =  base.ToXml(doc);
             AddElement(position);
+            AddAttribute("level-name", level.Name);
             return element;
         }
 

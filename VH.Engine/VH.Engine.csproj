@@ -57,6 +57,7 @@
     <Compile Include="Levels\FloodedDungeonMapGenerator.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\LevelGenerator.cs" />
+    <Compile Include="Levels\LevelPersistencyHelper.cs" />
     <Compile Include="Levels\MazeMapGenerator.cs" />
     <Compile Include="Levels\Passage.cs" />
     <Compile Include="Levels\Position.cs" />
