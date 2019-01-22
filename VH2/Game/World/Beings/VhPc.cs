@@ -47,7 +47,10 @@ namespace VH.Game.World.Beings {
 
         public override XmlElement ToXml(XmlDocument doc) {
             XmlElement element = base.ToXml(doc);
+            AddAttribute("health", health);
+            AddElement(equipment);
             AddElement(skills);
+            AddElement(backpack);
             return element;
         }
 

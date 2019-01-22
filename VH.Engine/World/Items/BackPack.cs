@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 using VH.Engine.Translations;
 
 namespace VH.Engine.World.Items {
@@ -9,7 +11,7 @@ namespace VH.Engine.World.Items {
     /// <summary>
     /// Represents a set of items that a Being has with it.
     /// </summary>
-    public class BackPack {
+    public class BackPack: AbstractPersistent {
 
         #region fields
 
@@ -50,6 +52,14 @@ namespace VH.Engine.World.Items {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("max-items", maxItems);
+            AddAttribute("title", title);
+            AddElements("items", items);
+            return element;
+        }
 
         /// <summary>
         /// Adds an Item to this BackPack

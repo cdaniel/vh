@@ -16,6 +16,8 @@ namespace VH.Engine.Persistency {
 
         #endregion
 
+        #region public virtual methods
+
         public virtual XmlElement ToXml(XmlDocument doc) {
             this.doc = doc;
             XmlElement element = doc.CreateElement(this.GetType().FullName);
@@ -28,6 +30,10 @@ namespace VH.Engine.Persistency {
         }
 
         public virtual void FromXml(XmlElement element) { }
+
+        #endregion
+
+        #region public methods
 
         public string GetStringAttribute(String name) {
             return element.Attributes[name].Value;
@@ -65,7 +71,14 @@ namespace VH.Engine.Persistency {
         }
 
         public void AddElement(IPersistent child) {
-            element.AppendChild(child.ToXml(doc));
+            if (child != null )
+                element.AppendChild(child.ToXml(doc));
+        }
+
+        public void AddRawData(string name, string data) {
+            XmlElement dataElement = doc.CreateElement(name);
+            element.AppendChild(dataElement);
+            dataElement.AppendChild(doc.CreateCDataSection(data));
         }
 
         public void AddElements(string name, IEnumerable<AbstractPersistent> elements) {
@@ -76,6 +89,6 @@ namespace VH.Engine.Persistency {
             element.AppendChild(elementList);
         }
 
-
+        #endregion
     }
 }

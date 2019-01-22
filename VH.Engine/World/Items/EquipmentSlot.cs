@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 using VH.Engine.Translations;
 
 namespace VH.Engine.World.Items {
@@ -9,7 +11,7 @@ namespace VH.Engine.World.Items {
     /// <summary>
     /// Represents an equipment slot.
     /// </summary>
-    public abstract class EquipmentSlot {
+    public abstract class EquipmentSlot: AbstractPersistent {
 
         #region fields
 
@@ -44,6 +46,12 @@ namespace VH.Engine.World.Items {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddElement(item);
+            return element;
+        }
 
         /// <summary>
         /// Indicates whether a given Item can be contained in this EquipmentSlot

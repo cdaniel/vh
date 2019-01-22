@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using VH.Engine.Translations;
 using System.Collections;
+using VH.Engine.Persistency;
+using System.Xml;
 
 namespace VH.Engine.World.Items {
 
     /// <summary>
     /// Represent set of Items that a Being has equipped
     /// </summary>
-    public class Equipment: IEnumerable {
+    public class Equipment: AbstractPersistent, IEnumerable {
 
         #region fields 
 
@@ -91,6 +93,12 @@ namespace VH.Engine.World.Items {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddElements("slots", slots);
+            return element;
+        }
 
         public override string ToString() {
             StringBuilder sb = new StringBuilder(title + ":\n");

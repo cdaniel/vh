@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using VH.Engine.Persistency;
 
 namespace VH.Engine.Levels {
@@ -90,6 +91,24 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region public methods
+
+        public override XmlElement ToXml(XmlDocument doc) {
+            XmlElement element = base.ToXml(doc);
+            AddAttribute("height", height);
+            AddAttribute("width", width);
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < height; ++j) {
+                for (int i = 0; i < width; ++i) sb.Append(map[i, j]);
+            }
+            AddRawData("map", sb.ToString());
+            sb = new StringBuilder();
+            for (int j = 0; j < height; ++j) {
+                for (int i = 0; i < width; ++i) sb.Append(mem[i, j]);
+            }
+            AddRawData("mem", sb.ToString());
+            return element;
+                
+        }
 
         /// <summary>
         /// Indicates, whether light can pass a specified terrain feature.
