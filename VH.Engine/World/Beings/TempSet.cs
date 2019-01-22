@@ -44,8 +44,8 @@ namespace VH.Engine.World.Beings {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element =  base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element =  base.ToXml(name, doc);
             foreach (string key in temps.Keys) {
                 AddAttribute(key, temps[key].ToString());
             }

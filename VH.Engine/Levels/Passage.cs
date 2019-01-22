@@ -43,9 +43,9 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element =  base.ToXml(doc);
-            AddElement(position);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element =  base.ToXml(name, doc);
+            AddElement("position", position);
             AddAttribute("level-name", level.Name);
             return element;
         }

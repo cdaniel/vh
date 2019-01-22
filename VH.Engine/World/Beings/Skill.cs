@@ -67,13 +67,14 @@ namespace VH.Engine.World.Beings {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             AddAttribute("id", id);
             AddAttribute("name", name);
             AddAttribute("skill-value", skillValue);
             AddAttribute("max-value", maxValue);
             AddAttribute("training-points", trainingPoints);
-            return base.ToXml(doc);
+            return element;
         }
 
         public bool Roll(int difficulty) {

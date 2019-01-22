@@ -118,15 +118,15 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element =  base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element =  base.ToXml(name, doc);
             AddAttribute("persistent", persistent);
             AddAttribute("bidirectional", bidirectional);
             AddAttribute("name", name);
             AddAttribute("level-width", levelWidth);
             AddAttribute("level-height", levelHeight);
             AddAttribute("danger", danger);
-            AddElement(map);
+            AddElement("map", map);
             AddElements("monsters", monsters.Cast<AbstractPersistent>());
             AddElements("items", items.Cast<AbstractPersistent>());
             AddElements("up-passages", upPassages.Cast<AbstractPersistent>());

@@ -338,7 +338,7 @@ namespace VH.Game {
             string filename = Application.StartupPath + @"\Data\" + Pc.Name + "_svg.xml";
             XmlDocument doc = new XmlDocument();
             doc.LoadXml("<?xml version='1.0' encoding='utf-8' ?> <vh2-saved-game/>");
-            doc.DocumentElement.AppendChild(ToXml(doc));
+            doc.DocumentElement.AppendChild(ToXml("game", doc));
             doc.Save(filename);
             Application.Exit();
         }

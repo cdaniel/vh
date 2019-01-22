@@ -47,8 +47,9 @@ namespace VH.Engine.World.Items {
             throw new NotImplementedException();
         }
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            return base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            return element;
         }
 
         #endregion

@@ -125,8 +125,8 @@ namespace VH.Engine.Display {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element = base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             AddAttribute("id", id);
             AddAttribute("character", character);
             AddAttribute("name", name);
@@ -134,7 +134,7 @@ namespace VH.Engine.Display {
             AddAttribute("plural", plural);
             AddAttribute("danger", danger);
             AddAttribute("color", color.ToString());
-            AddElement(position);
+            AddElement("position", position);
             return element;
         }
 

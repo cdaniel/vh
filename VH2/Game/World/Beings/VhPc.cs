@@ -45,12 +45,12 @@ namespace VH.Game.World.Beings {
         SkillSet skills;
         AbstractProfession profession;
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element = base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             AddAttribute("health", health);
-            AddElement(equipment);
-            AddElement(skills);
-            AddElement(backpack);
+            AddElement("equipment", equipment);
+            AddElement("skills", skills);
+            AddElement("backpack", backpack);
             return element;
         }
 

@@ -148,13 +148,13 @@ namespace VH.Engine.Game {
 
         #region public methods
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element = base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             AddAttribute("gametime-ticks", gametimeTicks);
-            AddElement(pc);
+            AddElement("pc", pc);
             //AddElement(level);
-            AddElement(new LevelPersistencyHelper(level));
-            AddElement(fieldOfVision);
+            AddElement("levels", new LevelPersistencyHelper(level));
+            AddElement("field-of-vision", fieldOfVision);
             return element;
         }
 

@@ -7,7 +7,7 @@ using System.Xml;
 namespace VH.Engine.Persistency {
     public interface IPersistent {
 
-        XmlElement ToXml(XmlDocument doc);
+        XmlElement ToXml(string name, XmlDocument doc);
 
         void FromXml(XmlElement element);
 

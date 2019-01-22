@@ -113,13 +113,13 @@ namespace VH.Engine.World.Beings {
             killReason = reason;
         }
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element = base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             AddAttribute("walkable-terrain", walkableTerrain);
             AddAttribute("race", race);
             AddAttribute("speed", "" + speed);
-            AddElement(temps);
-            AddElement(ai);
+            AddElement("temps", temps);
+            AddElement("temps", ai);
             return element;
         }
 

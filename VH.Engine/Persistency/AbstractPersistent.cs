@@ -18,12 +18,16 @@ namespace VH.Engine.Persistency {
 
         #region public virtual methods
 
-        public virtual XmlElement ToXml(XmlDocument doc) {
+        public virtual XmlElement ToXml(string name, XmlDocument doc) {
             this.doc = doc;
-            XmlElement element = doc.CreateElement(this.GetType().FullName);
+            XmlElement element = doc.CreateElement(name);
             this.element = element;
+            XmlAttribute typeAttribute = doc.CreateAttribute("type");
             XmlAttribute assemblyAttribute = doc.CreateAttribute("assembly");
+            String typeName = this.GetType().FullName;
             String assemblyName = Path.GetFileName(GetType().Assembly.Location);
+            typeAttribute.Value = typeName;
+            element.Attributes.Append(typeAttribute);
             assemblyAttribute.Value = assemblyName;
             element.Attributes.Append(assemblyAttribute);
             return element;
@@ -70,9 +74,9 @@ namespace VH.Engine.Persistency {
             return PersistentFactory.CreateObject(doc, (XmlElement)node);
         }
 
-        public void AddElement(IPersistent child) {
+        public void AddElement(string name, IPersistent child) {
             if (child != null )
-                element.AppendChild(child.ToXml(doc));
+                element.AppendChild(child.ToXml(name, doc));
         }
 
         public void AddRawData(string name, string data) {
@@ -84,7 +88,7 @@ namespace VH.Engine.Persistency {
         public void AddElements(string name, IEnumerable<AbstractPersistent> elements) {
             XmlElement elementList = doc.CreateElement(name);
             foreach (AbstractPersistent e in elements) {
-                elementList.AppendChild(e.ToXml(doc));
+                elementList.AppendChild(e.ToXml(name, doc));
             }
             element.AppendChild(elementList);
         }

@@ -14,13 +14,13 @@ namespace VH.Engine.Levels {
             this.startingLevel = startingLevel;
         }
 
-        public override XmlElement ToXml(XmlDocument doc) {
-            XmlElement element = base.ToXml(doc);
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
             HashSet<IPersistent> traversed = new HashSet<IPersistent>();
             traverse(startingLevel, traversed);
             foreach (IPersistent persistent in traversed) {
                 if (persistent is Level) {
-                    AddElement(persistent);
+                    AddElement("level", persistent);
                 }
             } 
             return element;
