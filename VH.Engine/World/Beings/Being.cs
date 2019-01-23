@@ -21,6 +21,8 @@ namespace VH.Engine.World.Beings {
         private const string WALKABLE_TERRAIN = "walkable-terrain";
         private const string SPEED = "speed";
         private const string RACE = "race";
+        private const string TEMPS = "temps";
+        private const string AI = "ai";
 
         #endregion
 
@@ -115,17 +117,21 @@ namespace VH.Engine.World.Beings {
 
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("walkable-terrain", walkableTerrain);
-            AddAttribute("race", race);
-            AddAttribute("speed", "" + speed);
-            AddElement("temps", temps);
-            AddElement("temps", ai);
+            AddAttribute(WALKABLE_TERRAIN, walkableTerrain);
+            AddAttribute(RACE, race);
+            AddAttribute(SPEED, "" + speed);
+            AddElement(TEMPS, temps);
+            AddElement(AI, ai);
             return element;
         }
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            //walkableTerrain = 
+            walkableTerrain = GetStringAttribute(WALKABLE_TERRAIN);
+            race = GetStringAttribute(RACE);
+            speed = GetIntAttribute(SPEED);
+            temps = CreateObject(TEMPS) as TempSet;
+            ai = CreateObject(AI) as AbstractAi;
         }
 
         #endregion

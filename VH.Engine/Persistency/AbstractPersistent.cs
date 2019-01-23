@@ -39,6 +39,15 @@ namespace VH.Engine.Persistency {
 
         #region public methods
 
+        public IPersistent CreateObject(string xpath) {
+            XmlNodeList nodes = element.SelectNodes(xpath);
+            if (nodes.Count > 1) throw new ArgumentException("The xpath argument must select only one node.");
+            XmlNode node = nodes[0];
+            if (!(node is XmlElement)) throw new ArgumentException("The xpath argument must select an element");
+            XmlElement persistent = (XmlElement)node;
+            return PersistentFactory.CreateObject(doc, persistent);
+        }
+
         public string GetStringAttribute(String name) {
             return element.Attributes[name].Value;
         }

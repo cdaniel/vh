@@ -29,6 +29,11 @@ namespace VH.Game.World.Beings {
         private const int MAX_ITEMS = 50;
         private const int ARMOR_SLOT_INDEX = 3;
 
+        private const string HEALTH = "health";
+        private const string EQUIPMENT = "equipment";
+        private const string SKILLS = "skills";
+        private const string BACKPACK = "backpack";
+
         #endregion
 
         #region fields
@@ -45,12 +50,20 @@ namespace VH.Game.World.Beings {
         SkillSet skills;
         AbstractProfession profession;
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            health = GetIntAttribute(HEALTH);
+            equipment = CreateObject(EQUIPMENT) as Equipment;
+            skills = CreateObject(SKILLS) as SkillSet;
+            backpack = CreateObject(BACKPACK) as BackPack;
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("health", health);
-            AddElement("equipment", equipment);
-            AddElement("skills", skills);
-            AddElement("backpack", backpack);
+            AddAttribute(HEALTH, health);
+            AddElement(EQUIPMENT, equipment);
+            AddElement(SKILLS, skills);
+            AddElement(BACKPACK, backpack);
             return element;
         }
 

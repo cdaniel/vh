@@ -16,6 +16,7 @@ namespace VH.Engine.Levels {
 
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
+            AddAttribute("starting-level", startingLevel.Name);
             HashSet<IPersistent> traversed = new HashSet<IPersistent>();
             traverse(startingLevel, traversed);
             foreach (IPersistent persistent in traversed) {
