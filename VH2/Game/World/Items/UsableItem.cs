@@ -15,6 +15,7 @@ namespace VH.Game.World.Items {
 
         private const string ACTION_TYPE_NAME = "action-type-name";
         private const string ACTION_ASSEMBLY_NAME = "action-assembly-name";
+        private const string USE_KIND = "use-kind";
 
         #endregion
 
@@ -36,6 +37,21 @@ namespace VH.Game.World.Items {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            actionTypeName = GetStringAttribute(ACTION_TYPE_NAME);
+            actionAssemblyName = GetStringAttribute(ACTION_ASSEMBLY_NAME);
+            useKind = GetStringAttribute(USE_KIND);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element =  base.ToXml(name, doc);
+            AddAttribute(ACTION_TYPE_NAME, actionTypeName);
+            AddAttribute(ACTION_ASSEMBLY_NAME, actionAssemblyName);
+            AddAttribute(USE_KIND, useKind);
+            return element;
+        }
 
         public bool Use(Being performer) {
             AbstractAction action = AbstractAction.LoadAction(actionTypeName, actionAssemblyName);

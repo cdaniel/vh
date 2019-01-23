@@ -17,6 +17,22 @@ namespace VH.Engine.Levels {
     /// </summary>
     public class Level: AbstractPersistent {
 
+        #region constants
+
+        private const string PERSISTENT = "persistent";
+        private const string BIDIRECTIONAL = "bidirectional";
+        private const string NAME = "name";
+        private const string LEVEL_WIDTH = "level-width";
+        private const string LEVEL_HEIGHT = "level-height";
+        private const string DANGER = "danger";
+        private const string MAP = "map";
+        private const string MOSNTERS = "monsters";
+        private const string ITEMS = "items";
+        private const string UP_PASSAGES = "up-passages";
+        private const string DOWN_PASSAGES"down-passages";
+
+        #endregion
+
         #region fields
 
         private Map map = null;
@@ -117,6 +133,12 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+
+        }
+    
 
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element =  base.ToXml(name, doc);
