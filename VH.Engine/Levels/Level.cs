@@ -26,10 +26,10 @@ namespace VH.Engine.Levels {
         private const string LEVEL_HEIGHT = "level-height";
         private const string DANGER = "danger";
         private const string MAP = "map";
-        private const string MOSNTERS = "monsters";
+        private const string MONSTERS = "monsters";
         private const string ITEMS = "items";
         private const string UP_PASSAGES = "up-passages";
-        private const string DOWN_PASSAGES"down-passages";
+        private const string DOWN_PASSAGES = "down-passages";
 
         #endregion
 
@@ -139,20 +139,19 @@ namespace VH.Engine.Levels {
 
         }
     
-
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element =  base.ToXml(name, doc);
-            AddAttribute("persistent", persistent);
-            AddAttribute("bidirectional", bidirectional);
-            AddAttribute("name", name);
-            AddAttribute("level-width", levelWidth);
-            AddAttribute("level-height", levelHeight);
-            AddAttribute("danger", danger);
-            AddElement("map", map);
-            AddElements("monsters", monsters.Cast<AbstractPersistent>());
-            AddElements("items", items.Cast<AbstractPersistent>());
-            AddElements("up-passages", upPassages.Cast<AbstractPersistent>());
-            AddElements("down-passages", downPassages.Cast<AbstractPersistent>());
+            AddAttribute(PERSISTENT, persistent);
+            AddAttribute(BIDIRECTIONAL, bidirectional);
+            AddAttribute(NAME, name);
+            AddAttribute(LEVEL_WIDTH, levelWidth);
+            AddAttribute(LEVEL_HEIGHT, levelHeight);
+            AddAttribute(DANGER, danger);
+            AddElement(MAP, map);
+            AddElements(MONSTERS, monsters.Cast<AbstractPersistent>());
+            AddElements(ITEMS, items.Cast<AbstractPersistent>());
+            AddElements(UP_PASSAGES, upPassages.Cast<AbstractPersistent>());
+            AddElements(DOWN_PASSAGES, downPassages.Cast<AbstractPersistent>());
             return element;
         }
 

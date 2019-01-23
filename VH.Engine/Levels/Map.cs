@@ -106,8 +106,7 @@ namespace VH.Engine.Levels {
                 for (int i = 0; i < width; ++i) sb.Append(mem[i, j]);
             }
             AddRawData("mem", sb.ToString());
-            return element;
-                
+            return element; 
         }
 
         /// <summary>
