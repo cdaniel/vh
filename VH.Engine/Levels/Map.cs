@@ -14,6 +14,11 @@ namespace VH.Engine.Levels {
         public const int MAX_WIDTH = 100;
         public const int MAX_HEIGHT = 100;
 
+        public const string WIDTH = "width";
+        public const string HEIGHT = "height";
+        public const string MAP = "map";
+        public const string MEM = "mem";
+
         /*public const char FLOOR = '.';
         public const char CORRIDOR = (char)129;
         public const char WALL = '#';
@@ -92,20 +97,39 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            width = GetIntAttribute(WIDTH);
+            height = GetIntAttribute(HEIGHT);
+
+            string mapStr = GetRawData(MAP);
+            for (int j = 0; j < height; ++j) {
+                for (int i = 0; i < width; ++i) map[i, j] = mapStr[i + j * width];
+            }
+
+            string memStr = GetRawData(MEM);
+            for (int j = 0; j < height; ++j) {
+                for (int i = 0; i < width; ++i) mem[i, j] = memStr[i + j * width];
+            }
+        }
+    
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("height", height);
-            AddAttribute("width", width);
+            AddAttribute(HEIGHT, height);
+            AddAttribute(HEIGHT, width);
+
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) sb.Append(map[i, j]);
             }
-            AddRawData("map", sb.ToString());
+            AddRawData(MAP, sb.ToString());
+
             sb = new StringBuilder();
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) sb.Append(mem[i, j]);
             }
-            AddRawData("mem", sb.ToString());
+            AddRawData(MEM, sb.ToString());
             return element; 
         }
 

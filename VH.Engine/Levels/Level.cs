@@ -136,7 +136,17 @@ namespace VH.Engine.Levels {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-
+            persistent = GetBoolAttribute(PERSISTENT);
+            bidirectional = GetBoolAttribute(BIDIRECTIONAL);
+            name = GetStringAttribute(NAME);
+            levelWidth = GetIntAttribute(LEVEL_WIDTH);
+            levelHeight = GetIntAttribute(LEVEL_HEIGHT);
+            danger = GetIntAttribute(DANGER);
+            map = GetElement(MAP) as Map;
+            monsters = GetElements(MONSTERS).Cast<Monster>() as List<Monster>;
+            items = GetElements(ITEMS).Cast<Item>() as List<Item>;
+            upPassages = GetElements(UP_PASSAGES).Cast<Passage>() as List<Passage>;
+            downPassages = GetElements(DOWN_PASSAGES).Cast<Passage>() as List<Passage>;
         }
     
         public override XmlElement ToXml(string name, XmlDocument doc) {

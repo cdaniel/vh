@@ -9,6 +9,12 @@ namespace VH.Engine.Persistency {
 
     public abstract class AbstractPersistent: IPersistent{
 
+        #region constants
+
+        private const string LIST_ITEM = "-item";
+
+        #endregion
+
         #region fields
 
         private XmlDocument doc;
@@ -38,15 +44,6 @@ namespace VH.Engine.Persistency {
         #endregion
 
         #region public methods
-
-        public IPersistent CreateObject(string xpath) {
-            XmlNodeList nodes = element.SelectNodes(xpath);
-            if (nodes.Count > 1) throw new ArgumentException("The xpath argument must select only one node.");
-            XmlNode node = nodes[0];
-            if (!(node is XmlElement)) throw new ArgumentException("The xpath argument must select an element");
-            XmlElement persistent = (XmlElement)node;
-            return PersistentFactory.CreateObject(doc, persistent);
-        }
 
         public string GetStringAttribute(String name) {
             return element.Attributes[name].Value;
@@ -88,16 +85,31 @@ namespace VH.Engine.Persistency {
                 element.AppendChild(child.ToXml(name, doc));
         }
 
+        public string GetRawData(string name) {
+            XmlNode data = element.ChildNodes[0];
+            if (!(data is XmlCDataSection)) throw new ArgumentException("Node '" + name + "' is not a CData node.");
+            return (data as XmlCDataSection).Value;
+        }
+
         public void AddRawData(string name, string data) {
             XmlElement dataElement = doc.CreateElement(name);
             element.AppendChild(dataElement);
             dataElement.AppendChild(doc.CreateCDataSection(data));
         }
 
+        public IEnumerable<IPersistent> GetElements(string name) {
+            XmlNodeList nodes = element.SelectNodes("./" + name + "/" + name + LIST_ITEM);
+            List<IPersistent> list = new List<IPersistent>();
+            foreach (XmlNode node in nodes) {
+                list.Add(PersistentFactory.CreateObject(doc, (XmlElement)node));
+            }
+            return list;
+        }
+
         public void AddElements(string name, IEnumerable<AbstractPersistent> elements) {
             XmlElement elementList = doc.CreateElement(name);
             foreach (AbstractPersistent e in elements) {
-                elementList.AppendChild(e.ToXml(name, doc));
+                elementList.AppendChild(e.ToXml(name + LIST_ITEM, doc));
             }
             element.AppendChild(elementList);
         }

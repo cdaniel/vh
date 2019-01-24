@@ -53,9 +53,9 @@ namespace VH.Game.World.Beings {
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
             health = GetIntAttribute(HEALTH);
-            equipment = CreateObject(EQUIPMENT) as Equipment;
-            skills = CreateObject(SKILLS) as SkillSet;
-            backpack = CreateObject(BACKPACK) as BackPack;
+            equipment = GetElement(EQUIPMENT) as Equipment;
+            skills = GetElement(SKILLS) as SkillSet;
+            backpack = GetElement(BACKPACK) as BackPack;
         }
 
         public override XmlElement ToXml(string name, XmlDocument doc) {

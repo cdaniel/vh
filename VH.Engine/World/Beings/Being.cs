@@ -130,8 +130,8 @@ namespace VH.Engine.World.Beings {
             walkableTerrain = GetStringAttribute(WALKABLE_TERRAIN);
             race = GetStringAttribute(RACE);
             speed = GetIntAttribute(SPEED);
-            temps = CreateObject(TEMPS) as TempSet;
-            ai = CreateObject(AI) as AbstractAi;
+            temps = GetElement(TEMPS) as TempSet;
+            ai = GetElement(AI) as AbstractAi;
         }
 
         #endregion
