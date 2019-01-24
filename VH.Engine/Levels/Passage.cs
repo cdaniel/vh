@@ -15,15 +15,15 @@ namespace VH.Engine.Levels {
 
         #region fields
 
-        private Level level;
+        private Level targetLevel;
         private Position position;
 
         #endregion
 
         #region constructors
 
-        public Passage(Level level) {
-            this.level = level;
+        public Passage(Level targetLevel) {
+            this.targetLevel = targetLevel;
         }
 
         #endregion
@@ -31,7 +31,7 @@ namespace VH.Engine.Levels {
         #region properties
 
         public Level Level {
-            get { return level; }
+            get { return targetLevel; }
         }
 
         public Position Position {
@@ -46,7 +46,7 @@ namespace VH.Engine.Levels {
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element =  base.ToXml(name, doc);
             AddElement("position", position);
-            AddAttribute("level-name", level.Name);
+            AddAttribute("target-level", targetLevel.Name);
             return element;
         }
 

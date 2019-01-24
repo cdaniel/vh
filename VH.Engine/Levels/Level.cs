@@ -153,7 +153,7 @@ namespace VH.Engine.Levels {
             XmlElement element =  base.ToXml(name, doc);
             AddAttribute(PERSISTENT, persistent);
             AddAttribute(BIDIRECTIONAL, bidirectional);
-            AddAttribute(NAME, name);
+            AddAttribute(NAME, this.name); // TODO terrible
             AddAttribute(LEVEL_WIDTH, levelWidth);
             AddAttribute(LEVEL_HEIGHT, levelHeight);
             AddAttribute(DANGER, danger);
