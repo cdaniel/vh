@@ -148,11 +148,20 @@ namespace VH.Engine.Game {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            gametimeTicks = GetIntAttribute("gametime-ticks"); // TODO convert XML element and attribute names to constants
+            pc = GetElement("pc") as Pc;
+            LevelPersistencyHelper helper = new LevelPersistencyHelper();
+            helper.FromXml(element); // TODO probably wrong
+            level = helper.StartingLevel;
+            fieldOfVision = GetElement("field-of-vision") as AbstractFieldOfVision;
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute("gametime-ticks", gametimeTicks);
             AddElement("pc", pc);
-            //AddElement(level);
             AddElement("levels", new LevelPersistencyHelper(level));
             AddElement("field-of-vision", fieldOfVision);
             return element;
@@ -176,12 +185,23 @@ namespace VH.Engine.Game {
 
         public void SetUpLevel() { }
 
+        public void Play(string filename) {
+            loadGame(filename);
+            runGame();
+        }
+
         public void Play() {
             setUpGame();
+            runGame();
+        }
 
+        protected virtual void loadGame(string filename) {
+            setUpGame(); // do not load, instead create a fresh game. Actual loading takes place in subclasses.
+        }
+
+        private void runGame() {
             // main gameloop
             while (!QuitGame) runTurn();
-
             tearDownGame();
         }
 

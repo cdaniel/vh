@@ -39,7 +39,9 @@ namespace VH.Engine.Persistency {
             return element;
         }
 
-        public virtual void FromXml(XmlElement element) { }
+        public virtual void FromXml(XmlElement element) {
+            this.element = element;
+        }
 
         #endregion
 

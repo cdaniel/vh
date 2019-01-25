@@ -11,9 +11,13 @@ namespace VH2 {
 
     class Program {
 
-        static void Main() {
+        static void Main(string[] args) {
             GameController.Instance = new VhGameController();
-            GameController.Instance.Play();
+            if (args.Length > 0) {
+                GameController.Instance.Play(args[0]);
+            } else {
+                GameController.Instance.Play();
+            }
         }
     }
 }

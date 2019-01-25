@@ -85,7 +85,22 @@ namespace VH.Game {
 
         #endregion
 
+        #region public methods
+
+        #endregion
+
         #region protected methods
+
+        protected override void loadGame(string filename) {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filename);
+            FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
+            initDisplay();
+            drawFrames();
+            initGenerators();
+            initViewPort();
+            welcome();
+        }
 
         protected override void setUpGame() {
             initDisplay();
@@ -335,7 +350,7 @@ namespace VH.Game {
         }
 
         private void saveGame() {
-            string filename = Application.StartupPath + @"\Data\" + Pc.Name + "_svg.xml";
+            string filename = Application.StartupPath + @"\" + Pc.Name + "_svg.xml";
             XmlDocument doc = new XmlDocument();
             doc.LoadXml("<?xml version='1.0' encoding='utf-8' ?> <vh2-saved-game/>");
             doc.DocumentElement.AppendChild(ToXml("game", doc));

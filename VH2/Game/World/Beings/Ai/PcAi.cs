@@ -28,6 +28,8 @@ namespace VH.Game.World.Beings.Ai {
 
         #region constructors
 
+        public PcAi() { }
+
         public PcAi(Pc pc) : base(pc) { }
 
         #endregion

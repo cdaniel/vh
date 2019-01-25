@@ -27,6 +27,8 @@ namespace VH.Engine.Levels {
             this.startingLevel = startingLevel;
         }
 
+        public LevelPersistencyHelper() { }
+
         #endregion
 
         #region properties
