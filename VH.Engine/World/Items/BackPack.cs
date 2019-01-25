@@ -31,6 +31,8 @@ namespace VH.Engine.World.Items {
             this.maxItems = maxItems;
         }
 
+        public BackPack() { } 
+
         #endregion
 
         #region properties

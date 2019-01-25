@@ -45,6 +45,8 @@ namespace VH.Engine.World.Items {
             }
         }
 
+        public Equipment() { }
+
         #endregion
 
         #region properties

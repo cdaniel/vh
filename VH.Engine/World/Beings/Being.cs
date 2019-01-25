@@ -132,6 +132,7 @@ namespace VH.Engine.World.Beings {
             speed = GetIntAttribute(SPEED);
             temps = GetElement(TEMPS) as TempSet;
             ai = GetElement(AI) as AbstractAi;
+            ai.Being = this;
         }
 
         #endregion

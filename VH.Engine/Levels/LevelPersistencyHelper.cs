@@ -43,7 +43,7 @@ namespace VH.Engine.Levels {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            List<Level> levels = GetElements(LEVEL).Cast<Level>() as List<Level>;
+            List<Level> levels = GetElements(LEVEL).Cast<Level>() as List<Level>; //TODO wrong!
             foreach (Level level in levels) {
                 foreach (Passage passage in level.UpPassages) {
                     passage.TargetLevel = getLevelByName(passage.TargetLevelName, levels);

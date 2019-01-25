@@ -26,6 +26,8 @@ namespace VH.Engine.World.Beings {
             }
         }
 
+        public SkillSet() { }
+
         #endregion
 
         #region properties
