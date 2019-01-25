@@ -214,20 +214,20 @@ namespace VH.Engine.Levels {
         /// <returns></returns>
         public Level GetNextLevel(Position position) {
             foreach (Passage passage in upPassages) {
-                if (passage.Position.Equals(position)) return passage.Level;
+                if (passage.Position.Equals(position)) return passage.TargetLevel;
             }
             foreach (Passage passage in downPassages) {
-                if (passage.Position.Equals(position)) return passage.Level;
+                if (passage.Position.Equals(position)) return passage.TargetLevel;
             }
             return null;
         }
 
         public Position GetPassagePosition(Level level) {
             foreach (Passage passage in upPassages) {
-                if (passage.Level == level) return passage.Position;
+                if (passage.TargetLevel == level) return passage.Position;
             }
             foreach (Passage passage in downPassages) {
-                if (passage.Level == level) return passage.Position;
+                if (passage.TargetLevel == level) return passage.Position;
             }
             return null;
         }
