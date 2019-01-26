@@ -55,6 +55,14 @@ namespace VH.Engine.World.Items {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            maxItems = GetIntAttribute("max-items");
+            title = GetStringAttribute("title");
+            items = GetElements<Item>("items"); // TODO create constants
+        }
+    
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute("max-items", maxItems);
