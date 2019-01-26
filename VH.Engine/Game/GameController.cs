@@ -156,11 +156,16 @@ namespace VH.Engine.Game {
             helper.FromXml(element.SelectSingleNode("levels") as XmlElement); // TODO probably wrong
             level = helper.StartingLevel;
             fieldOfVision = GetElement("field-of-vision") as AbstractFieldOfVision;
+            viewPort = GetElement("viewport") as ViewPort;
+            console = new SystemConsole();
+            viewPort.Console = console;
+            viewPort.Map = Level.Map;
         }
 
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute("gametime-ticks", gametimeTicks);
+            AddElement("viewport", viewPort);
             AddElement("pc", pc);
             AddElement("levels", new LevelPersistencyHelper(level));
             AddElement("field-of-vision", fieldOfVision);

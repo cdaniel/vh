@@ -55,12 +55,12 @@ namespace VH.Engine.World.Beings {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            name = GetStringAttribute(NAME);
+            this.name = GetStringAttribute(NAME);
         }
 
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute(NAME, name);
+            AddAttribute(NAME, this.name);
             return element;
         }
 

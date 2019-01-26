@@ -30,6 +30,7 @@ namespace VH.Engine.Display {
         private const string PLURAL = "plural";
         private const string COLOR = "color";
         private const string DANGER = "danger";
+        private const string POSITION = "position";
 
         #endregion
 
@@ -125,16 +126,28 @@ namespace VH.Engine.Display {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            id = GetStringAttribute(ID);
+            character = GetStringAttribute(CHARACTER)[0];
+            Name = GetStringAttribute(NAME);
+            accusativ = GetStringAttribute(ACCUSATIV);
+            plural = GetStringAttribute(PLURAL);
+            danger = GetIntAttribute(DANGER);
+            color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), GetStringAttribute(COLOR));
+            position = GetElement(POSITION) as Position;
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("id", id);
-            AddAttribute("character", character);
-            AddAttribute("name", name);
-            AddAttribute("accusativ", accusativ);
-            AddAttribute("plural", plural);
-            AddAttribute("danger", danger);
-            AddAttribute("color", color.ToString());
-            AddElement("position", position);
+            AddAttribute(ID, id);
+            AddAttribute(CHARACTER, character);
+            AddAttribute(NAME, Name); // TODO horrible
+            AddAttribute(ACCUSATIV, accusativ);
+            AddAttribute(PLURAL, plural);
+            AddAttribute(DANGER, danger);
+            AddAttribute(COLOR, color.ToString());
+            AddElement(POSITION, position);
             return element;
         }
 

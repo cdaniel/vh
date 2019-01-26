@@ -5,6 +5,7 @@ using System.Text;
 using VH.Engine.Levels;
 using VH.Engine.Display;
 using VH.Engine.LineOfSight;
+using System.Xml;
 
 namespace VH.Engine.Levels {
 
@@ -18,6 +19,13 @@ namespace VH.Engine.Levels {
     /// </summary>
     public class ViewPort: BufferedWindow {
 
+        #region constants
+
+        private const string POSITION = "position";
+        private const string SHADE = "shade";
+
+        #endregion
+
         #region fields
 
         protected Position position;
@@ -28,6 +36,8 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region constructors
+
+        public ViewPort() { }
 
         /// <summary>
         /// Creates a ViewPort.
@@ -45,6 +55,8 @@ namespace VH.Engine.Levels {
                 base(x, y, width, height, console) {
             this.position = position;
         }
+
+        
 
         #endregion
 
@@ -101,6 +113,19 @@ namespace VH.Engine.Levels {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            shade = GetBoolAttribute(SHADE);
+            position = GetElement(POSITION) as Position;
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(SHADE, shade);
+            AddElement(POSITION, position);
+            return element;
+        }
 
         /// <summary>
         /// Prevents glitches that occur after changing of the ViewPort position.

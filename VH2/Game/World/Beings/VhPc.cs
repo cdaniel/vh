@@ -33,6 +33,7 @@ namespace VH.Game.World.Beings {
         private const string EQUIPMENT = "equipment";
         private const string SKILLS = "skills";
         private const string BACKPACK = "backpack";
+        private const string PROFESSION = "profession";
 
         #endregion
 
@@ -49,23 +50,6 @@ namespace VH.Game.World.Beings {
         StatSet stats;
         SkillSet skills;
         AbstractProfession profession;
-
-        public override void FromXml(XmlElement element) {
-            base.FromXml(element);
-            health = GetIntAttribute(HEALTH);
-            equipment = GetElement(EQUIPMENT) as Equipment;
-            skills = GetElement(SKILLS) as SkillSet;
-            backpack = GetElement(BACKPACK) as BackPack;
-        }
-
-        public override XmlElement ToXml(string name, XmlDocument doc) {
-            XmlElement element = base.ToXml(name, doc);
-            AddAttribute(HEALTH, health);
-            AddElement(EQUIPMENT, equipment);
-            AddElement(SKILLS, skills);
-            AddElement(BACKPACK, backpack);
-            return element;
-        }
 
         #endregion
 
@@ -185,6 +169,26 @@ namespace VH.Game.World.Beings {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            health = GetIntAttribute(HEALTH);
+            equipment = GetElement(EQUIPMENT) as Equipment;
+            skills = GetElement(SKILLS) as SkillSet;
+            backpack = GetElement(BACKPACK) as BackPack;
+            profession = GetElement(PROFESSION) as AbstractProfession;
+            profession.Being = this;
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(HEALTH, health);
+            AddElement(EQUIPMENT, equipment);
+            AddElement(SKILLS, skills);
+            AddElement(BACKPACK, backpack);
+            AddElement(PROFESSION, profession);
+            return element;
+        }
 
         public override void Kill() {
             string endMessage = Translator.Instance["end-game"];

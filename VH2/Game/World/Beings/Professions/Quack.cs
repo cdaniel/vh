@@ -14,6 +14,8 @@ namespace VH.Game.World.Beings.Professions {
         public Quack(Being being): base(being) {
             name = Translator.Instance["quack"];
         }
+        
+        public Quack() { }
 
         public override void InitBeing() {
             StatSet stats = (being as IStatBeing).Stats;

@@ -16,6 +16,8 @@ namespace VH.Game.World.Beings.Professions {
             name = Translator.Instance["gravedigger"];
         }
 
+        public Gravedigger() { }
+
         public override void InitBeing() {
             StatSet stats = (being as IStatBeing).Stats;
             stats["In"].Value = Rng.Random.Next(2) + 2;

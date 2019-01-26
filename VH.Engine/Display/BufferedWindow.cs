@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace VH.Engine.Display {
 
@@ -30,6 +31,8 @@ namespace VH.Engine.Display {
 
         #region constructors
 
+        public BufferedWindow() { }
+
         /// <summary>
         /// Creates a BufferedWindow
         /// </summary>
@@ -40,18 +43,17 @@ namespace VH.Engine.Display {
         /// <param name="console">The console, on which this BufferedWindow is writing</param>
         public BufferedWindow(int x, int y, int width, int height, IConsole console) : 
             base(x, y, width, height, console) {
-
-            buffer = new char[width, height];
-            colorBuffer = new ConsoleColor[width, height];
-            backcolorBuffer = new ConsoleColor[width, height];
-            newBuffer = new char[width, height];
-            newColorBuffer = new ConsoleColor[width, height];
-            newBackcolorBuffer = new ConsoleColor[width, height];
+            initBuffers();
         }
 
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            initBuffers();
+        }
 
         /// <summary>
         /// Writes the specified character at given coordinates
@@ -112,6 +114,19 @@ namespace VH.Engine.Display {
                 }
             }
             if (console.IsDoubleBuffered) console.Refresh();
+        }
+
+        #endregion
+
+        #region private methods
+
+        private void initBuffers() {
+            buffer = new char[width, height];
+            colorBuffer = new ConsoleColor[width, height];
+            backcolorBuffer = new ConsoleColor[width, height];
+            newBuffer = new char[width, height];
+            newColorBuffer = new ConsoleColor[width, height];
+            newBackcolorBuffer = new ConsoleColor[width, height];
         }
 
         #endregion

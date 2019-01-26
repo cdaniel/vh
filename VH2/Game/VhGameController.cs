@@ -98,7 +98,6 @@ namespace VH.Game {
             initDisplay();
             drawFrames();
             initGenerators();
-            initViewPort();
             welcome();
         }
 
