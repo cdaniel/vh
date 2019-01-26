@@ -47,6 +47,11 @@ namespace VH.Engine.World.Items {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            item = GetElement("item") as Item;
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddElement("item", item);

@@ -94,8 +94,8 @@ namespace VH.Game {
         protected override void loadGame(string filename) {
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);
-            FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
             initDisplay();
+            FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
             drawFrames();
             initGenerators();
             welcome();

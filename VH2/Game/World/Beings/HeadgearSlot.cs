@@ -10,6 +10,8 @@ namespace VH.Game.World.Beings {
 
     public class HeadgearSlot: EquipmentSlot {
 
+        public HeadgearSlot() { }
+
         public override string Name {
             get { return Translator.Instance["headgear-slot"]; }
         }

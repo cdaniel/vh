@@ -46,6 +46,12 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            x = GetIntAttribute("x");
+            y = GetIntAttribute("y");
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute("x", x);

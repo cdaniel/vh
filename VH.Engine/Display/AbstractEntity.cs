@@ -129,7 +129,7 @@ namespace VH.Engine.Display {
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
             id = GetStringAttribute(ID);
-            character = GetStringAttribute(CHARACTER)[0];
+            character = (char)GetIntAttribute(CHARACTER);
             Name = GetStringAttribute(NAME);
             accusativ = GetStringAttribute(ACCUSATIV);
             plural = GetStringAttribute(PLURAL);
