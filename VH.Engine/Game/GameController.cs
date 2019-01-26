@@ -153,7 +153,7 @@ namespace VH.Engine.Game {
             gametimeTicks = GetIntAttribute("gametime-ticks"); // TODO convert XML element and attribute names to constants
             pc = GetElement("pc") as Pc;
             LevelPersistencyHelper helper = new LevelPersistencyHelper();
-            helper.FromXml(element); // TODO probably wrong
+            helper.FromXml(element.SelectSingleNode("levels") as XmlElement); // TODO probably wrong
             level = helper.StartingLevel;
             fieldOfVision = GetElement("field-of-vision") as AbstractFieldOfVision;
         }

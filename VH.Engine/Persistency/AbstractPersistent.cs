@@ -79,6 +79,7 @@ namespace VH.Engine.Persistency {
 
         public IPersistent GetElement(string name) {
             XmlNode node = element.SelectSingleNode("./" + name);
+            if (node == null) return null;
             return PersistentFactory.CreateObject(doc, (XmlElement)node);
         }
 
@@ -88,7 +89,8 @@ namespace VH.Engine.Persistency {
         }
 
         public string GetRawData(string name) {
-            XmlNode data = element.ChildNodes[0];
+            XmlNode data = element.SelectSingleNode("map");
+            data = data.ChildNodes[0];
             if (!(data is XmlCDataSection)) throw new ArgumentException("Node '" + name + "' is not a CData node.");
             return (data as XmlCDataSection).Value;
         }
@@ -99,11 +101,11 @@ namespace VH.Engine.Persistency {
             dataElement.AppendChild(doc.CreateCDataSection(data));
         }
 
-        public IEnumerable<IPersistent> GetElements(string name) {
+        public List<T> GetElements<T>(string name) {
             XmlNodeList nodes = element.SelectNodes("./" + name + "/" + name + LIST_ITEM);
-            List<IPersistent> list = new List<IPersistent>();
+            List<T> list = new List<T>();
             foreach (XmlNode node in nodes) {
-                list.Add(PersistentFactory.CreateObject(doc, (XmlElement)node));
+                list.Add((T)PersistentFactory.CreateObject(doc, (XmlElement)node));
             }
             return list;
         }

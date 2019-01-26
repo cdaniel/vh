@@ -143,10 +143,10 @@ namespace VH.Engine.Levels {
             levelHeight = GetIntAttribute(LEVEL_HEIGHT);
             danger = GetIntAttribute(DANGER);
             map = GetElement(MAP) as Map;
-            monsters = GetElements(MONSTERS).Cast<Monster>() as List<Monster>;
-            items = GetElements(ITEMS).Cast<Item>() as List<Item>;
-            upPassages = GetElements(UP_PASSAGES).Cast<Passage>() as List<Passage>;
-            downPassages = GetElements(DOWN_PASSAGES).Cast<Passage>() as List<Passage>;
+            monsters = GetElements<Monster>(MONSTERS);
+            items = GetElements<Item>(ITEMS);
+            upPassages = GetElements<Passage>(UP_PASSAGES);
+            downPassages = GetElements<Passage>(DOWN_PASSAGES);
         }
     
         public override XmlElement ToXml(string name, XmlDocument doc) {

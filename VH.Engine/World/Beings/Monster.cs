@@ -22,6 +22,9 @@ namespace VH.Engine.World.Beings {
         private const string ATTACK = "attack";
         private const string DEFENSE = "defense";
         private const string HEALTH = "health";
+        private const string MAX_HEALTH = "max-health";
+        private const string DISTANCE_ATTACK = "distance-attack";
+        private const string TICKS_AVAILABLE = "ticks-available";
 
 
         #endregion
@@ -71,6 +74,27 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            health = GetIntAttribute(HEALTH);
+            maxHealth = GetIntAttribute(MAX_HEALTH);
+            attack = GetIntAttribute(ATTACK);
+            defense = GetIntAttribute(DEFENSE);
+            distanceAttack = GetIntAttribute(DISTANCE_ATTACK);
+            ticksAvailable = GetIntAttribute(TICKS_AVAILABLE);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(HEALTH, health);
+            AddAttribute(MAX_HEALTH, maxHealth);
+            AddAttribute(ATTACK, attack);
+            AddAttribute(DEFENSE, defense);
+            AddAttribute(DISTANCE_ATTACK, distanceAttack);
+            AddAttribute(TICKS_AVAILABLE, ticksAvailable);
+            return element;
+        }
 
         public void Move(int gametimeTicks) {
             AbstractAction action;

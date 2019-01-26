@@ -49,8 +49,7 @@ namespace VH.Engine.Levels {
         public Map(int width, int height) {
             this.width = width;
             this.height = height;
-            map = new char[width, height];
-            mem = new char[width, height];
+            init();
             for (int i = 0; i < width; ++i) {
                 for (int j = 0; j < height; ++j) {
                     Mem[i, j] = Map.UNKNOWN;
@@ -101,6 +100,7 @@ namespace VH.Engine.Levels {
             base.FromXml(element);
             width = GetIntAttribute(WIDTH);
             height = GetIntAttribute(HEIGHT);
+            init();
 
             string mapStr = GetRawData(MAP);
             for (int j = 0; j < height; ++j) {
@@ -117,7 +117,7 @@ namespace VH.Engine.Levels {
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute(HEIGHT, height);
-            AddAttribute(HEIGHT, width);
+            AddAttribute(WIDTH, width);
 
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < height; ++j) {
@@ -149,6 +149,15 @@ namespace VH.Engine.Levels {
 
         public virtual void Load(string name) { 
             //do nothing, as the data is already floating around in memory
+        }
+
+        #endregion
+
+        #region private methods
+
+        private void init() {
+            map = new char[width, height];
+            mem = new char[width, height];
         }
 
         #endregion

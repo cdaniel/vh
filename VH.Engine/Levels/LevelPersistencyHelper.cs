@@ -10,7 +10,8 @@ namespace VH.Engine.Levels {
 
         #region constants
 
-        private const string LEVEL = "level";
+        private const string LEVEL_STRUCTURE = "level-structure";
+        private const string LEVELS = "levels";
         private const string STARTING_LEVEL = "starting-level";
 
         #endregion
@@ -43,7 +44,7 @@ namespace VH.Engine.Levels {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            List<Level> levels = GetElements(LEVEL).Cast<Level>() as List<Level>; //TODO wrong!
+            List<Level> levels = GetElements<Level>(LEVEL_STRUCTURE);
             foreach (Level level in levels) {
                 foreach (Passage passage in level.UpPassages) {
                     passage.TargetLevel = getLevelByName(passage.TargetLevelName, levels);
@@ -58,13 +59,15 @@ namespace VH.Engine.Levels {
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
             AddAttribute(STARTING_LEVEL, startingLevel.Name);
-            HashSet<IPersistent> traversed = new HashSet<IPersistent>();
+            HashSet<AbstractPersistent> traversed = new HashSet<AbstractPersistent>();
             traverse(startingLevel, traversed);
-            foreach (IPersistent persistent in traversed) {
+            List<AbstractPersistent> levels = new List<AbstractPersistent>();
+            foreach (AbstractPersistent persistent in traversed) {
                 if (persistent is Level) {
-                    AddElement(LEVEL, persistent);
+                    levels.Add(persistent);
                 }
-            } 
+            }
+            AddElements(LEVEL_STRUCTURE, levels);
             return element;
         }
 
@@ -72,7 +75,7 @@ namespace VH.Engine.Levels {
 
         #region private methods
 
-        private void traverse(Level level, HashSet<IPersistent> traversed) {
+        private void traverse(Level level, HashSet<AbstractPersistent> traversed) {
             if (!traversed.Contains(level)) {
                 traversed.Add(level);
                 foreach (Passage passage in level.UpPassages) traverse(passage, traversed);
@@ -81,7 +84,7 @@ namespace VH.Engine.Levels {
 
         }
 
-        private void traverse(Passage passage, HashSet<IPersistent> traversed) {
+        private void traverse(Passage passage, HashSet<AbstractPersistent> traversed) {
             if (!traversed.Contains(passage)) {
                 traversed.Add(passage);
                 traverse(passage.TargetLevel, traversed);

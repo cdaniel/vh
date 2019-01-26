@@ -34,6 +34,8 @@ namespace VH.Engine.Levels {
             this.targetLevel = targetLevel;
         }
 
+        public Passage() { }
+
         #endregion
 
         #region properties
