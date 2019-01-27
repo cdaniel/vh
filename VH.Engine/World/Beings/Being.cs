@@ -129,7 +129,7 @@ namespace VH.Engine.World.Beings {
             base.FromXml(element);
             walkableTerrain = GetStringAttribute(WALKABLE_TERRAIN);
             race = GetStringAttribute(RACE);
-            speed = GetIntAttribute(SPEED) * 1000f;
+            speed = GetIntAttribute(SPEED) / 1000f;
             temps = GetElement(TEMPS) as TempSet;
             ai = GetElement(AI) as AbstractAi;
             ai.Being = this;

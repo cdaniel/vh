@@ -43,6 +43,17 @@ namespace VH.Game.World.Items.BodyWear {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            defense = GetIntAttribute(DEFENSE);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(DEFENSE, defense);
+            return element;
+        }
+
         public override void Create(XmlElement prototype) {
             base.Create(prototype);
             defense = int.Parse(prototype.Attributes[DEFENSE].Value);

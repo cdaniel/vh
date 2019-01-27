@@ -12,6 +12,15 @@ namespace VH.Game.World.Items.Potions {
 
     public class Potion : UsableItem, MagicalItem {
 
+        #region constants
+
+        private const string HIDDEN_NAME = "hidden-name";
+        private const string HIDDEN_ACCUSATIV = "hidden-accusative";
+        private const string HIDDEN_PLURAL = "hidden-plural";
+        private const string IDENTIFY_VALUE = "identify-value";
+
+        #endregion
+
         #region fields
 
         private string hiddenName;
@@ -60,6 +69,24 @@ namespace VH.Game.World.Items.Potions {
         #endregion
 
         #region public methods
+
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            hiddenName = GetStringAttribute(HIDDEN_NAME);
+            hiddenAccusativ = GetStringAttribute(HIDDEN_ACCUSATIV);
+            hiddenPlural = GetStringAttribute(HIDDEN_PLURAL);
+            identifyValue = GetIntAttribute(IDENTIFY_VALUE);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(HIDDEN_NAME, hiddenName);
+            AddAttribute(HIDDEN_ACCUSATIV, hiddenAccusativ);
+            AddAttribute(HIDDEN_PLURAL, hiddenPlural);
+            AddAttribute(IDENTIFY_VALUE, identifyValue);
+            return element;
+        }
 
         public override void Create(XmlElement prototype) {
             base.Create(prototype);
