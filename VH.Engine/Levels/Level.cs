@@ -30,6 +30,7 @@ namespace VH.Engine.Levels {
         private const string ITEMS = "items";
         private const string UP_PASSAGES = "up-passages";
         private const string DOWN_PASSAGES = "down-passages";
+        private const string MAP_GENERATOR = "map-generator";
 
         #endregion
 
@@ -39,7 +40,7 @@ namespace VH.Engine.Levels {
         private bool persistent = true;
         private bool bidirectional = true;
         private string name;
-        private IMapGenerator mapGenerator;
+        private AbstractMapGenerator mapGenerator;
         private int levelWidth;
         private int levelHeight;
         private int danger;
@@ -54,7 +55,7 @@ namespace VH.Engine.Levels {
 
         #region constructors
 
-        public Level(string name, IMapGenerator mapGenerator,
+        public Level(string name, AbstractMapGenerator mapGenerator,
                 int levelWidth, int levelHeight) {
             this.name = name;
             this.mapGenerator = mapGenerator;
@@ -62,7 +63,7 @@ namespace VH.Engine.Levels {
             this.levelHeight = levelHeight;
         }
 
-        public Level(string name, IMapGenerator levelGenerator,
+        public Level(string name, AbstractMapGenerator levelGenerator,
                 int levelWidth, int levelHeight, int danger)
             : this(name, levelGenerator, levelWidth, levelHeight) {
             this.danger = danger;
@@ -97,7 +98,7 @@ namespace VH.Engine.Levels {
             set { name = value; }
         }
 
-        public IMapGenerator MapGenerator {
+        public AbstractMapGenerator MapGenerator {
             get { return mapGenerator; }
             set { mapGenerator = value; }
         }

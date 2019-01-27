@@ -6,7 +6,7 @@ using VH.Engine.Random;
 
 namespace VH.Engine.Levels {
 
-    public class MazeMapGenerator: IMapGenerator {
+    public class MazeMapGenerator: AbstractMapGenerator {
 
         #region fields
 
@@ -19,14 +19,14 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
-        public Map Generate(int width, int height) {
+        public override Map Generate(int width, int height) {
             initMap(width, height);
             MazeCell cell = new MazeCell(map);
             cell.GenerateMaze();
             return map;
         }
 
-        public Position GenerateFeature(char feature) {
+        public override Position GenerateFeature(char feature) {
             int x;
             int y;
             do {

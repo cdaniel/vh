@@ -6,11 +6,11 @@ using System.Xml.Serialization;
 
 namespace VH.Engine.Levels {
 
-    public interface IMapGenerator {
+    public abstract class AbstractMapGenerator: Persistency.AbstractPersistent {
 
-        Map Generate(int width, int height);
+        public abstract Map Generate(int width, int height);
 
-        Position GenerateFeature(char feature);
+        public abstract Position GenerateFeature(char feature);
 
     }
 }

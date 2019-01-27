@@ -7,7 +7,7 @@ using VH.Engine.Random;
 namespace VH.Engine.Levels {
 
 
-    public class DungeonMapGenerator: IMapGenerator {
+    public class DungeonMapGenerator: AbstractMapGenerator {
 
         #region fields
 
@@ -17,7 +17,7 @@ namespace VH.Engine.Levels {
 
         #region public methods
 
-        public virtual Map Generate(int width, int height) {
+        public override Map Generate(int width, int height) {
             if (width > Map.MAX_WIDTH || height > Map.MAX_HEIGHT) throw new ArgumentOutOfRangeException("Map too big");
             Map map = new Map(width, height);
             Cell cell = new Cell(map);
@@ -26,7 +26,7 @@ namespace VH.Engine.Levels {
             return map;
         }
 
-        public virtual Position GenerateFeature(char feature) {
+        public override Position GenerateFeature(char feature) {
             int x;
             int y;
             do {

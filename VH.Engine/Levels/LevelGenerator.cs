@@ -74,13 +74,13 @@ namespace VH.Engine.Levels {
 
         private void processChildren() { }
 
-        private IMapGenerator createMapGenerator(XmlNode generatorNode) {
+        private AbstractMapGenerator createMapGenerator(XmlNode generatorNode) {
             string typeName = generatorNode.Attributes[TYPE].Value;
             string assemblyName = generatorNode.Attributes[ASSEMBLY].Value;
-            return (IMapGenerator)AssemblyCache.CreateObject(typeName, assemblyName); 
+            return (AbstractMapGenerator)AssemblyCache.CreateObject(typeName, assemblyName); 
         }
 
-        private IMapGenerator createMapGenerator(string name) {
+        private AbstractMapGenerator createMapGenerator(string name) {
             foreach (XmlNode node in generatorNodes) {
                 if (node.Attributes[NAME].Value == name) {
                     return createMapGenerator(node);
@@ -91,7 +91,7 @@ namespace VH.Engine.Levels {
 
         private Level createLevel(XmlNode levelNode) {
             string name = levelNode.Attributes[NAME].Value;;
-            IMapGenerator generator = getMapGenerator(levelNode);
+            AbstractMapGenerator generator = getMapGenerator(levelNode);
             int width;
             int height;
             if (levelNode.Attributes[WIDTH] != null) {
@@ -117,7 +117,7 @@ namespace VH.Engine.Levels {
             return level;
         }
 
-        private IMapGenerator getMapGenerator(XmlNode levelNode) {
+        private AbstractMapGenerator getMapGenerator(XmlNode levelNode) {
             string name;
             if (levelNode.Attributes[GENERATOR] != null) {
                 name = levelNode.Attributes[GENERATOR].Value;
