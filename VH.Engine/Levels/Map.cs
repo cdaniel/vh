@@ -102,12 +102,12 @@ namespace VH.Engine.Levels {
             height = GetIntAttribute(HEIGHT);
             init();
 
-            string mapStr = GetRawData(MAP);
+            string mapStr = GetStringAttribute(MAP);
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) map[i, j] = mapStr[i + j * width];
             }
 
-            string memStr = GetRawData(MEM);
+            string memStr = GetStringAttribute(MEM);
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) mem[i, j] = memStr[i + j * width];
             }
@@ -123,13 +123,13 @@ namespace VH.Engine.Levels {
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) sb.Append(map[i, j]);
             }
-            AddRawData(MAP, sb.ToString());
+            AddAttribute(MAP, sb.ToString());
 
             sb = new StringBuilder();
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) sb.Append(mem[i, j]);
             }
-            AddRawData(MEM, sb.ToString());
+            AddAttribute(MEM, sb.ToString());
             return element; 
         }
 

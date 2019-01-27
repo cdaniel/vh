@@ -10,6 +10,13 @@ namespace VH.Engine.World.Beings {
 
     public class SkillSet: AbstractPersistent, IEnumerable {
 
+        #region constants
+
+        private const string TITLE = "title";
+        private const string SKILLS = "skills";
+
+        #endregion
+
         #region fields
 
         private string title;
@@ -46,9 +53,16 @@ namespace VH.Engine.World.Beings {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            title = GetStringAttribute(TITLE);
+            skills = GetElements<Skill>(SKILLS);
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("title", title);
+            AddAttribute(TITLE, title);
+            AddElements(SKILLS, skills);
             return element;
         }
 

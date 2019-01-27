@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 using VH.Engine.Translations;
 
 namespace VH.Engine.World.Beings {
 
-    public class StatSet {
+    public class StatSet: AbstractPersistent {
+
+        #region constants
+
+        private const string STATS = "stats";
+        private const string TITLE = "title";
+
+        #endregion
 
         #region fields
 
@@ -23,6 +32,8 @@ namespace VH.Engine.World.Beings {
                 this.stats.Add(stat);
             }
         }
+
+        public StatSet() { }
 
         #endregion
 
@@ -41,6 +52,19 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            title = GetStringAttribute(TITLE);
+            stats = GetElements<Stat>(STATS);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(TITLE, title);
+            AddElements(STATS, stats);
+            return element;
+        }
 
         public override string ToString() {
             StringBuilder sb = new StringBuilder(title + ":\n");

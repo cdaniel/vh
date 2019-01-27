@@ -14,6 +14,12 @@ namespace VH.Engine.World.Beings {
 
         protected const int MAX_SKILL_VALUE = 100;
 
+        private const string ID = "id";
+        private const string NAME = "name";
+        private const string SKILL_VALUE = "skill-value";
+        private const string MAX_VALUE = "max-value";
+        private const string TRAINING_POINTS = "training-points";
+
         #endregion
 
         #region fields
@@ -28,6 +34,8 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region constructors
+
+        public Skill() { }
 
         public Skill(string id, string name, int maxValue) : this(id, name, 0, maxValue) { }
 
@@ -67,13 +75,22 @@ namespace VH.Engine.World.Beings {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            id = GetStringAttribute(ID);
+            name = GetStringAttribute(NAME);
+            skillValue = GetIntAttribute(SKILL_VALUE);
+            maxValue = GetIntAttribute(MAX_VALUE);
+            trainingPoints = GetIntAttribute(TRAINING_POINTS);
+        }
+
         public override XmlElement ToXml(string name, XmlDocument doc) {
             XmlElement element = base.ToXml(name, doc);
-            AddAttribute("id", id);
-            AddAttribute("name", name);
-            AddAttribute("skill-value", skillValue);
-            AddAttribute("max-value", maxValue);
-            AddAttribute("training-points", trainingPoints);
+            AddAttribute(ID, id);
+            AddAttribute(NAME, this.name);
+            AddAttribute(SKILL_VALUE, skillValue);
+            AddAttribute(MAX_VALUE, maxValue);
+            AddAttribute(TRAINING_POINTS, trainingPoints);
             return element;
         }
 

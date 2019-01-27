@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using VH.Engine.Persistency;
 
 namespace VH.Engine.World.Beings {
 
-    public class Stat: ICloneable {
+    public class Stat: AbstractPersistent, ICloneable {
+
+        #region constants
+
+        private const string ID = "id";
+        private const string NAME = "name";
+        private const string ATTRIBUTE_VALUE = "attribute-value";
+
+        #endregion
 
         #region fields
 
@@ -16,6 +26,8 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region constructors
+
+        public Stat() { }
 
         public Stat(string id, string name): this(id, name, 0) { }
 
@@ -45,6 +57,21 @@ namespace VH.Engine.World.Beings {
         #endregion
 
         #region public methods
+
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            id = GetStringAttribute(ID);
+            name = GetStringAttribute(NAME);
+            attributeValue = GetIntAttribute(ATTRIBUTE_VALUE);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(ID, id);
+            AddAttribute(NAME, this.name);
+            AddAttribute(ATTRIBUTE_VALUE, attributeValue);
+            return element;
+        }
 
         public override string ToString() {
             return Name + ": " + Value;

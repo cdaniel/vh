@@ -48,6 +48,19 @@ namespace VH.Game.World.Items.Weapons {
 
         #region public methods
 
+        public override void FromXml(XmlElement element) {
+            base.FromXml(element);
+            attack = GetIntAttribute(ATTACK);
+            defense = GetIntAttribute(DEFENSE);
+        }
+
+        public override XmlElement ToXml(string name, XmlDocument doc) {
+            XmlElement element = base.ToXml(name, doc);
+            AddAttribute(ATTACK, attack);
+            AddAttribute(DEFENSE, defense);
+            return element;
+        }
+
         public override void Create(XmlElement prototype) {
             base.Create(prototype);
             attack = int.Parse(prototype.Attributes[ATTACK].Value);

@@ -32,6 +32,7 @@ namespace VH.Game.World.Beings {
         private const string HEALTH = "health";
         private const string EQUIPMENT = "equipment";
         private const string SKILLS = "skills";
+        private const string STATS = "stats";
         private const string BACKPACK = "backpack";
         private const string PROFESSION = "profession";
 
@@ -174,7 +175,15 @@ namespace VH.Game.World.Beings {
             base.FromXml(element);
             health = GetIntAttribute(HEALTH);
             equipment = GetElement(EQUIPMENT) as Equipment;
+
             skills = GetElement(SKILLS) as SkillSet;
+            stats = GetElement(STATS) as StatSet;
+            foreach (Skill skill in skills) {
+                VhSkill vhSkill = skill as VhSkill;
+                vhSkill.Stat = Stats[vhSkill.StatId];
+                vhSkill.LearningStat = Stats[vhSkill.LearningStatId];
+            }
+
             backpack = GetElement(BACKPACK) as BackPack;
             profession = GetElement(PROFESSION) as AbstractProfession;
             profession.Being = this;
@@ -185,6 +194,7 @@ namespace VH.Game.World.Beings {
             AddAttribute(HEALTH, health);
             AddElement(EQUIPMENT, equipment);
             AddElement(SKILLS, skills);
+            AddElement(STATS, stats);
             AddElement(BACKPACK, backpack);
             AddElement(PROFESSION, profession);
             return element;

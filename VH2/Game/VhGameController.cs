@@ -117,8 +117,7 @@ namespace VH.Game {
             saveInHof();
         }
 
-        protected override void 
-            runTurn() {
+        protected override void runTurn() {
             base.runTurn();
 
             // display the whole game screen
