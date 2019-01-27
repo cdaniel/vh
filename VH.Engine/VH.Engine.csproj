@@ -84,7 +84,7 @@
     <Compile Include="Display\Window.cs" />
     <Compile Include="Levels\DungeonMapGenerator.cs" />
     <Compile Include="Levels\Map.cs" />
-    <Compile Include="Levels\IMapGenerator.cs" />
+    <Compile Include="Levels\AbstractMapGenerator.cs" />
     <Compile Include="Random\Rng.cs" />
     <Compile Include="Random\SystemRng.cs" />
     <Compile Include="Time\ScheduledEvent.cs" />

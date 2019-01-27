@@ -6,7 +6,7 @@
   <message key="which-direction" person2="W którą stronę?" person3="" />
   <message key="close-door" person2="%Zamykasz drzwi" person3="% zamyka drzwi" />
   <message key="go-up" person2="%Wchodzisz po schodach" person3="% wchodzi po schodach" />
-  <message key="go-down" person2="%Zchodzisz po schodach" person3="% zchodzi po schodach" />
+  <message key="go-down" person2="%Schodzisz po schodach" person3="% schodzi po schodach" />
   <message key="no-stairs" person2="Tutaj nie ma schodów" person3="" />
   <message key="no-door" person2="Tutaj nie ma otwartych drzwi" person3="" />
   <message key="stuck-door" person2="Drzwi są zacięte!" person3="% próbuje otworzyć drzwi, ale te są zablokowane" />

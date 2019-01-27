@@ -144,6 +144,8 @@ namespace VH.Engine.Levels {
             levelHeight = GetIntAttribute(LEVEL_HEIGHT);
             danger = GetIntAttribute(DANGER);
             map = GetElement(MAP) as Map;
+            mapGenerator = GetElement(MAP_GENERATOR) as AbstractMapGenerator;
+            mapGenerator.Map = map;            
             monsters = GetElements<Monster>(MONSTERS);
             items = GetElements<Item>(ITEMS);
             upPassages = GetElements<Passage>(UP_PASSAGES);
@@ -159,6 +161,7 @@ namespace VH.Engine.Levels {
             AddAttribute(LEVEL_HEIGHT, levelHeight);
             AddAttribute(DANGER, danger);
             AddElement(MAP, map);
+            AddElement(MAP_GENERATOR, mapGenerator);
             AddElements(MONSTERS, monsters.Cast<AbstractPersistent>());
             AddElements(ITEMS, items.Cast<AbstractPersistent>());
             AddElements(UP_PASSAGES, upPassages.Cast<AbstractPersistent>());

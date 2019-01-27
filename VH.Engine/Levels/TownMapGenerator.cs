@@ -8,12 +8,6 @@ namespace VH.Engine.Levels {
 
     public class TownMapGenerator: AbstractMapGenerator {
 
-        #region fields
-
-        private Map map;
-
-        #endregion
-
         #region public methods
 
         public override Map Generate(int width, int height) {

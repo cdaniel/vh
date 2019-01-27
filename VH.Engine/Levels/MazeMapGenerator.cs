@@ -8,12 +8,6 @@ namespace VH.Engine.Levels {
 
     public class MazeMapGenerator: AbstractMapGenerator {
 
-        #region fields
-
-        private Map map;
-
-        #endregion
-
         #region constructors
         #endregion
 
