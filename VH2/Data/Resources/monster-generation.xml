@@ -6,6 +6,6 @@
     <generator mincount="2" maxcount="4" xpath="//monster[@race='animal' and @danger&lt;=1]"/>
   </level>
   <level name="D[0-9]+">
-    <generator mincount="5" maxcount="15" xpath="//monster[@danger&lt;=$danger]"/>
+    <generator mincount="15" maxcount="25" xpath="//monster[not(@race='human') and @danger&lt;=$danger]"/>
   </level>
 </monster-generation>

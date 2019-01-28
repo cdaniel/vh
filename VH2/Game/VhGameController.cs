@@ -23,6 +23,7 @@ using VH.Game.World.Beings.Professions;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace VH.Game {
 
@@ -92,10 +93,18 @@ namespace VH.Game {
         #region protected methods
 
         protected override void loadGame(string filename) {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
-            initDisplay();
-            FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
+            try {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filename);
+                initDisplay();
+                FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
+            } catch (Exception ex) {
+                Console.Clear();
+                Console.Write("'" + filename + "' is corrupted or is not a valid save file\n");
+                Console.Write("press any key");
+                Console.ReadKey();
+                throw;
+            }
             drawFrames();
             initGenerators();
             welcome();
@@ -353,8 +362,8 @@ namespace VH.Game {
             doc.LoadXml("<?xml version='1.0' encoding='utf-8' ?> <vh2-saved-game/>");
             doc.DocumentElement.AppendChild(ToXml("game", doc));
             doc.Save(filename);
-            Application.Exit();
-        }
+            Environment.Exit(0);
+         }
 
         private void saveInHof() {
             StreamWriter writer = File.AppendText(Application.StartupPath + @"\Data\cementary.txt");
