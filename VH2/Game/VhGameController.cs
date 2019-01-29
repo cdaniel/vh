@@ -57,13 +57,7 @@ namespace VH.Game {
             }
             set {
                 base.Level = value;
-                console.GoTo(5, 49);
-                console.Write("     ");
-                console.GoTo(5, 49);
-                console.ForegroundColor = ConsoleColor.Gray;
-                string levelString = value.Name;
-                while (levelString.Length < 4) levelString += " ";
-                console.Write(CP437.LEFT_FRAME_LINK + levelString + CP437.RIGHT_FRAME_LINK);
+                showLevelName();
             }
         }
 
@@ -98,6 +92,7 @@ namespace VH.Game {
                 doc.Load(filename);
                 initDisplay();
                 FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
+                showLevelName();
             } catch (Exception ex) {
                 Console.Clear();
                 Console.Write("'" + filename + "' is corrupted or is not a valid save file\n");
@@ -197,6 +192,7 @@ namespace VH.Game {
 
         private void initDisplay() {
             console = new SystemConsole();
+            console.ForegroundColor = ConsoleColor.Gray;
             fieldOfVision = new RaycastingFieldOfVision();
             messageWindow = new VerticalMessageWindow(50, 1, 28, 48, console);
             messageManager = new MessageManager(messageWindow);
@@ -215,6 +211,16 @@ namespace VH.Game {
             SplashScreen splash = new SplashScreen();
             splash.Show();
             GameController.Instance.Pc.Name = splash.PcName;
+        }
+
+        private void showLevelName() {
+            console.GoTo(5, 49);
+            console.Write("     ");
+            console.GoTo(5, 49);
+            console.ForegroundColor = ConsoleColor.Gray;
+            string levelString = Level.Name;
+            while (levelString.Length < 4) levelString += " ";
+            console.Write(CP437.LEFT_FRAME_LINK + levelString + CP437.RIGHT_FRAME_LINK);
         }
 
         private void initProfession() {
