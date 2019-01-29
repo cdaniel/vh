@@ -215,11 +215,11 @@ namespace VH.Game {
 
         private void showLevelName() {
             console.GoTo(5, 49);
-            console.Write("     ");
+            console.Write("        ");
             console.GoTo(5, 49);
             console.ForegroundColor = ConsoleColor.Gray;
             string levelString = Level.Name;
-            while (levelString.Length < 4) levelString += " ";
+            while (levelString.Length < 8) levelString += " ";
             console.Write(CP437.LEFT_FRAME_LINK + levelString + CP437.RIGHT_FRAME_LINK);
         }
 
