@@ -15,7 +15,7 @@ namespace VH2 {
             try {
                 GameController.Instance = new VhGameController();
                 if (args.Length > 0) {
-                    GameController.Instance.Play(/*args[0]*/);
+                    GameController.Instance.Play(args[0]);
                 } else {
                     GameController.Instance.Play();
                 }

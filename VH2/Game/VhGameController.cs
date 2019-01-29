@@ -92,7 +92,6 @@ namespace VH.Game {
                 doc.Load(filename);
                 initDisplay();
                 FromXml(doc.DocumentElement.SelectSingleNode("game") as XmlElement);
-                showLevelName();
             } catch (Exception ex) {
                 Console.Clear();
                 Console.Write("'" + filename + "' is corrupted or is not a valid save file\n");
@@ -101,6 +100,7 @@ namespace VH.Game {
                 throw;
             }
             drawFrames();
+            showLevelName();
             initGenerators();
             welcome();
         }
