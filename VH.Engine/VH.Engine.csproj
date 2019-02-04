@@ -55,6 +55,7 @@
     <Compile Include="Display\YesNoMenu.cs" />
     <Compile Include="Game\GameController.cs" />
     <Compile Include="Levels\FloodedDungeonMapGenerator.cs" />
+    <Compile Include="Levels\ForestLevelGenerator.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\LevelGenerator.cs" />
     <Compile Include="Levels\LevelPersistencyHelper.cs" />
