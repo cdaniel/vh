@@ -24,6 +24,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using VH.Engine.VhConsole;
 
 namespace VH.Game {
 
@@ -191,7 +192,7 @@ namespace VH.Game {
         #region private methods
 
         private void initDisplay() {
-            console = new SystemConsole();
+            console = new VhConsole();
             console.ForegroundColor = ConsoleColor.Gray;
             fieldOfVision = new RaycastingFieldOfVision();
             messageWindow = new VerticalMessageWindow(50, 1, 28, 48, console);

@@ -143,6 +143,10 @@
     <Folder Include="Game\World\Items\Signs\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VH.Engine.VhConsole\VH.Engine.VhConsole.csproj">
+      <Project>{031b0bcc-ad1d-4d29-993a-79f1fe19edc5}</Project>
+      <Name>VH.Engine.VhConsole</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VH.Engine\VH.Engine.csproj">
       <Project>{3A5CC000-FABC-4C7A-A0E9-08A2513B9A3C}</Project>
       <Name>VH.Engine</Name>

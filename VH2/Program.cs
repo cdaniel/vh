@@ -14,11 +14,11 @@ namespace VH2 {
         static void Main(string[] args) {
             try {
                 GameController.Instance = new VhGameController();
-                if (args.Length > 0) {
-                    GameController.Instance.Play(args[0]);
-                } else {
+             //   if (args.Length > 0) {
+             //       GameController.Instance.Play(args[0]);
+             //   } else {
                     GameController.Instance.Play();
-                }
+             //   }
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 string filename = Application.StartupPath + "\\" + DateTime.Now.ToString("dd.mm.yyyy-h:mm:ss") + "_error.log";
