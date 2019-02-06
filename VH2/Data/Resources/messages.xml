@@ -37,6 +37,8 @@
   <message key="not-blinded" person2="%Nagle twoje oczy pieką" person3="% mruga szybko oczyma" />
   <message key="ill" person2="%Zaczynasz czuć się bardzo źle" person3="% przybiera dziwnie zielony kolor" />
   <message key="not-ill" person2="%Czujesz łaskotanie w gardle. Kaszlesz" person3="% kaszle" />
+  <message key="poisoned" person2="%Czujesz jad w swoich żyłach" person3="% przybiera dziwnie fioletowy kolor" />
+  <message key="not-poisoned" person2="%Czujesz świerzbienie w brzuchu" person3="% krzywi się" />
   <message key="cured" person2="%Czujesz się znacznie lepiej" person3="% odzyskuje zdrowy wygląd" />
   <message key="unblinded" person2="%Odzyskujesz wzrok" person3="% odzyskuje wzrok" />
   <message key="confused" person2="%Kręci ci się w głowie" person3="% chwieje się"/>

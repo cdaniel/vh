@@ -16,6 +16,7 @@ namespace VH.Game.World.Beings.Actions {
         private const float BLINDNESS_RECOVERY_RATE = 0.05f;
         private const float CONFUSION_RECOVERY_RATE = 0.03f;
         private const float ILLNESS_RECOVERY_RATE = 0.05f;
+        private const float POISONING_RECOVERY_RATE = 0.02f;
 
         public VhAction(Being performer): base(performer) { }
 
@@ -65,6 +66,12 @@ namespace VH.Game.World.Beings.Actions {
             if (temps["illness-resistance"]) illnessRecoveryRate *= 2;
             if (temps["ill"] && Rng.Random.NextFloat() < illnessRecoveryRate) {
                 temps["ill"] = false;
+                notify("cured");
+            }
+            float poisoningRecoveryRate = POISONING_RECOVERY_RATE;
+            if (temps["poison-resistance"]) poisoningRecoveryRate *= 2;
+            if (temps["poisoned"] && Rng.Random.NextFloat() < poisoningRecoveryRate) {
+                temps["poisoned"] = false;
                 notify("cured");
             }
 

@@ -27,7 +27,8 @@ namespace VH.Game.World.Beings.Professions {
 
             TempSet temps = (being as ITempsBeing).Temps;
             temps["potion-identification"] = true;
-            temps["illness-resistance"] = true;
+            if (Rng.Random.NextFloat() > 0.5f) temps["illness-resistance"] = true;
+            else temps["illness-resistance"] = true;
 
             Equipment equipment = ((IEquipmentBeing)being).Equipment;
             ItemFacade facade = new ItemFacade();

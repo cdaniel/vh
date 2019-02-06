@@ -192,7 +192,7 @@ namespace VH.Game {
         #region private methods
 
         private void initDisplay() {
-            console = new VhConsole();
+            console = new SystemConsole();
             console.ForegroundColor = ConsoleColor.Gray;
             fieldOfVision = new RaycastingFieldOfVision();
             messageWindow = new VerticalMessageWindow(50, 1, 28, 48, console);
@@ -348,13 +348,14 @@ namespace VH.Game {
 
         private void showStatus() {
             console.GoTo(55, 49);
-            console.Write("                    ");
+            console.Write("                     ");
             console.GoTo(55, 49);
 
             TempSet temps = (Pc as ITempsBeing).Temps;
             showStatusPart(temps["confused"], "Os "); 
             showStatusPart(temps["ill"], "Ch ");
-            showStatusPart(temps["blind"], "Śl ");    
+            showStatusPart(temps["poisoned"], "Za ");
+            showStatusPart(temps["blind"], "Śl ");   
             showStatusPart(pc.Health <= 3,  "" + pc.Health + "/" + ((VhPc)pc).MaxHealth);
         }
 

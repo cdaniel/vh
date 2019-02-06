@@ -148,7 +148,7 @@ namespace VH.Game.World.Beings {
         public override int MaxHealth {
             get {
                 int maxHealth = (int)((getStatRate("To") * 0.8 + getStatRate("St") * 0.2) * 30); 
-                if (Temps["ill"] ) maxHealth /= 2;
+                if (Temps["poisoned"] ) maxHealth /= 2;
                 return maxHealth;
             }
         }
