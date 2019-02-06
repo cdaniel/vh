@@ -48,6 +48,7 @@
   <message key="stagger" person2="%Zataczasz się" person3="% się zatacza" />
   <message key="no-stagger" person2="%Wysiłkiem woli zmuszasz się aby poruszać się prosto" person3="% wysiłkiem woli zmusza się aby poruszać się prosto" />
   <message key="warmth" person2="%Przyjemne ciepło rozchodi się po twoim ciele" person3="% wydaje się lekko uśmiechać"/>
+  <message key="bitter" person2="%Płyn smakuje ohydnie gorzko" person3="% pluje z obrzydzeniem"/>
   <message key="cure" person2="%Wtem czujesz się znacznie lepiej" person3="% wygląda się znacznie lepiej"/>
   <message key="boom" person2="%BUM!" person3="% wpada na przeszkodę"/>
   <message key="trip" person2="%Potykasz się o coś" person3="% potyka się o leżące przedmioty"/>
@@ -57,4 +58,6 @@
   <message key="cast-light" person2="%Wokół robi się jaśniej" person3="Wokół % robi się jaśniej" />
   <message key="spell-failed" person2="%Jesteś za kiepski w magji" person3="% patrzy dookoła zdziwiony"/>
   <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="Wokół % zapada ciemność"/>
+  <message key="refreshing" person2="%Przyjemnie świeży smak" person3=""/>
+  <message key="petrification-resistance" person2="%czujesz jak rozluźniają ci się mięśnie" person3="% dygocze z lekka"/>
 </messages>
