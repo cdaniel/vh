@@ -7,7 +7,7 @@ using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ConsumeBirchDecoctionAction: AbstractAction {
+    public class ConsumeBirchDecoctionAction : AbstractAction {
 
         public ConsumeBirchDecoctionAction() : base(null) { }
         public ConsumeBirchDecoctionAction(Being performer) : base(performer) { }
@@ -23,5 +23,6 @@ namespace VH.Game.World.Beings.Actions {
             }
             return true;
         }
+    }
 
 }

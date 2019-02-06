@@ -29,6 +29,7 @@ namespace VH.Game.World.Beings.Professions {
             TempSet temps = (being as ITempsBeing).Temps;
             temps["ring-identification"] = true;
             temps["neckwear-identification"] = true;
+            temps["scroll-identification"] = true;
 
             Equipment equipment = ((IEquipmentBeing)being).Equipment;
             ItemFacade facade = new ItemFacade();

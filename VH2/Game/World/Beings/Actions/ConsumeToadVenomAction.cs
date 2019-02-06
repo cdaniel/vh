@@ -15,7 +15,7 @@ namespace VH.Game.World.Beings.Actions {
 
         public override bool Perform() {
             TempSet temps = (Performer as ITempsBeing).Temps;
-            if (temps["poison resistant"] {
+            if (temps["poison resistant"]) {
                 notify("bitter");
             } else { 
                 temps["poison resistant"] = true;

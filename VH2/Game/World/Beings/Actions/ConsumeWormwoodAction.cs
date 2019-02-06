@@ -6,7 +6,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ConsumeWormwoodAction: AbstractAction {
+    public class ConsumeWormwoodAction : AbstractAction {
 
         public ConsumeWormwoodAction() : base(null) { }
         public ConsumeWormwoodAction(Being performer) : base(performer) { }
@@ -24,4 +24,5 @@ namespace VH.Game.World.Beings.Actions {
             new CauseConfusionAction(Performer).Perform();
             return true;
         }
+    }
 }

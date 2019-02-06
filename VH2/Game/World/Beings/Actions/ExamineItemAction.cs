@@ -7,6 +7,7 @@ using VH.Engine.World.Items;
 using VH.Engine.World.Beings;
 using VH2.Game.World.Items;
 using VH.Game.World.Items.Potions;
+using VH.Game.World.Items.Scrolls;
 
 namespace VH.Game.World.Beings.Actions {
 
@@ -39,6 +40,7 @@ namespace VH.Game.World.Beings.Actions {
                 if (unidentified) {
                     TempSet temps = (Performer as ITempsBeing).Temps;
                     if (Item is Potion && temps["potion-identification"]
+                        || Item is Scroll && temps["scroll-identification"]
                         || Item.Id == "booze" && temps["booze-identification"]
                     ) {
                         (Item as MagicalItem).Identify();

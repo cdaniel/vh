@@ -59,6 +59,10 @@
     <Compile Include="Game\World\Beings\Actions\ConsumeAlcoholAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CauseIllnessAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CastLightAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ConsumeBirchDecoctionAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ConsumeRueAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ConsumeToadVenomAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ConsumeWormwoodAction.cs" />
     <Compile Include="Game\World\Beings\Actions\DropAction.cs" />
     <Compile Include="Game\World\Beings\Actions\EquipAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ExamineItemAction.cs" />
