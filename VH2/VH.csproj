@@ -61,6 +61,7 @@
     <Compile Include="Game\World\Beings\Actions\CastLightAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeBirchDecoctionAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeRueAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ConsumeRueOilAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeToadVenomAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeWormwoodAction.cs" />
     <Compile Include="Game\World\Beings\Actions\DropAction.cs" />
