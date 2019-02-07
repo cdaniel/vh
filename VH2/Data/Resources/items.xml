@@ -265,6 +265,28 @@
     defense="1"
   />
   <item
+ type-name="VH.Game.World.Items.Necklaces.Necklace"
+ assembly-name="VH2.exe"
+ id="garlic"
+ name="wiązka czosnku"
+ accusativ="wiązkę czosnku"
+ plural="wiązki czosnku"
+ character="}"
+ color="White"
+ danger="0"
+/>
+  <item
+ type-name="VH.Game.World.Items.Necklaces.Necklace"
+ assembly-name="VH2.exe"
+ id="artemisia"
+ name="boże drzewko"
+ accusativ="boże drzewko"
+ plural="boże drzewka"
+ character="}"
+ color="Green"
+ danger="1"
+/>
+  <item
     type-name="VH.Game.World.Items.BodyWear.Armor"
     assembly-name="VH2.exe"
     id="hood"
@@ -406,4 +428,18 @@ danger="1"
     color="White"
     danger="0"
   />
+  <item
+  type-name="VH.Game.World.Items.Scrolls.Scroll"
+  assembly-name="VH2.exe"
+  action-type-name="VH.Game.World.Beings.Actions.CastLightAction"
+  action-assembly-name="VH2.exe"
+  id="scroll of light"
+  name="zaklęcie światła"
+  accusativ="zaklęcie światła"
+  plural="zaklęcia światła"
+  character="?"
+  color="White"
+  danger="0"
+  />
+
 </items>
