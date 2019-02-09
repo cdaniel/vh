@@ -127,12 +127,6 @@ namespace VH.Engine.World.Beings {
         public override void Kill() {
             base.Kill();
             GameController.Instance.Level.Monsters.Remove(this);
-            if (this is IBackPackBeing) {
-                foreach (Item item in ((IBackPackBeing)this).BackPack.Items) {
-                    item.Position = Position.Clone();
-                    GameController.Instance.Level.Items.Add(item);
-                }
-            }
         }
 
         #endregion
