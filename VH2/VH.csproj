@@ -71,6 +71,7 @@
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
     <Compile Include="Game\World\Beings\Actions\PickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
     <Compile Include="Game\World\Beings\Actions\TakeStairsAction.cs" />
     <Compile Include="Game\World\Beings\Actions\AttackAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CloseDoorAction.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Game\World\Beings\Actions\WaitAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ZapAction.cs" />
     <Compile Include="Game\World\Beings\Ai\AnimalAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\BobokAi.cs" />
     <Compile Include="Game\World\Beings\Ai\CmukAi.cs" />
     <Compile Include="Game\World\Beings\Ai\MothAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HumanAi.cs" />

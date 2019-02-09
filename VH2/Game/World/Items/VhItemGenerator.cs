@@ -19,7 +19,6 @@ namespace VH.Game.World.Items {
             int danger = level.Danger;
             for (int i = 0; i < 10; ++i) {
                 Item item = facade.CreateItemByDanger(danger);
-                //Item item = facade.CreateItemById("potion-of-blindness");
                 do {
                     item.Position.X = Rng.Random.Next(level.LevelWidth);
                     item.Position.Y = Rng.Random.Next(level.LevelHeight);

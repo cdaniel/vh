@@ -19,6 +19,24 @@
     health="3"
   />
   <monster
+  type-name="VH.Game.World.Beings.Humanoid"
+  assembly-name="VH2.exe"
+  ai-type-name="VH.Game.World.Beings.Ai.BobokAi"
+  ai-assembly-name="VH2.exe"
+  id="bobok"
+  name="bobok"
+  accusativ="boboka"
+  plural="boboki"
+  character="b"
+  race="humanoid"
+  color="DarkYellow"
+  speed="1.5"
+  danger="1"
+  attack="3"
+  defense="3"
+  health="3"
+  />
+  <monster
     type-name="VH.Game.World.Beings.VhMonster"
     assembly-name="VH2.exe"
     ai-type-name="VH.Game.World.Beings.Ai.FlyingAnimalAi"

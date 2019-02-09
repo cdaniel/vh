@@ -60,4 +60,7 @@
   <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="Wokół % zapada ciemność"/>
   <message key="refreshing" person2="%Przyjemnie świeży smak" person3=""/>
   <message key="petrification-resistance" person2="%czujesz jak rozluźniają ci się mięśnie" person3="% dygocze z lekka"/>
+  <message key="steal" person2="%Wyciągasz przedmiot z plecaka wroga" person3="% okrada %" />
+  <message key="empty-backpack-steal" person2="%Natrafiasz pustkę macając plecak %" person3="% warczy gniewnie próbując okraść %" />
+  <message key="unsuccessful-steal" pesron2="%Prubujesz okraść % ale wywija się jak piskorz" person3="% wysuwa paluchy żeby okraść % ale to się nie udaje"/>
 </messages>

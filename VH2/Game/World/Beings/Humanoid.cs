@@ -6,7 +6,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings {
-
+    //TODO implement saving the backpack
     public class Humanoid : VhMonster,
         IBackPackBeing {
 
