@@ -31,5 +31,9 @@ namespace VH.Game.World.Items.Necklaces {
         public void OnEquip() {
             // do nothing for now, TODO implement temps
         }
+
+        public override string ToString() {
+            return Name;
+        }
     }
 }
