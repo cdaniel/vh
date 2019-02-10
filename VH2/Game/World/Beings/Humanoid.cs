@@ -26,7 +26,6 @@ namespace VH.Game.World.Beings {
                 item.Position = Position.Clone();
                 GameController.Instance.Level.Items.Add(item);
             }
-
         }
 
         public override void FromXml(XmlElement element) {

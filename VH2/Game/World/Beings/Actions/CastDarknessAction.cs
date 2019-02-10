@@ -26,6 +26,7 @@ namespace VH.Game.World.Beings.Actions {
                     }
                 }
             }
+            notify("cast-darkness");
             return true;
         }
 
