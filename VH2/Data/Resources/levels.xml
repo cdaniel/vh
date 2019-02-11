@@ -8,9 +8,11 @@
   <generator name="dungeon" type="VH.Engine.Levels.DungeonMapGenerator" assembly="VH.Engine.dll"/>
   <generator name="town" type="VH.Engine.Levels.TownMapGenerator" assembly="VH.Engine.dll"/>
   <generator name="maze" type="VH.Engine.Levels.MazeMapGenerator" assembly="VH.Engine.dll"/>
+  <generator name="forest" type="VH.Engine.Levels.ForestMapGenerator" assembly="VH.Engine.dll" />
   
   <level name="Miasto" generator="town" danger="0"/>
   <level name="Jaskinia" persistent="false" danger="5"/>
+  <level name="Las" generator="forest" persistent="true" danger="10"/>
     
   <level name="D01" danger="1" width="96" height="96"/>
   <level name="D02" danger="2" width="96" height="96"/>
@@ -32,6 +34,7 @@
   <level name="B05" danger="15" bidirectional="false" width="96" height="96"/>
 
   <connection parent="Miasto" child="Jaskinia"/>
+  <connection parent="Las" child="Jaskinia"/>
   <connection parent="Miasto" child="D01"/>
   <connection parent="D01" child="D02"/>
   <connection parent="D02" child="D03"/>

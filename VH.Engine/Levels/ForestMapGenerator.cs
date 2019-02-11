@@ -5,7 +5,7 @@ using System.Text;
 using VH.Engine.Random;
 
 namespace VH.Engine.Levels {
-    public class ForestLevelGenerator : AbstractMapGenerator {
+    public class ForestMapGenerator : AbstractMapGenerator {
 
         public override Map Generate(int width, int height) {
             Map map = new Map(width, height);

@@ -16,7 +16,7 @@ namespace VH.Game.World.Beings {
         }
 
         public override bool IsItemCompatible(Item item) {
-            return item.Character == '\'';
+            return item.Character == '}';
         }
     }
 }

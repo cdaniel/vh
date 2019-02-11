@@ -17,7 +17,7 @@ namespace VH.Game.World.Items {
         public override void Generate(Level level) {
             level.Items.Clear();
             int danger = level.Danger;
-            for (int i = 0; i < 10; ++i) {
+            for (int i = 0; i < 30; ++i) {
                 Item item = facade.CreateItemByDanger(danger);
                 do {
                     item.Position.X = Rng.Random.Next(level.LevelWidth);
@@ -28,7 +28,9 @@ namespace VH.Game.World.Items {
         }
 
         private bool isValidPosition(Position position, Level level) {
-            return GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]) == Terrain.Get("ground").Character;
+            return GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]) == Terrain.Get("ground").Character ||
+                GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]) == Terrain.Get("grass").Character ||
+                GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]) == Terrain.Get("floor").Character;
         }
     }
 }

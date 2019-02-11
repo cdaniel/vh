@@ -12,13 +12,27 @@ namespace VH.Game.World.Beings {
     public class Humanoid : VhMonster,
         IBackPackBeing {
 
+        #region constants
+
         private string BACK_PACK = "backpack";
 
+        #endregion
+
+        #region fields
+
         private BackPack backPack = new BackPack("", 10);
+
+        #endregion
+
+        #region constructors
 
         public BackPack BackPack {
             get { return backPack; }
         }
+
+        #endregion
+
+        #region public methods
 
         public override void Kill() {
             base.Kill();
@@ -38,6 +52,8 @@ namespace VH.Game.World.Beings {
             AddElement(BACK_PACK, BackPack);
             return element;
         }
+
+        #endregion
 
     }
 }
