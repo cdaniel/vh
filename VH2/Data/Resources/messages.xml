@@ -64,6 +64,6 @@
   <message key="empty-backpack-steal" person2="%Natrafiasz pustkę macając plecak %" person3="% warczy gniewnie próbując okraść %" />
   <message key="unsuccessful-steal" pesron2="%Prubujesz okraść % ale wywija się jak piskorz" person3="% wysuwa paluchy żeby okraść % ale to się nie udaje"/>
   <message key="suck-strength" pesron2="%Wyssysasz siły życiowe z %" person3="% gryzie % i wyssysa siły życiowe"/>
-  <message key="suck-life" pesron2="%Wyssysasz esencję życiową z %" person3="% uderza % i wyssysa esencję życiową"/>
+  <message key="suck-life" pesron2="%Wyssysasz esencję życiową z %" person3="% trafia % i wyssysa esencję życiową"/>
 </messages>
 

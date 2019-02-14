@@ -5,7 +5,7 @@ using System.Text;
 using VH.Engine.World.Beings.Actions;
 using VH.Game.World.Beings.Actions;
 
-namespace VH.Game.World.Beings.Ai.Stimuli {
+namespace VH.Game.World.Beings.Ai {
     public class StrixAi: HostileAi {
 
         public StrixAi() : base() { }

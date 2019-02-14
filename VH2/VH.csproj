@@ -71,6 +71,8 @@
     <Compile Include="Game\World\Beings\Actions\PickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
     <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\SuckLifeAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\SuckStrengthAction.cs" />
     <Compile Include="Game\World\Beings\Actions\TakeStairsAction.cs" />
     <Compile Include="Game\World\Beings\Actions\AttackAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CloseDoorAction.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="Game\World\Beings\Ai\FleeBehavior.cs" />
     <Compile Include="Game\World\Beings\Ai\SicknessAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HostileAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\StrixAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\VampireAi.cs" />
     <Compile Include="Game\World\Beings\Ai\ViperAi.cs" />
     <Compile Include="Game\World\Beings\Animal.cs" />
     <Compile Include="Game\World\Beings\ArmorSlot.cs" />
