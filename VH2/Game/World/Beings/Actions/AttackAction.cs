@@ -15,6 +15,7 @@ namespace VH.Game.World.Beings.Actions {
 
         private Being attackee;
         private GameController controller = GameController.Instance;
+        protected int damage;
 
         public AttackAction(Being performer, Being attackee) : base(performer) {
             this.attackee = attackee;
@@ -27,7 +28,7 @@ namespace VH.Game.World.Beings.Actions {
         public override bool Perform() {
             int attack = Rng.Random.Next(performer.Attack);
             int defense = Rng.Random.Next(attackee.Defense);
-            int damage = attack - defense;
+            damage = attack - defense;
             if (damage > 0) {
                 attackee.DecreaseHealth(damage, performer.Accusativ);
                 notify("attack", attackee);
