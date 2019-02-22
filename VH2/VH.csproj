@@ -101,6 +101,7 @@
     <Compile Include="Game\World\Beings\Ai\StrixAi.cs" />
     <Compile Include="Game\World\Beings\Ai\VampireAi.cs" />
     <Compile Include="Game\World\Beings\Ai\ViperAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\WillOWispAi.cs" />
     <Compile Include="Game\World\Beings\Animal.cs" />
     <Compile Include="Game\World\Beings\ArmorSlot.cs" />
     <Compile Include="Game\World\Beings\HeadgearSlot.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Game\World\Beings\VhPc.cs" />
     <Compile Include="Game\World\Beings\VhSkill.cs" />
     <Compile Include="Game\World\Beings\WeaponSlot.cs" />
+    <Compile Include="Game\World\Beings\WillOWisp.cs" />
     <Compile Include="Game\World\Items\BodyWear\Armor.cs" />
     <Compile Include="Game\World\Items\EquipableItem.cs" />
     <Compile Include="Game\World\Items\MagicalItem.cs" />

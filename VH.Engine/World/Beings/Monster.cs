@@ -96,7 +96,7 @@ namespace VH.Engine.World.Beings {
             return element;
         }
 
-        public void Move(int gametimeTicks) {
+        public virtual void Move(int gametimeTicks) {
             AbstractAction action;
             ticksAvailable += gametimeTicks;
             do {

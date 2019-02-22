@@ -66,6 +66,10 @@ namespace VH.Engine.Levels {
             return position;
         }
 
+        public int Distance(Position position) {
+            return Math.Max(Math.Abs(position.X - X), Math.Abs(position.Y - Y));
+        }
+
         public bool Equals(Position otherPosition) {
             return X == otherPosition.X && Y == otherPosition.Y;
         }
