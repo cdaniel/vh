@@ -89,11 +89,13 @@ namespace VH.Game.World.Beings {
              do {
                 monster.Position.X = Rng.Random.Next(level.LevelWidth);
                  monster.Position.Y = Rng.Random.Next(level.LevelHeight);
-            } while (!isValidPosition(monster.Position, level));
+            } while (!isValidPosition(monster, level));
         }
 
-        private bool isValidPosition(Position position, Level level) {
-            return GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]) == Terrain.Get("ground").Character;
+        private bool isValidPosition(Monster monster, Level level) {
+            Position position = monster.Position;
+            char terrain = GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]);
+            return monster.CanWalkOn(terrain);
         }
 
         #endregion

@@ -104,6 +104,7 @@ namespace VH.Engine.World.Beings {
             race = prototype.Attributes[RACE].Value;
             if (prototype.Attributes[WALKABLE_TERRAIN] != null) walkableTerrain = prototype.Attributes[WALKABLE_TERRAIN].Value;
             if (prototype.Attributes[SPEED] != null) speed = float.Parse(prototype.Attributes[SPEED].Value, NumberFormatter.NumberFormat);
+            if (prototype.Attributes[WALKABLE_TERRAIN] != null) walkableTerrain = prototype.Attributes[WALKABLE_TERRAIN].Value;
         }
 
         public virtual void Kill() {
