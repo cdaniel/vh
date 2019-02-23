@@ -5,15 +5,18 @@ using System.Text;
 using System.Xml;
 using VH.Engine.Display;
 using VH.Engine.Game;
+using VH.Engine.Random;
 using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Beings.AI;
+using VH.Game.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Ai {
     public class WillOWispAi : BaseAi {
 
         #region constants
 
+        private const float CAUSE_CONFUSION_RATE = 0.05f;
         private const int MAX_DISTANCE = 5;
         private const string WANDER = "wander";
         private const string HAUNT = "haunt"; 
@@ -23,7 +26,7 @@ namespace VH.Game.World.Beings.Ai {
         #region fields 
 
         private AbstractAi wander;
-        private AbstractAi haunt;
+        private HauntBehavior haunt;
 
         #endregion
 
@@ -55,7 +58,7 @@ namespace VH.Game.World.Beings.Ai {
 
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
-            haunt = GetElement(HAUNT) as AbstractAi;
+            haunt = GetElement(HAUNT) as HauntBehavior;
             wander = GetElement(WANDER) as AbstractAi;
         }
 
@@ -67,15 +70,20 @@ namespace VH.Game.World.Beings.Ai {
         }
 
         public override AbstractAction SelectAction() {
+            Being hauntee = null;
             if (haunt == null) {
-                Being hauntee = findHauntee();
+                hauntee = findHauntee();
                 if (hauntee != null) {
                     haunt = new HauntBehavior(Being, hauntee);
                 }
+            } else {
+                hauntee = haunt.Oponent;
             }
-            if (haunt != null) return haunt.SelectAction();
-            else return wander.SelectAction();
-            
+            if (haunt != null) {
+                if (Rng.Random.NextFloat() < CAUSE_CONFUSION_RATE) return new CauseConfusionAction(hauntee);
+                else return haunt.SelectAction();
+            } 
+            return wander.SelectAction();
          }
 
         #endregion

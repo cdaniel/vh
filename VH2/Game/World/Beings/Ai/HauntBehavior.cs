@@ -32,6 +32,10 @@ namespace VH.Game.World.Beings.Ai {
             return wander.SelectAction();
         }
 
+        public Being Oponent {
+            get { return oponent; }
+        }
+
 
     }
 }
