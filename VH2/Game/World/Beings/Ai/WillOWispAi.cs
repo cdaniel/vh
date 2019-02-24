@@ -80,8 +80,12 @@ namespace VH.Game.World.Beings.Ai {
                 hauntee = haunt.Oponent;
             }
             if (haunt != null) {
-                if (Rng.Random.NextFloat() < CAUSE_CONFUSION_RATE) return new CauseConfusionAction(hauntee);
-                else return haunt.SelectAction();
+                if (Rng.Random.NextFloat() < CAUSE_CONFUSION_RATE) {
+                    Notify("manowce", hauntee);
+                    return new CauseConfusionAction(hauntee);
+                } else {
+                    return haunt.SelectAction();
+                }
             } 
             return wander.SelectAction();
          }
