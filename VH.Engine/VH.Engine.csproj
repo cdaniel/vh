@@ -62,6 +62,7 @@
     <Compile Include="Levels\MazeMapGenerator.cs" />
     <Compile Include="Levels\Passage.cs" />
     <Compile Include="Levels\Position.cs" />
+    <Compile Include="Levels\RiverGenerator.cs" />
     <Compile Include="Levels\Step.cs" />
     <Compile Include="Levels\Terrain.cs" />
     <Compile Include="Levels\TownMapGenerator.cs" />

@@ -16,6 +16,7 @@ namespace VH.Engine.Levels {
                 }
             }
             this.map = map;
+            new RiverGenerator().GenerateRiver(map);
             return map;
         }
 
