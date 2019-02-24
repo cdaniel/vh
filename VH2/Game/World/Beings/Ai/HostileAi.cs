@@ -20,6 +20,8 @@ namespace VH.Game.World.Beings.Ai {
 
         #endregion
 
+        #region public methods
+
         public override AbstractAction SelectAction() {
             // try to find oponent
             Being oponent = getOponent();
@@ -37,5 +39,7 @@ namespace VH.Game.World.Beings.Ai {
             // finally, just hang around
             else return new WaitAction(Being);
         }
+
+        #endregion
     }
 }

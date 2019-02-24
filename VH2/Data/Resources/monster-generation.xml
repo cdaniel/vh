@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <monster-generation>
   <level name="Miasto">
-    <generator mincount="1" maxcount="1" xpath="//monster[@id='willowisp']"/>
-    <!--<generator mincount="1" maxcount="3" xpath="//monster[@id='uboze']"/>
+    <generator mincount="1" maxcount="3" xpath="//monster[@id='uboze']"/>
     <generator mincount="8" maxcount="10" xpath="//monster[@race='human']"/>
-    <generator mincount="2" maxcount="4" xpath="//monster[@race='animal' and @danger&lt;=1]"/>-->
+    <generator mincount="2" maxcount="4" xpath="//monster[@race='animal' and @danger&lt;=1]"/>
   </level>
   <level name="D[0-9]+">
     <generator mincount="15" maxcount="25" xpath="//monster[not(@race='human') and @danger&lt;=$danger]"/>
+  </level>
+  <level name="Las">
+    <generator mincount="5" maxcount="15" xpath="//monster[@id='leshy']"/>
+    <generator mincount="5" maxcount="15" xpath="//monster[@id='forest-nymph']"/>
+    <generator mincount="2" maxcount="4" xpath="//monster[@race='animal']"/>
   </level>
 </monster-generation>

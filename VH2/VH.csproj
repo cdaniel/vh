@@ -86,8 +86,10 @@
     <Compile Include="Game\World\Beings\Ai\AnimalAi.cs" />
     <Compile Include="Game\World\Beings\Ai\BobokAi.cs" />
     <Compile Include="Game\World\Beings\Ai\CmukAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\LeshyAi.cs" />
     <Compile Include="Game\World\Beings\Ai\MothAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HumanAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\NymphAi.cs" />
     <Compile Include="Game\World\Beings\Ai\Stimuli\AttackStimulus.cs" />
     <Compile Include="Game\World\Beings\Ai\ChaseBehavior.cs" />
     <Compile Include="Game\World\Beings\Ai\FlyingAnimalAi.cs" />

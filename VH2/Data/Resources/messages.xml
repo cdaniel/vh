@@ -66,5 +66,7 @@
   <message key="suck-strength" person2="%Wyssysasz siły życiowe z %" person3="% gryzie % i wyssysa siły życiowe"/>
   <message key="suck-life" person2="%Wyssysasz esencję życiową z %" person3="% trafia % i wyssysa esencję życiową"/>
   <message key="manowce" person2="%Próbujesz zwieść % na manowce" person3="% próbuje zwieść % na manowce"/>
+  <message key="wake-up" person2="%Budzisz się ze znu" person3="Budzi się %"/>
+  <message key="sing" person2="%Zaczynasz śpiewać" person3="% oszałamia % swoim śpiewem"/>
 </messages>
 
