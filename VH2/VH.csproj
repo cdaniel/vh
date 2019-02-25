@@ -67,6 +67,7 @@
     <Compile Include="Game\World\Beings\Actions\EquipAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ExamineItemAction.cs" />
     <Compile Include="Game\World\Beings\Actions\IncreaseStrengthAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\JumpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
     <Compile Include="Game\World\Beings\Actions\PickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />

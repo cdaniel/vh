@@ -80,7 +80,8 @@ namespace VH.Game.World.Beings.Ai {
                 hauntee = haunt.Oponent;
             }
             if (haunt != null) {
-                if (Rng.Random.NextFloat() < CAUSE_CONFUSION_RATE) {
+                if (Rng.Random.NextFloat() < CAUSE_CONFUSION_RATE
+                    && Being.Position.Distance(hauntee.Position) <= MAX_DISTANCE) {
                     Notify("manowce", hauntee);
                     return new CauseConfusionAction(hauntee);
                 } else {

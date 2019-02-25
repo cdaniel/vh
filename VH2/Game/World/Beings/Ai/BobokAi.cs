@@ -11,7 +11,14 @@ using VH.Game.World.Beings.Actions;
 namespace VH.Game.World.Beings.Ai {
     public class BobokAi : HostileAi {
 
+        #region constants
+
         private const float STEAL_RATE = 0.3f;
+        private const float JUMP_RATE = 0.02f;
+
+        #endregion
+
+        #region constructors
 
         public BobokAi() {
         }
@@ -19,9 +26,15 @@ namespace VH.Game.World.Beings.Ai {
         public BobokAi(Being being) : base(being) {
         }
 
+        #endregion
+
+        #region public methods
 
         public override AbstractAction SelectAction() {
             AbstractAction action = base.SelectAction();
+
+            if (Rng.Random.NextFloat() < JUMP_RATE) return new JumpAction(Being);
+
             if (action is AttackAction) {
                 AttackAction attackAction = action as AttackAction;
                 Being attackee = attackAction.Attackee;
@@ -31,7 +44,11 @@ namespace VH.Game.World.Beings.Ai {
                     return attackAction;
                 }
             }
+
             return action;
         }
+
+        #endregion
+
     }
 }

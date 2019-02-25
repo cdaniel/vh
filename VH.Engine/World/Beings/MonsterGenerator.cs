@@ -64,7 +64,7 @@ namespace VH.Game.World.Beings {
                         xpath = xpath.Replace("$danger", "" + level.Danger);
                         for (int i = 0; i < count; ++i) {
                             Monster monster = facade.CreateMonster(xpath);
-                            definePosition(monster, level);
+                            monster.ChoosePosition();
                             level.Monsters.Add(monster);
                         }
                     }
@@ -83,19 +83,6 @@ namespace VH.Game.World.Beings {
                 if (regex.IsMatch(name)) return levelElement;
             }
             return null;
-        }
-
-        private void definePosition(Monster monster, Level level) {
-             do {
-                monster.Position.X = Rng.Random.Next(level.LevelWidth);
-                 monster.Position.Y = Rng.Random.Next(level.LevelHeight);
-            } while (!isValidPosition(monster, level));
-        }
-
-        private bool isValidPosition(Monster monster, Level level) {
-            Position position = monster.Position;
-            char terrain = GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[position]);
-            return monster.CanWalkOn(terrain);
         }
 
         #endregion

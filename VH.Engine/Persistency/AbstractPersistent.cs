@@ -12,6 +12,7 @@ namespace VH.Engine.Persistency {
         #region constants
 
         private const string LIST_ITEM = "-item";
+        private const string UUID = "uuid";
 
         #endregion
 
@@ -19,10 +20,19 @@ namespace VH.Engine.Persistency {
 
         private XmlDocument doc;
         private XmlElement element;
+        private string uuid; 
 
         #endregion
 
-        #region public virtual methods
+        public string Uuid {
+            get {
+                if (uuid == null) uuid = Guid.NewGuid().ToString();
+                return uuid;
+            }
+            set { uuid = value; }
+        }
+
+        #region public methods
 
         public virtual XmlElement ToXml(string name, XmlDocument doc) {
             this.doc = doc;
@@ -36,16 +46,13 @@ namespace VH.Engine.Persistency {
             element.Attributes.Append(typeAttribute);
             assemblyAttribute.Value = assemblyName;
             element.Attributes.Append(assemblyAttribute);
+            
             return element;
         }
 
         public virtual void FromXml(XmlElement element) {
             this.element = element;
         }
-
-        #endregion
-
-        #region public methods
 
         public string GetStringAttribute(String name) {
             return element.Attributes[name].Value;

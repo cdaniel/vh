@@ -8,6 +8,9 @@ using VH.Engine.World.Beings.AI;
 using System.Globalization;
 using VH.Engine.Tools;
 using VH.Engine.Persistency;
+using VH.Engine.Random;
+using VH.Engine.Levels;
+using VH.Engine.Game;
 
 namespace VH.Engine.World.Beings {
 
@@ -134,6 +137,24 @@ namespace VH.Engine.World.Beings {
             temps = GetElement(TEMPS) as TempSet;
             ai = GetElement(AI) as AbstractAi;
             ai.Being = this;
+        }
+
+        public void ChoosePosition() {
+            do {
+                Level level = GameController.Instance.Level;
+                Position.X = Rng.Random.Next(level.LevelWidth);
+                Position.Y = Rng.Random.Next(level.LevelHeight);
+            } while (!isValidPosition());
+        }
+
+        #endregion
+
+        #region private methods
+
+        private bool isValidPosition() {
+            Level level = GameController.Instance.Level;
+            char terrain = GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[Position]);
+            return CanWalkOn(terrain);
         }
 
         #endregion
