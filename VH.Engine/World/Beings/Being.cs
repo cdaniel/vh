@@ -52,6 +52,10 @@ namespace VH.Engine.World.Beings {
 
         #region properties
 
+        public string WalkableTerrain {
+            get { return walkableTerrain; }
+        }
+
         /// <summary>
         /// Gets the speed of this Being.
         /// </summary>
@@ -154,7 +158,7 @@ namespace VH.Engine.World.Beings {
         private bool isValidPosition() {
             Level level = GameController.Instance.Level;
             char terrain = GameController.Instance.ViewPort.GetDisplayCharacter(level.Map[Position]);
-            return CanWalkOn(terrain);
+            return WalkableTerrain.Contains(terrain);
         }
 
         #endregion

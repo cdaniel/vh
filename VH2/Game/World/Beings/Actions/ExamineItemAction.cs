@@ -13,7 +13,13 @@ namespace VH.Game.World.Beings.Actions {
 
     public class ExamineItemAction: AbstractAction {
 
+        #region fields
+
         private Item item = null;
+
+        #endregion
+
+        #region constructors
 
         public ExamineItemAction(Being performer) : base(performer) { }
 
@@ -22,10 +28,18 @@ namespace VH.Game.World.Beings.Actions {
                 this.item = item;
         }
 
+        #endregion
+
+        #region properties
+
         public Item Item {
             get { return item; }
             set { item = value; }
         }
+
+        #endregion
+
+        #region public methods
 
         public override bool Perform() {
             if (Performer is ISkillsBeing && Item is MagicalItem) {
@@ -52,19 +66,24 @@ namespace VH.Game.World.Beings.Actions {
 
                 // TODO: store separate identify value for each being.
                 // not relevant yet, as beings other than the PC are not able to use identification, but bogus anyway.
-                if ( unidentified && identification.Value > (Item as MagicalItem).IdentifyValue) {
-                    if (identification.Roll(Item.Danger)) {
-                        (Item as MagicalItem).Identify();
-                        notify("identify", item);
-                    } else {
-                        notify("no-identify");
-                    }
+                if (unidentified) {
+                    if (identification.Value > (Item as MagicalItem).IdentifyValue) {
+                        if (identification.Roll(Item.Danger)) {
+                            (Item as MagicalItem).Identify();
+                            notify("identify", item);
+                        } else {
+                            notify("no-identify");
+                        }
                     (Item as MagicalItem).IdentifyValue = identification.Value;
-                } else {
-                    notify("next-no-identify", item);
+                    } else {
+                        notify("next-no-identify", item);
+                    }
                 }
             }
             return true;
         }
+
+        #endregion
+
     }
 }

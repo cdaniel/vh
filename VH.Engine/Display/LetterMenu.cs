@@ -119,7 +119,7 @@ namespace VH.Engine.Display {
 
         private bool isValidChar(char c) {
             if (!chars.Contains(c)) return false;
-            return getIndexforChar(c) <= objects.Length;
+            return getIndexforChar(c) < objects.Length;
         }
 
         #endregion

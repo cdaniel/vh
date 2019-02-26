@@ -16,7 +16,8 @@ namespace VH.Game.World.Beings.Ai {
 
         #region constants
 
-        private const float CAUSE_CONFUSION_RATE = 0.05f;
+        private const float CAUSE_CONFUSION_RATE = 0.02f;
+        private const float JUMP_RATE = 0.02f;
         private const int MAX_DISTANCE = 5;
         private const string WANDER = "wander";
         private const string HAUNT = "haunt"; 
@@ -70,6 +71,9 @@ namespace VH.Game.World.Beings.Ai {
         }
 
         public override AbstractAction SelectAction() {
+
+            if (Rng.Random.NextFloat() < JUMP_RATE) return new JumpAction(Being);
+
             Being hauntee = null;
             if (haunt == null) {
                 hauntee = findHauntee();
