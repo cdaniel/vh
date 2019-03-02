@@ -16,6 +16,8 @@ namespace VH.Game.World.Beings.Ai {
 
         private const float MOVE_RATE = 0.3f;
 
+        public NeutralBehavior(): base() { }
+
         public NeutralBehavior(Being being) : base(being) { }
 
         public override AbstractAction SelectAction() {

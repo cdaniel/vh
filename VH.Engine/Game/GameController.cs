@@ -148,6 +148,16 @@ namespace VH.Engine.Game {
 
         #region public methods
 
+        public virtual AbstractPersistent FindPersistent(string uuid) {
+            foreach (Being being in Beings) {
+                if (being.Uuid == uuid) return being;
+            }
+            foreach (Item item in Level.Items) {
+                if (item.Uuid == uuid) return item; 
+            }
+            return null; 
+        }
+
         public override void FromXml(XmlElement element) {
             base.FromXml(element);
             gametimeTicks = GetIntAttribute("gametime-ticks"); // TODO convert XML element and attribute names to constants

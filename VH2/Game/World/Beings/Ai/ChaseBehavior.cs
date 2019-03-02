@@ -8,18 +8,18 @@ using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Ai {
 
-    public class ChaseBehavior: BaseAi {
+    public class ChaseBehavior: OponentDependantBehaviour {
 
-        private Being oponent;
+        public ChaseBehavior() : base() { }
 
         public ChaseBehavior(Being being, Being oponent)
             : base(being) {
-                this.oponent = oponent;
+                Oponent = oponent;
         }
 
         public override AbstractAction SelectAction() {
-            if (isAdjacentTo(oponent)) return new AttackAction(Being, oponent);
-            else return new MoveAction(Being, getStepTowards(getPossibleSteps(Being, oponent.Position)));
+            if (isAdjacentTo(Oponent)) return new AttackAction(Being, Oponent);
+            else return new MoveAction(Being, getStepTowards(getPossibleSteps(Being, Oponent.Position)));
         }
 
         protected bool isAdjacentTo(Being oponent) {

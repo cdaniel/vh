@@ -24,7 +24,6 @@ namespace VH.Engine.World.Beings {
         private const string WALKABLE_TERRAIN = "walkable-terrain";
         private const string SPEED = "speed";
         private const string RACE = "race";
-        private const string TEMPS = "temps";
         private const string AI = "ai";
 
         #endregion
@@ -128,7 +127,6 @@ namespace VH.Engine.World.Beings {
             AddAttribute(WALKABLE_TERRAIN, walkableTerrain);
             AddAttribute(RACE, race);
             AddAttribute(SPEED, (int)(speed * 1000));
-            AddElement(TEMPS, temps);
             AddElement(AI, ai);
             return element;
         }
@@ -138,7 +136,6 @@ namespace VH.Engine.World.Beings {
             walkableTerrain = GetStringAttribute(WALKABLE_TERRAIN);
             race = GetStringAttribute(RACE);
             speed = GetIntAttribute(SPEED) / 1000f;
-            temps = GetElement(TEMPS) as TempSet;
             ai = GetElement(AI) as AbstractAi;
             ai.Being = this;
         }

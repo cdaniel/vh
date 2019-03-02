@@ -38,20 +38,19 @@ namespace VH.Engine.Persistency {
             this.doc = doc;
             XmlElement element = doc.CreateElement(name);
             this.element = element;
-            XmlAttribute typeAttribute = doc.CreateAttribute("type");
-            XmlAttribute assemblyAttribute = doc.CreateAttribute("assembly");
-            String typeName = this.GetType().FullName;
-            String assemblyName = Path.GetFileName(GetType().Assembly.Location);
-            typeAttribute.Value = typeName;
-            element.Attributes.Append(typeAttribute);
-            assemblyAttribute.Value = assemblyName;
-            element.Attributes.Append(assemblyAttribute);
-            
+            AddAttribute("type", this.GetType().FullName);
+            AddAttribute("assembly", Path.GetFileName(GetType().Assembly.Location));
+            AddAttribute("uuid", Uuid);
             return element;
         }
 
         public virtual void FromXml(XmlElement element) {
             this.element = element;
+            uuid = GetStringAttribute("uuid");
+        }
+
+        public bool HasAttribute(String name) {
+            return element.Attributes[name] != null;
         }
 
         public string GetStringAttribute(String name) {

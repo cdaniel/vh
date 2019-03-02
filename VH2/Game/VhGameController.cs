@@ -96,6 +96,7 @@ namespace VH.Game {
             } catch (Exception ex) {
                 Console.Clear();
                 Console.Write("'" + filename + "' is corrupted or is not a valid save file\n");
+                Console.Write(ex.StackTrace);
                 Console.Write("press any key");
                 Console.ReadKey();
                 throw;

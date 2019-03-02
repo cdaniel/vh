@@ -14,18 +14,20 @@ namespace VH2 {
         static void Main(string[] args) {
             try {
                 GameController.Instance = new VhGameController();
-#if !DEBUG
+//#if !DEBUG
                 if (args.Length > 0) {
                     GameController.Instance.Play(args[0]);
                 } else {
-#endif
+//#endif
                 GameController.Instance.Play();
-#if !DEBUG
+//#if !DEBUG
                 }
-#endif
+//#endif
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
-                string filename = Application.StartupPath + "\\Data\\" + DateTime.Now.ToString("dd.mm.yyyy-h:mm:ss") + "_error.log";
+                Console.Write(ex.StackTrace);
+                Console.ReadKey();
+                string filename = Application.StartupPath + "\\Data\\_error.log";
                 System.IO.File.WriteAllText(filename, ex.Message + "\n" + ex.StackTrace);
             }
         }

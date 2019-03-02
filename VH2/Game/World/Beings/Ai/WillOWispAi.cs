@@ -19,8 +19,9 @@ namespace VH.Game.World.Beings.Ai {
         private const float CAUSE_CONFUSION_RATE = 0.02f;
         private const float JUMP_RATE = 0.02f;
         private const int MAX_DISTANCE = 5;
+
         private const string WANDER = "wander";
-        private const string HAUNT = "haunt"; 
+        private const string HAUNT = "haunt";
 
         #endregion
 
@@ -50,6 +51,7 @@ namespace VH.Game.World.Beings.Ai {
             set {
                 base.Being = value;
                 wander = new NeutralBehavior(Being);
+                if (haunt != null) haunt.Being = Being;
             }
         }
 
@@ -67,7 +69,7 @@ namespace VH.Game.World.Beings.Ai {
             XmlElement element = base.ToXml(name, doc);
             AddElement(HAUNT, haunt);
             AddElement(WANDER, wander);
-            return element;
+            return element; 
         }
 
         public override AbstractAction SelectAction() {

@@ -8,17 +8,17 @@ using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Ai {
 
-    public class FleeBehavior: BaseAi {
+    public class FleeBehavior: OponentDependantBehaviour {
 
-        Being oponent;
+        public FleeBehavior(): base() { }
 
         public FleeBehavior(Being being, Being oponent)
             : base(being) {
-                this.oponent = oponent;
+                Oponent = oponent;
         }
 
         public override AbstractAction SelectAction() {
-            return new MoveAction(Being, getStepAwayFrom(getPossibleSteps(Being, oponent.Position)));
+            return new MoveAction(Being, getStepAwayFrom(getPossibleSteps(Being, Oponent.Position)));
         }
     }
 }
