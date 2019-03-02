@@ -14,15 +14,15 @@ namespace VH2 {
         static void Main(string[] args) {
             try {
                 GameController.Instance = new VhGameController();
-//#if !DEBUG
+#if !DEBUG
                 if (args.Length > 0) {
                     GameController.Instance.Play(args[0]);
                 } else {
-//#endif
+#endif
                 GameController.Instance.Play();
-//#if !DEBUG
+#if !DEBUG
                 }
-//#endif
+#endif
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 Console.Write(ex.StackTrace);
