@@ -17,7 +17,7 @@ namespace VH.Game.World.Items {
         public override void Generate(Level level) {
             level.Items.Clear();
             int danger = level.Danger;
-            int max = Rng.Random.Next(level.LevelHeight * level.LevelWidth / 100);
+            int max = Rng.Random.Next(level.LevelHeight * level.LevelWidth / 200);
             for (int i = 0; i < max; ++i) {
                 Item item = facade.CreateItemByDanger(danger);
                 do {
