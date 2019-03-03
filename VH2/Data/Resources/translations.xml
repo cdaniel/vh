@@ -13,8 +13,7 @@
   <entry key="neckwear-slot" value="Szyja" />
   <entry key="weapon-slot" value="Ręce" />
   <entry key="armor-slot" value="Ciało" />
-  <entry key="right-ring" value="Pierścień" />
-  <entry key="left-ring" value="Pierścień" />       
+  <entry key="ring-slot" value="Pierścień" />
   <entry key="select-item" value="Wybierz przedmiot" />
   
   <entry key="stats" value="Parametry"/>

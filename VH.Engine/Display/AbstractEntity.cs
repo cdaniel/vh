@@ -45,7 +45,7 @@ namespace VH.Engine.Display {
         private Position position = new Position();
         private ConsoleColor color = ConsoleColor.Gray;
         private int danger;
-        private string tags;
+        private string tags = "";
 
         #endregion
 
