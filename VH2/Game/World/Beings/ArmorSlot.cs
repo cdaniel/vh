@@ -10,10 +10,8 @@ namespace VH.Game.World.Beings {
 
     public class ArmorSlot: EquipmentSlot {
 
-        public ArmorSlot() { }
-
-        public override string Name {
-            get { return Translator.Instance["armor-slot"]; }
+        public ArmorSlot(): base() {
+            id = "armor-slot";
         }
 
         public override bool IsItemCompatible(Item item) {

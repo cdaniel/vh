@@ -11,14 +11,12 @@ namespace VH.Game.World.Beings {
 
         private string name;
 
-        public RingSlot() { }
-
-        public RingSlot(string name) {
-            this.name = name;
+        public RingSlot(): base() {
+            id = "ring-slot";
         }
 
-        public override string Name {
-            get { return name; }
+        public RingSlot(string name): this() {
+            this.name = name;
         }
 
         public override void FromXml(XmlElement element) {

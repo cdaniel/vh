@@ -9,10 +9,8 @@ namespace VH.Game.World.Beings {
 
     public class NeckwearSlot: EquipmentSlot {
 
-        public NeckwearSlot() { }
-
-        public override string Name {
-            get { return Translator.Instance["neckwear-slot"]; }
+        public NeckwearSlot(): base() {
+            id = "neckwear-slot";
         }
 
         public override bool IsItemCompatible(Item item) {

@@ -63,6 +63,7 @@
     <Compile Include="Game\World\Beings\Actions\ConsumeRueOilAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeToadVenomAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeWormwoodAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\DigAction.cs" />
     <Compile Include="Game\World\Beings\Actions\DropAction.cs" />
     <Compile Include="Game\World\Beings\Actions\EquipAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ExamineItemAction.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
     <Compile Include="Game\World\Beings\Actions\PickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\SearchAction.cs" />
     <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckLifeAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckStrengthAction.cs" />

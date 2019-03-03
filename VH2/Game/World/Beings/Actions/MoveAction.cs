@@ -59,12 +59,18 @@ namespace VH.Game.World.Beings.Actions {
                 return new OpenDoorAction(performer, step).Perform();
             }
 
+            // moving onto a wall results in an attept to dig through it
+
             // moving into a Being results in attacking it
             Being being = controller.GetBeingAt(newPosition);
             if (being != null && being != performer) return new AttackAction(performer, being).Perform();
 
             // check if performer is able to walk through whatever is at the level at new position
+            // moving onto a wall results in an attept to dig through it
             char feature = controller.ViewPort.GetDisplayCharacter(controller.Map[newPosition]);
+            if (!performer.CanWalkOn(feature)) {
+                if (new DigAction(performer, newPosition).Perform()) return true;
+            }
             if (!performer.CanWalkOn(feature)  || (being != null && being != performer)) {
                 if ((Performer as ITempsBeing).Temps["blind"]) notify("boom");
                 return false;

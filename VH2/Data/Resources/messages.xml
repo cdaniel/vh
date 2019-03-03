@@ -70,6 +70,8 @@
   <message key="sing" person2="%Zaczynasz śpiewać" person3="% oszałamia % swoim śpiewem"/>
   <message key="disappear" person2="%Przenosisz się przez eter w inne miejsce" person3="% znika!"/>
   <message key="appear" person2="%Czujesz się nieco bardziej materialny" person3="Pojawia się %"/>
+  <message key="digging-succeeded" person2="Przekopujesz się przez ścianę" person3="% robi dziurę w ścianie"/>
+  <message key="digging-failed" person2="Ściana jest za twarda" person3="% skrobie ścianę"/>
 </messages>
 
 

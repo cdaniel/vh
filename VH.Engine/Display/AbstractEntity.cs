@@ -19,7 +19,7 @@ namespace VH.Engine.Display {
     /// Represents an entity that can be displayed on the screen. 
     /// Not for level squares representation.
     /// </summary>
-    public abstract class AbstractEntity : AbstractPersistent, Creatable  {
+    public abstract class AbstractEntity : AbstractPersistent, Creatable {
 
         #region constants
 
@@ -31,6 +31,7 @@ namespace VH.Engine.Display {
         private const string COLOR = "color";
         private const string DANGER = "danger";
         private const string POSITION = "position";
+        private const string TAGS = "tags";
 
         #endregion
 
@@ -44,6 +45,7 @@ namespace VH.Engine.Display {
         private Position position = new Position();
         private ConsoleColor color = ConsoleColor.Gray;
         private int danger;
+        private string tags;
 
         #endregion
 
@@ -122,6 +124,11 @@ namespace VH.Engine.Display {
             set { danger = value; }
         }
 
+        public string Tags {
+            get { return tags; }
+            set { tags = value; }
+        }
+
         #endregion
 
         #region public methods
@@ -134,6 +141,7 @@ namespace VH.Engine.Display {
             accusativ = GetStringAttribute(ACCUSATIV);
             plural = GetStringAttribute(PLURAL);
             danger = GetIntAttribute(DANGER);
+            tags = GetStringAttribute(TAGS);
             color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), GetStringAttribute(COLOR));
             position = GetElement(POSITION) as Position;
         }
@@ -147,6 +155,7 @@ namespace VH.Engine.Display {
             AddAttribute(PLURAL, plural);
             AddAttribute(DANGER, danger);
             AddAttribute(COLOR, color.ToString());
+            AddAttribute(TAGS, tags);
             AddElement(POSITION, position);
             return element;
         }
@@ -156,6 +165,7 @@ namespace VH.Engine.Display {
             Character = prototype.Attributes[CHARACTER].Value[0];
             Name = prototype.Attributes[NAME].Value;
             Danger = int.Parse(prototype.Attributes[DANGER].Value);
+            if (prototype.Attributes[TAGS] != null) Tags = prototype.Attributes[TAGS].Value;
             if (prototype.Attributes[ACCUSATIV] != null) Accusativ = prototype.Attributes[ACCUSATIV].Value;
             if (prototype.Attributes[PLURAL] != null) Plural = prototype.Attributes[PLURAL].Value;
             if (prototype.Attributes[COLOR] != null) {
@@ -164,6 +174,10 @@ namespace VH.Engine.Display {
                     prototype.Attributes[COLOR].Value
                 );
             }
+        }
+
+        public bool HasTag(string tag) {
+            return tags.IndexOf(tag + ";") > -1;
         }
 
         #endregion

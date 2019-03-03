@@ -16,6 +16,7 @@ namespace VH.Engine.World.Items {
         #region fields
 
         protected Item item;
+        protected string id;
 
         #endregion
 
@@ -29,11 +30,17 @@ namespace VH.Engine.World.Items {
         #endregion
 
         #region properties
-        
+
         /// <summary>
         /// Gets the name ot this equipment slot
         /// </summary>
-        public abstract string Name { get; }
+        public string Id {
+            get { return id; }
+        }
+
+        public string Name {
+            get { return Translator.Instance[id]; }
+        }
 
         /// <summary>
         /// Gets otr sets an Item that is contained in this EquipmentSlot

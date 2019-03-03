@@ -62,6 +62,15 @@ namespace VH.Engine.World.Items {
             get { return slots[i]; } 
         }
 
+        public EquipmentSlot this[string id] {
+            get {
+                foreach (EquipmentSlot slot in slots) {
+                    if (slot.Id == id) return slot;
+                }
+                return null; 
+            }
+        }
+
         /// <summary>
         /// The combined attack bonus of all equipped Items
         /// </summary>
