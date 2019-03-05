@@ -10,6 +10,7 @@ namespace VH.Game.World.Beings.Actions {
 
     public class SearchAction: VhAction {
 
+        public SearchAction() : base(null) { }
         public SearchAction(Being being): base(being) { }
 
         public override bool Perform() {

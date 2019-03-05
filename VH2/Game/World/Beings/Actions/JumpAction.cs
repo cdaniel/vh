@@ -8,6 +8,7 @@ using VH.Engine.World.Beings.Actions;
 namespace VH.Game.World.Beings.Actions {
     public class JumpAction : VhAction {
 
+        public JumpAction() : base(null) { }
         public JumpAction(Being performer): base(performer) { }
 
 
