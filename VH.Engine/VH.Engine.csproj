@@ -54,6 +54,8 @@
     <Compile Include="Display\VerticalMessageWindow.cs" />
     <Compile Include="Display\YesNoMenu.cs" />
     <Compile Include="Game\GameController.cs" />
+    <Compile Include="Levels\Cell.cs" />
+    <Compile Include="Levels\SplitOrientation.cs" />
     <Compile Include="Levels\FloodedDungeonMapGenerator.cs" />
     <Compile Include="Levels\ForestMapGenerator.cs" />
     <Compile Include="Levels\Level.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Levels\Passage.cs" />
     <Compile Include="Levels\Position.cs" />
     <Compile Include="Levels\RiverGenerator.cs" />
+    <Compile Include="Levels\Room.cs" />
     <Compile Include="Levels\Step.cs" />
     <Compile Include="Levels\Terrain.cs" />
     <Compile Include="Levels\TownMapGenerator.cs" />

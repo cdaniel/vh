@@ -57,7 +57,7 @@
   <message key="read-failed" person2="%Nie udaje ci się przeczytać %" person3="% gapi się głupkowato na %"/>
   <message key="cast-light" person2="%Wokół robi się jaśniej" person3="Wokół % robi się jaśniej" />
   <message key="spell-failed" person2="%Jesteś za kiepski w magji" person3="% patrzy dookoła zdziwiony"/>
-  <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="Wokół % zapada ciemność"/>
+  <message key="cast-darkness" person2="%Nagle zapada ciemność" person3="% znika w ciemnościach"/>
   <message key="refreshing" person2="%Przyjemnie świeży smak" person3=""/>
   <message key="petrification-resistance" person2="%czujesz jak rozluźniają ci się mięśnie" person3="% dygocze z lekka"/>
   <message key="steal" person2="%Wyciągasz przedmiot z plecaka wroga" person3="% okrada %" />
