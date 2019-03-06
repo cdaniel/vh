@@ -306,6 +306,7 @@ namespace VH.Engine.VhConsole {
         private void ConsoleForm_Load(object sender, EventArgs e) {
             bitmap = new Bitmap(ClientRectangle.Width, ClientRectangle.Height, PixelFormat.Format24bppRgb);
             g = Graphics.FromImage(bitmap);
+            Text = Application.ProductName;
             ready = true;
         }
 

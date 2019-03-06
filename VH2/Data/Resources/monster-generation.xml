@@ -16,7 +16,7 @@
     <generator mincount="3" maxcount="6" xpath="//monster[@id='forest-nymph']"/>
     <generator mincount="1" maxcount="3" xpath="//monster[@id='water-nymph']"/>
     <generator mincount="1" maxcount="3" xpath="//monster[@id='utopiec']"/>
+    <generator mincount="1" maxcount="2" xpath="//monster[@id='willowisp']"/>
     <generator mincount="3" maxcount="5" xpath="//monster[@race='animal']"/>
-    <generator mincount="1" maxcount="2" xpath="//monster[@race='willowisp']"/>
   </level>
 </monster-generation>
