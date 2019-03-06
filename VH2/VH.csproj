@@ -55,6 +55,7 @@
     <Compile Include="Game\World\Beings\Actions\CauseBlindnessAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CauseConfusionAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CausePoisoningAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\ChopAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ConsumeAlcoholAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CauseIllnessAction.cs" />
     <Compile Include="Game\World\Beings\Actions\CastLightAction.cs" />

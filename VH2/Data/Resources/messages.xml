@@ -72,6 +72,9 @@
   <message key="appear" person2="%Czujesz się nieco bardziej materialny" person3="Pojawia się %"/>
   <message key="digging-succeeded" person2="Przekopujesz się przez ścianę" person3="% robi dziurę w ścianie"/>
   <message key="digging-failed" person2="Ściana jest za twarda" person3="% skrobie ścianę"/>
+  <message key="choping-succeeded" person2="Ścinasz drzewo" person3="% ścina drzewo"/>
+  <message key="choping-failed" person2="Bezskutecznie próbujesz ściąć drzewo" person3="% bezskutecznie próbuje ściąć drzewo"/>
+
 </messages>
 
 

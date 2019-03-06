@@ -17,7 +17,7 @@ namespace VH.Game.World.Beings.Actions {
         }
 
         public override bool Perform() {
-            bool result = base.Perform();
+            base.Perform();
             if (performer is IEquipmentBeing && performer is ISkillsBeing) {
                 Equipment equipment = (performer as IEquipmentBeing).Equipment;
                 EquipmentSlot slot = equipment["weapon-slot"];
@@ -36,7 +36,7 @@ namespace VH.Game.World.Beings.Actions {
                     }
                 }
             }
-            return result;
+            return false;
         }
     }
 }

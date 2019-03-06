@@ -70,6 +70,7 @@ namespace VH.Game.World.Beings.Actions {
             char feature = controller.ViewPort.GetDisplayCharacter(controller.Map[newPosition]);
             if (!performer.CanWalkOn(feature)) {
                 if (new DigAction(performer, newPosition).Perform()) return true;
+                if (new ChopAction(performer, newPosition).Perform()) return true;
             }
             if (!performer.CanWalkOn(feature)  || (being != null && being != performer)) {
                 if ((Performer as ITempsBeing).Temps["blind"]) notify("boom");

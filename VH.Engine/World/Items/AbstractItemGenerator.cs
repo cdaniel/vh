@@ -10,6 +10,10 @@ namespace VH.Engine.World.Items {
 
         protected ItemFacade facade;
 
+        public ItemFacade ItemFacade {
+            get { return facade; }
+        }
+
         public AbstractItemGenerator(ItemFacade facade) {
             this.facade = facade;
         }
