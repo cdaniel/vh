@@ -217,8 +217,7 @@ namespace VH.Game {
         }
 
         private void showLevelName() {
-            console.GoTo(5, 49);
-            console.Write("        ");
+            console.Clear(5, 49, 10, 1);
             console.GoTo(5, 49);
             console.ForegroundColor = ConsoleColor.Gray;
             string levelString = Level.Name;
@@ -349,8 +348,7 @@ namespace VH.Game {
         }
 
         private void showStatus() {
-            console.GoTo(55, 49);
-            console.Write("                     ");
+            console.Clear(55, 49, 21, 1);
             console.GoTo(55, 49);
 
             TempSet temps = (Pc as ITempsBeing).Temps;
