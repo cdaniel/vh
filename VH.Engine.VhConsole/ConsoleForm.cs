@@ -44,7 +44,7 @@ namespace VH.Engine.VhConsole {
 
         Bitmap bitmap;
         Graphics g;
-        Font font = new Font("Courier", 10);
+        Font font = new Font("Courier", 10, FontStyle.Bold);
         SolidBrush brush = new SolidBrush(Color.LightGreen);
         Brush deleteBrush = new SolidBrush(Color.Black);
         ConsoleColor foregroundColor;
@@ -292,7 +292,7 @@ namespace VH.Engine.VhConsole {
                 case ConsoleColor.DarkGreen: return Color.DarkGreen;
                 case ConsoleColor.DarkMagenta: return Color.DarkMagenta;
                 case ConsoleColor.DarkRed: return Color.DarkRed;
-                case ConsoleColor.DarkYellow: return Color.DarkOrange;
+                case ConsoleColor.DarkYellow: return Color.Brown;
                 case ConsoleColor.Gray: return Color.Gray;
                 case ConsoleColor.Green: return Color.Green;
                 case ConsoleColor.Magenta: return Color.Magenta;
