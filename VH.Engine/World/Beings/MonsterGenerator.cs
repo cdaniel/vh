@@ -64,8 +64,7 @@ namespace VH.Game.World.Beings {
                         xpath = xpath.Replace("$danger", "" + level.Danger);
                         for (int i = 0; i < count; ++i) {
                             Monster monster = facade.CreateMonster(xpath);
-                            monster.ChoosePosition();
-                            level.Monsters.Add(monster);
+                            if (monster.ChoosePosition()) level.Monsters.Add(monster);
                         }
                     }
                 }

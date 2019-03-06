@@ -140,12 +140,26 @@ namespace VH.Engine.World.Beings {
             ai.Being = this;
         }
 
-        public void ChoosePosition() {
+        public bool ChoosePosition() {
+            int c = 0;
+            Level level = GameController.Instance.Level;
             do {
-                Level level = GameController.Instance.Level;
                 Position.X = Rng.Random.Next(level.LevelWidth);
                 Position.Y = Rng.Random.Next(level.LevelHeight);
-            } while (!isValidPosition());
+                ++c;
+            } while (!isValidPosition() && c <= 10);
+            if (c > 10) {
+                List<Position> positions = new List<Position>();
+                for (int x = 0; x < level.LevelWidth; ++x) {
+                    for (int y = 0; y < level.LevelHeight; ++y) {
+                        if (CanWalkOn(level.Map[x, y])) positions.Add(new Position(x, y));
+                    }
+                }
+                if (positions.Count == 0) return false;
+                int i = Rng.Random.Next(positions.Count);
+                this.Position = positions[i];
+            }
+            return true;
         }
 
         #endregion

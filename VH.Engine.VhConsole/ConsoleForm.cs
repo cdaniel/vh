@@ -26,6 +26,7 @@ namespace VH.Engine.VhConsole {
         private const int WIDTH = 80;
         private const int HEIGHT = 50;
         private const char NEWLINE = '\r';
+        private const string FONT_NAME = "Courier";
 
         #endregion
 
@@ -314,12 +315,12 @@ namespace VH.Engine.VhConsole {
             int fontSize = 1;
             SizeF stringSize;
             do {
-                Font font = new Font("Courier", fontSize, FontStyle.Bold);
+                Font font = new Font(FONT_NAME, fontSize, FontStyle.Bold);
                 stringSize = g.MeasureString(s, font);
                 fontSize++;
             } while (stringSize.Width * 10 <= hRes && stringSize.Height * 50 <= vRes);
             fontSize--;
-            this.font = new Font("Courier", fontSize, FontStyle.Bold);
+            this.font = new Font(FONT_NAME, fontSize, FontStyle.Bold);
             stringSize = g.MeasureString(s, this.font);
             this.fontWidth = (int)(stringSize.Width / 8.0f);
             this.fontHeight = (int)stringSize.Height - 2;

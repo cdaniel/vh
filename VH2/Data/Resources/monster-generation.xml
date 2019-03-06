@@ -9,6 +9,8 @@
     <generator mincount="25" maxcount="35" xpath="//monster[contains(@tags, 'terrestrial;') and @danger&lt;=$danger]"/>
   </level>
   <level name="Jaskinia">
+    <generator mincount="1" maxcount="3" xpath="//monster[@id='pike']"/>
+
     <generator mincount="15" maxcount="25" xpath="//monster[contains(@tags, 'terrestrial;') and @danger&lt;=$danger]"/>
   </level>
   <level name="Las">
