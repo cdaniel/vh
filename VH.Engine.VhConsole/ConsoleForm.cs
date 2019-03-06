@@ -304,8 +304,26 @@ namespace VH.Engine.VhConsole {
         }
 
         private void ConsoleForm_Load(object sender, EventArgs e) {
-            bitmap = new Bitmap(ClientRectangle.Width, ClientRectangle.Height, PixelFormat.Format24bppRgb);
+            int hRes = ClientRectangle.Width;
+            int vRes = ClientRectangle.Height;
+            bitmap = new Bitmap(hRes, vRes, PixelFormat.Format24bppRgb);
             g = Graphics.FromImage(bitmap);
+
+            string s = "12345678";
+
+            int fontSize = 1;
+            SizeF stringSize;
+            do {
+                Font font = new Font("Courier", fontSize, FontStyle.Bold);
+                stringSize = g.MeasureString(s, font);
+                fontSize++;
+            } while (stringSize.Width * 10 <= hRes && stringSize.Height * 50 <= vRes);
+            fontSize--;
+            this.font = new Font("Courier", fontSize, FontStyle.Bold);
+            stringSize = g.MeasureString(s, this.font);
+            this.fontWidth = (int)(stringSize.Width / 8.0f);
+            this.fontHeight = (int)stringSize.Height - 2;
+
             Text = Application.ProductName;
             ready = true;
         }
