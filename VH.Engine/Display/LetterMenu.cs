@@ -92,6 +92,7 @@ namespace VH.Engine.Display {
             window.Clear();
             window.Console.ForegroundColor = ConsoleColor.Gray;
             window.ShowMessage(sb.ToString());
+            window.Console.Refresh();
             // ready user input
             char c;
             do {

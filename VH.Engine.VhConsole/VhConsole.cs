@@ -1,34 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VH.Engine.Display;
 
 namespace VH.Engine.VhConsole {
 
-    public class VhConsole: IConsole {
+    public class VhConsole : IConsole {
 
         #region fields
 
-        ConsoleForm consoleForm;
+        ConsoleForm consoleForm = null;
+        private static object padlock = new object();
 
         #endregion
 
         #region constructors
 
+        void runConsole() {
+            ConsoleForm.Show();
+            Application.Run();
+        }
+
         public VhConsole() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            consoleForm = new ConsoleForm();
-            consoleForm.Show();
-            //Application.Run();
+            Thread t = new Thread(new ThreadStart(runConsole));
+            t.Start();
+            while (!ConsoleForm.Ready) Thread.Sleep(100);
         }
 
         #endregion
 
         #region properties
+
+        private ConsoleForm ConsoleForm {
+            get {
+                lock (padlock) { 
+                    if (consoleForm == null) {
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
+                        Debug.WriteLine("new ConsoleForm");
+                        consoleForm = new ConsoleForm();
+                    }
+                    return consoleForm;
+                }
+            }
+        }
 
         /// <summary>
         /// Indicates whether this IConsole implementation supports double buffering
@@ -48,16 +70,16 @@ namespace VH.Engine.VhConsole {
         /// Gets or sets the number of columns of this IConsole
         /// </summary>
         public int Width {
-            get { return consoleForm.ConsoleWidth; }
-            set { consoleForm.ConsoleWidth = value; }
+            get { return ConsoleForm.ConsoleWidth; }
+            set { ConsoleForm.ConsoleWidth = value; }
         }
 
         /// <summary>
         /// Gets or sets the number of rows of this IConsole
         /// </summary>
         public int Height {
-            get { return consoleForm.ConsoleHeight; }
-            set { consoleForm.ConsoleHeight = value; }
+            get { return ConsoleForm.ConsoleHeight; }
+            set { ConsoleForm.ConsoleHeight = value; }
         }
 
         /// <summary>
@@ -74,8 +96,8 @@ namespace VH.Engine.VhConsole {
         /// Gets or sets the color with which the next write operation will use as the foreground color
         /// </summary>
         public ConsoleColor ForegroundColor {
-            get;
-            set;
+            get { return ConsoleForm.ForegroundColor; } 
+            set { ConsoleForm.ForegroundColor = value; } 
         }
 
         /// <summary>
@@ -99,7 +121,9 @@ namespace VH.Engine.VhConsole {
         /// <param name="x">The x corrdinate of the write position</param>
         /// <param name="y">The y coordinate of the write position</param>
         public void Write(char c, int x, int y) {
-            consoleForm.Write(c, x, y);
+            lock (padlock) {
+                ConsoleForm.Write(c, x, y);
+            }
         }
 
         /// <summary>
@@ -107,7 +131,9 @@ namespace VH.Engine.VhConsole {
         /// </summary>
         /// <param name="c">The character to write</param>
         public void Write(char c) {
-            consoleForm.Write(c);
+            lock (padlock) {
+                ConsoleForm.Write(c);
+            }
         }
 
         /// <summary>
@@ -115,7 +141,9 @@ namespace VH.Engine.VhConsole {
         /// </summary>
         /// <param name="c">The string to write</param>
         public void Write(string s) {
-            consoleForm.Write(s);
+            lock (padlock) {
+                ConsoleForm.Write(s);
+            }
         }
 
         /// <summary>
@@ -124,7 +152,9 @@ namespace VH.Engine.VhConsole {
         /// <param name="x">The x corrdinate of the cursor position</param>
         /// <param name="y">The y coordinate of the cursor position</param>
         public void GoTo(int x, int y) {
-            consoleForm.GoTo(x, y);
+            lock (padlock) {
+                ConsoleForm.GoTo(x, y);
+            }
         }
 
         /// <summary>
@@ -132,7 +162,9 @@ namespace VH.Engine.VhConsole {
         /// Does nothing otherwise
         /// </summary>
         public void Refresh() {
-            consoleForm.RefreshConsole();
+            lock (padlock) {
+                ConsoleForm.RefreshConsole();
+            }
         }
 
         /// <summary>
@@ -140,7 +172,9 @@ namespace VH.Engine.VhConsole {
         /// </summary>
         /// <returns>The character read from input</returns>
         public char ReadKey() {
-            return consoleForm.ReadKey();
+            lock (padlock) {
+                return ConsoleForm.ReadKey();
+            }
         }
 
         /// <summary>
@@ -148,21 +182,36 @@ namespace VH.Engine.VhConsole {
         /// </summary>
         /// <returns>The line read from input</returns>
         public string ReadLine() {
-            return Console.ReadLine();
+            lock (padlock) {
+                ConsoleForm.Echo = true;
+                string line = ConsoleForm.ReadLine();
+                ConsoleForm.Echo = false;
+                return line;
+            }
         }
 
         /// <summary>
         /// Clears the whole IConsole
         /// </summary>
         public void Clear() {
-            consoleForm.Clear();
+            lock (padlock) {
+                ConsoleForm.Clear();
+            }
+        }
+
+        public void Clear(int x, int y, int width, int height) {
+            lock (padlock) {
+                ConsoleForm.Clear(x, y, width, height);
+            }
         }
 
         /// <summary>
         /// Clears the buffer of this IConsole.
         /// </summary>
         public void ClearBuffer() {
-            consoleForm.ClearBuffer();
+            lock (padlock) {
+                ConsoleForm.ClearBuffer();
+            }
         }
 
         #endregion

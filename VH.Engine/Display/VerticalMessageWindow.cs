@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -41,9 +42,7 @@ namespace VH.Engine.Display {
         }
 
         public override void Clear() {
-            for (int i = 0; i < row; ++i) {
-                Write(clearer, 0, i);
-            }
+            Console.Clear(X, Y, Width, row);
             row = 0;
         }
 

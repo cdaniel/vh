@@ -193,7 +193,8 @@ namespace VH.Game {
         #region private methods
 
         private void initDisplay() {
-            console = new SystemConsole();
+            console = //new SystemConsole();
+                new VhConsole();
             console.ForegroundColor = ConsoleColor.Gray;
             fieldOfVision = new RaycastingFieldOfVision();
             messageWindow = new VerticalMessageWindow(50, 1, 28, 48, console);

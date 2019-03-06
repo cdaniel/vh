@@ -88,6 +88,16 @@ namespace VH.Engine.Display {
             Console.Clear();
         }
 
+        public void Clear(int x, int y, int width, int height) {
+            string clearer = "";
+            for (int i = 0; i < width; ++i) clearer += " ";
+            for (int i = 0; i < height; ++i) {
+                GoTo(x, y + i);
+                Write(clearer);
+            }
+            
+        }
+
         public void Write(char c) {
             Console.Write(c);
         }

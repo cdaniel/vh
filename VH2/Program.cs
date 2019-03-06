@@ -11,18 +11,19 @@ namespace VH2 {
 
     class Program {
 
+        [STAThread]
         static void Main(string[] args) {
-            try {
-                GameController.Instance = new VhGameController();
+            GameController.Instance = new VhGameController();
 #if !DEBUG
+            try {
                 if (args.Length > 0) {
                     GameController.Instance.Play(args[0]);
                 } else {
-#endif
-                GameController.Instance.Play();
-#if !DEBUG
+
+            GameController.Instance.Play();
+
                 }
-#endif
+
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 Console.Write(ex.StackTrace);
@@ -30,6 +31,9 @@ namespace VH2 {
                 string filename = Application.StartupPath + "\\Data\\_error.log";
                 System.IO.File.WriteAllText(filename, ex.Message + "\n" + ex.StackTrace);
             }
+#else
+            GameController.Instance.Play();
+#endif
         }
     }
 }

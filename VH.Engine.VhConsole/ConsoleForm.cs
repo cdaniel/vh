@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,20 +31,22 @@ namespace VH.Engine.VhConsole {
 
         #region fields
 
-        string inputBuffer = "";
-        string outputBuffer;
+        volatile string inputBuffer = "";
+        volatile string outputBuffer;
+        volatile private bool ready = false;
+
         StringBuilder screenBuffer = new StringBuilder();
 
         int cursorX = 0;
         int cursorY = 0;
-        int fontWidth = 17;
-        int fontHeight = 32;
+        int fontWidth = 14;
+        int fontHeight = 20;
 
+        Bitmap bitmap;
         Graphics g;
-        Font font = new Font("Courier", 16);
-        Brush brush = new SolidBrush(Color.LightGreen);
+        Font font = new Font("Courier", 10);
+        SolidBrush brush = new SolidBrush(Color.LightGreen);
         Brush deleteBrush = new SolidBrush(Color.Black);
-        Pen pen = new Pen(Color.Black);
         ConsoleColor foregroundColor;
 
         ManualResetEvent mri = new ManualResetEvent(false);
@@ -50,6 +54,7 @@ namespace VH.Engine.VhConsole {
 
         bool echo = true;
         bool cursorVisible = true;
+        
 
         #endregion
 
@@ -60,12 +65,17 @@ namespace VH.Engine.VhConsole {
             BackColor = Color.Black;
             Size = Screen.PrimaryScreen.Bounds.Size;
             this.Location = new Point(0, 0);
-            g = this.CreateGraphics();
         }
 
         #endregion
 
         #region properties
+
+        public bool Ready {
+            get {
+                return ready;
+            }
+        }
 
         public bool Echo {
             get { return echo; }
@@ -120,9 +130,12 @@ namespace VH.Engine.VhConsole {
         /// <summary>
         /// Gets or sets the color with which the next write operation will use as the foreground color
         /// </summary>
-        ConsoleColor ForegroundColor {
+        public ConsoleColor ForegroundColor {
             get { return foregroundColor; }
-            set { foregroundColor = value; }
+            set {
+                foregroundColor = value;
+                brush.Color = toColor(foregroundColor);
+            }
         }
 
         /// <summary>
@@ -154,7 +167,7 @@ namespace VH.Engine.VhConsole {
         public void WriteLine(string s) {
             s += "\r";
             outputBuffer = s;
-            BeginInvoke(new writeDelegate(writeLine));
+            Invoke(new writeDelegate(writeLine));
         }
 
         public void Write(char c, int x, int y) {
@@ -162,21 +175,30 @@ namespace VH.Engine.VhConsole {
             Write(c);
         }
 
-        public void RefreshConsole() { }
+        public void RefreshConsole() {
+            Invoke(new writeDelegate(Refresh));
+        }
 
         public void Write(string s) {
             outputBuffer = s;
-            BeginInvoke(new writeDelegate(write));
+            Invoke(new writeDelegate(write));
         }
 
         public void Write(char c) {
             outputBuffer = "" + c;
             if (c == '\r') FeedLine();
-            else BeginInvoke(new writeDelegate(write));
+            else Invoke(new writeDelegate(write));
         }
 
         public char ReadKey() {
-            if (inputBuffer.Length == 0) mri.WaitOne();
+            Debug.WriteLine("ReadKey>inputBuffer 1: " + inputBuffer);
+            if (inputBuffer.Length == 0) {
+                Debug.WriteLine("ReadKey>[before]mri.WaitOne(); inputBuffer 2: " + inputBuffer);
+                mri.Reset();
+                mri.WaitOne();
+                Debug.WriteLine("ReadKey>[after]mri.WaitOne(); inputBuffer 2: " + inputBuffer);
+            }
+            Debug.WriteLine("ReadKey>mri.Reset(); inputBuffer 2: " + inputBuffer);
             mri.Reset();
             int key = inputBuffer[0];
             inputBuffer = inputBuffer.Substring(1);
@@ -186,6 +208,7 @@ namespace VH.Engine.VhConsole {
         public string ReadLine() {
             int i = inputBuffer.IndexOf(NEWLINE);
             if (i < 0) mri2.WaitOne();
+            Debug.WriteLine("ReadLine>mri2.Reset(); inputBuffer: " + inputBuffer);
             mri2.Reset();
             i = inputBuffer.IndexOf(NEWLINE);
             string line = inputBuffer.Substring(0, i);
@@ -207,6 +230,15 @@ namespace VH.Engine.VhConsole {
             g.Clear(Color.Black);
         }
 
+        public void Clear(int x, int y, int width, int height) {
+            x *= fontWidth;
+            y *= fontHeight;
+            width *= fontWidth;
+            height *= fontHeight;
+            Rectangle rec = new Rectangle(x, y, width, height);
+            g.FillRectangle(deleteBrush, rec);
+        }
+
         #endregion
 
         #region private methods
@@ -220,6 +252,7 @@ namespace VH.Engine.VhConsole {
                 GoTo(cursorX + 1, CursorY);
             }
             FeedLine();
+            Refresh();
         }
 
         private void write() {
@@ -232,24 +265,20 @@ namespace VH.Engine.VhConsole {
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e) {
             inputBuffer += e.KeyChar;
+            Debug.WriteLine("Form1_KeyPress>mri.Set(); inputBuffer: " + inputBuffer);
             mri.Set();
-            if (e.KeyChar == NEWLINE) mri2.Set();
+            if (e.KeyChar == NEWLINE) {
+                Debug.WriteLine("Form1_KeyPress>mri2.Set(); inputBuffer: " + inputBuffer);
+                mri2.Set();
+            }
             if (echo) {
                 Write(e.KeyChar);
+                Refresh();
             }
         }
 
         private void ConsoleForm_Paint(object sender, PaintEventArgs e) {
-            /* g.Clear(Color.Black);
-            int x = 0;
-            int y = 0;
-            Point p = new Point();
-            for (int i = 0; i < screenBuffer.Length; ++i) {
-                p.X = x * fontWidth;
-                p.Y = y * fontHeight;
-                g.DrawString("" + screenBuffer[i], font, brush, p);
-
-            }*/
+            e.Graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
         }
 
         private Color toColor(ConsoleColor color) {
@@ -274,6 +303,14 @@ namespace VH.Engine.VhConsole {
             }
         }
 
+        private void ConsoleForm_Load(object sender, EventArgs e) {
+            bitmap = new Bitmap(ClientRectangle.Width, ClientRectangle.Height, PixelFormat.Format24bppRgb);
+            g = Graphics.FromImage(bitmap);
+            ready = true;
+        }
+
         #endregion
+
+
     }
 }

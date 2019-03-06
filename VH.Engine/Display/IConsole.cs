@@ -101,6 +101,8 @@ namespace VH.Engine.Display {
         /// </summary>
         void Clear();
 
+        void Clear(int x, int y, int width, int height);
+
         /// <summary>
         /// Gets or sets a value indicating whether the cursor is visible
         /// </summary>
