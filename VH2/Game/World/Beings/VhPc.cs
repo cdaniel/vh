@@ -205,6 +205,7 @@ namespace VH.Game.World.Beings {
             GameController.Instance.MessageWindow.ShowMessage(endMessage);
             GameController.Instance.Console.ReadLine();
             GameController.Instance.QuitGame = true;
+            Application.Exit();
         }
 
         public override void Move() {
