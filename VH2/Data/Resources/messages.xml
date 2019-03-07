@@ -18,7 +18,7 @@
   <message key="attack" person2="%Uderzasz %" person3="% uderza %" />
   <message key="miss" person2="%Chybisz próbując uderzyć %" person3="% chybi próbując uderzyć %" />
   <message key="killed" person2="%Jesteś martwy!" person3="% umiera!"/>
-  <message key="backpack-full" person2="%Nie masz już miejsca w plecaku żeby schować %" person3="% próbuje schować % do plecaka, ale nie może znaleźć w nim miejsca" />
+  <message key="backpack-full" person2="%Nie masz już miejsca w plecaku żeby schować %" person3="% próbuje wcisnąć % do plecaka, ale nie może znaleźć w nim miejsca" />
   <message key="bash-door" person2="" person3="% wali w drzwi" />
   <message key="spot" person2="%Zauważasz ukryte drzwi"/>
   <message key="become-hostile" person2="" person3="% krzyczy w oburzeniu!" />
@@ -29,7 +29,7 @@
   <message key="identify" person2="%Rozpoznajesz %" person3=""/>
   <message key="no-identify" person2="%Nie rozpoznajesz co to" person3="" />
   <message key="next-no-identify" person2="%Patrzysz głupkowato na %" person3="" />
-  <message key="drink" person2="%Pijesz %" person3="% pije %" />
+  <message key="drink" person2="%Przykładasz % do ust i wypijasz zawartość" person3="% pije" />
   <message key="read" person2="%Czytasz %" person3="% czyta %" />
   <message key="strength-increased" person2="%Nagle czujesz się silniejszy!" person3="% nagle wygląda na silniejszego" />
   <message key="strength-not-increased" person2="%Czujesz dziwny smak" person3="% krzywi się" />

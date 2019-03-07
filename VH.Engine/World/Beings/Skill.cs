@@ -95,8 +95,8 @@ namespace VH.Engine.World.Beings {
         }
 
         public bool Roll(int difficulty) {
-            float valueToMatch = (float)skillValue / MAX_SKILL_VALUE;
-            bool success = Rng.Random.NextFloat() <= valueToMatch - difficulty;
+            float valueToMatch = (float)(skillValue - difficulty) / MAX_SKILL_VALUE;
+            bool success = Rng.Random.NextFloat() <= valueToMatch ;
             if (success) train();
             return success;
         }
