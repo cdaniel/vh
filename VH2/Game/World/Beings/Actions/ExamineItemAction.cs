@@ -11,7 +11,7 @@ using VH.Game.World.Items.Scrolls;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ExamineItemAction: AbstractAction {
+    public class ExamineItemAction: Engine.World.Beings.Actions.AbstractAction {
 
         #region fields
 

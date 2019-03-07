@@ -16,7 +16,7 @@ namespace VH.Game.World.Beings.Ai {
         public SicknessAi() : base() { }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction && Rng.Random.NextFloat() < ILLESS_ATACK_RATE) {
                 action = new CauseIllnessAction((action as AttackAction).Attackee);
             }

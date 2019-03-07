@@ -19,7 +19,7 @@ namespace VH.Game.World.Beings.Ai {
         }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction && Rng.Random.NextFloat() < CONFUSE_RATE) {
                 Being attackee = (action as AttackAction).Attackee;
                 Notify("sing", attackee);

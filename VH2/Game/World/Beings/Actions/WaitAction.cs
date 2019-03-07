@@ -8,7 +8,7 @@ using VH.Engine.Levels;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class WaitAction: AbstractAction {
+    public class WaitAction: Engine.World.Beings.Actions.AbstractAction {
 
         public WaitAction(Being performer) : base(performer) { }
 

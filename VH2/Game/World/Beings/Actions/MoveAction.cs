@@ -12,7 +12,7 @@ using VH.Engine.Random;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class MoveAction: VhAction {
+    public class MoveAction: AbstractAction {
 
         #region constants
 
@@ -79,7 +79,6 @@ namespace VH.Game.World.Beings.Actions {
 
             // perform move
             performer.Position = performer.Position.AddStep(step);
-            base.Perform();
             showItemNames();
             return true;
         }

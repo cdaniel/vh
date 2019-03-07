@@ -139,7 +139,7 @@ namespace VH.Game {
             // select next action
             GameController.Instance.Console.ClearBuffer();
             char c = GameController.Instance.Console.ReadKey();
-            AbstractAction action = null; // resets the action on each turn
+            Engine.World.Beings.Actions.AbstractAction action = null; // resets the action on each turn
             command = keybindings[c];
 
             // in-game actions. 
@@ -152,6 +152,7 @@ namespace VH.Game {
                 gametimeTicks = (int)(action.TimeNeeded / pc.Speed);
                 moveMonsters();
                 Pc.Move();
+                runBaseAction(Pc);
             } else {
                 // out-of-game actions. 
                 // these are actions performed by the player.
@@ -165,6 +166,10 @@ namespace VH.Game {
                 else if (Command == "quit") quit(); 
                 else if (Command == "save") saveGame();
             }
+        }
+
+        protected override void runBaseAction(Being performer) {
+            new VhAction(performer).Perform();
         }
 
         #endregion

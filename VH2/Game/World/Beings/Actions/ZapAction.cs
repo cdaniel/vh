@@ -5,10 +5,11 @@ using System.Text;
 using VH.Game.World.Items;
 using VH.Engine.World.Beings;
 using VH.Engine.Random;
+using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ZapAction: VhAction {
+    public class ZapAction: AbstractAction {
 
         private const float WAND_DESTROY_RATE = 0.2f;
 
@@ -28,7 +29,6 @@ namespace VH.Game.World.Beings.Actions {
             item.Position = performer.Position.Clone();
             notify(item.UseKind, item);
             item.Use(performer);
-            base.Perform();
             return true;
         }
     }

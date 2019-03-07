@@ -7,7 +7,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ConsumeRueAction : AbstractAction {
+    public class ConsumeRueAction : Engine.World.Beings.Actions.AbstractAction {
 
         public ConsumeRueAction() : base(null) { }
         public ConsumeRueAction(Being performer) : base(performer) { }

@@ -6,7 +6,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ConsumeWormwoodAction : AbstractAction {
+    public class ConsumeWormwoodAction : Engine.World.Beings.Actions.AbstractAction {
 
         public ConsumeWormwoodAction() : base(null) { }
         public ConsumeWormwoodAction(Being performer) : base(performer) { }

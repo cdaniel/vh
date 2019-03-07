@@ -8,7 +8,7 @@ using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class EquipAction: VhAction {
+    public class EquipAction: AbstractAction {
 
         private EquipmentSlot slot;
 
@@ -32,7 +32,6 @@ namespace VH.Game.World.Beings.Actions {
                 slot.Item = item;
                 item.Position = Performer.Position;
                 notify("item-equipped", item);
-                base.Perform();
                 return true;
             }
         }

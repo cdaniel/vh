@@ -9,7 +9,7 @@ using VH.Game.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class DrinkAction: VhAction {
+    public class DrinkAction: AbstractAction{
 
         private UsableItem item;
 
@@ -24,7 +24,6 @@ namespace VH.Game.World.Beings.Actions {
             item.Position = performer.Position.Clone();
             notify(item.UseKind, item);
             item.Use(performer);
-            base.Perform();
             return true;
         }
     }

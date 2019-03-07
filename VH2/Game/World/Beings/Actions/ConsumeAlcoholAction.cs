@@ -9,7 +9,7 @@ using VH.Game.World.Beings.Professions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ConsumeAlcoholAction: AbstractAction {
+    public class ConsumeAlcoholAction: Engine.World.Beings.Actions.AbstractAction {
 
         private const float CURE_RATE = 0.2f;
         private const float DRUNK_RATE = 0.5f;

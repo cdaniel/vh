@@ -39,7 +39,7 @@ namespace VH.Game.World.Beings.Ai {
         public override AbstractAction SelectAction() {
             Pc pc = (Pc)Being;
             string command = ((VhGameController)GameController.Instance).Command;
-            AbstractAction action = null;
+            Engine.World.Beings.Actions.AbstractAction action = null;
             //
             if (command == "wait") action = new WaitAction(pc);
             //
@@ -61,7 +61,7 @@ namespace VH.Game.World.Beings.Ai {
             return action;
         }
 
-        public override object SelectTarget(object[] objects, AbstractAction action) {
+        public override object SelectTarget(object[] objects, Engine.World.Beings.Actions.AbstractAction action) {
             if (action is DropAction) return selectDropTarget(objects);
             if (action is PickUpAction) return selectPickUpTarget(objects);
             if (action is CloseDoorAction) return selectCloseDoorTarget(objects);

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 using VH.Game.World.Items;
 using VH.Game.World.Items.Potions;
 using VH.Game.World.Items.Scrolls;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class UseItemAction : VhAction {
+    public class UseItemAction : Engine.World.Beings.Actions.AbstractAction {
 
         public UseItemAction(Being performer) : base(performer) { }
 

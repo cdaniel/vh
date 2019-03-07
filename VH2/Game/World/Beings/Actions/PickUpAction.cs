@@ -9,7 +9,7 @@ using VH.Engine.Game;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class PickUpAction: VhAction {
+    public class PickUpAction: AbstractAction {
 
         public PickUpAction(Being performer): base(performer) { }
 
@@ -29,7 +29,6 @@ namespace VH.Game.World.Beings.Actions {
                 GameController.Instance.Level.Items.Remove(item);
                 notify("pick-up", item);
                 new ExamineItemAction(performer, item).Perform();
-                base.Perform();
                 return true;
             } else {
                 notify("backpack-full", item);

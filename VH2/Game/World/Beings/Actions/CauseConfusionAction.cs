@@ -8,7 +8,7 @@ using VH.Engine.Random;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class CauseConfusionAction: AbstractAction {
+    public class CauseConfusionAction: Engine.World.Beings.Actions.AbstractAction {
 
         private const float RESISTANCE = 0.5f;
 

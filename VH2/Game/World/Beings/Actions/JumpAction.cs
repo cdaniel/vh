@@ -6,7 +6,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class JumpAction : VhAction {
+    public class JumpAction : Engine.World.Beings.Actions.AbstractAction {
 
         public JumpAction() : base(null) { }
         public JumpAction(Being performer): base(performer) { }

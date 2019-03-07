@@ -9,7 +9,7 @@ using VH.Engine.Game;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class DropAction: VhAction {
+    public class DropAction: AbstractAction {
 
         public DropAction(Being performer): base(performer) { }
 
@@ -22,7 +22,6 @@ namespace VH.Game.World.Beings.Actions {
             item.Position = performer.Position.Clone();
             GameController.Instance.Level.Items.Add(item);
             notify("drop", item);
-            base.Perform();
             return true;
         }
     }

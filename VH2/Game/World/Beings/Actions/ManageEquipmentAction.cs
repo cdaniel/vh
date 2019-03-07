@@ -8,7 +8,7 @@ using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ManageEquipmentAction: VhAction {
+    public class ManageEquipmentAction: Engine.World.Beings.Actions.AbstractAction {
 
         public ManageEquipmentAction(Being performer) : base(performer) { } 
 
@@ -28,7 +28,6 @@ namespace VH.Game.World.Beings.Actions {
             ((IBackPackBeing)performer).BackPack.Add(slot.Item);
             notify("item-deequipped", slot.Item);
             slot.Item = null;
-            base.Perform();
             return true;
         }
 

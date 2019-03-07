@@ -15,7 +15,7 @@ namespace VH.Game.World.Beings.Ai {
         public MothAi() : base() { }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction && Rng.Random.NextFloat() < CAST_DARKNESS_RATE) {
                 action = new CastDarknessAction(Being);
             }

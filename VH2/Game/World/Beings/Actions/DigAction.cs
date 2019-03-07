@@ -5,10 +5,11 @@ using System.Text;
 using VH.Engine.Game;
 using VH.Engine.Levels;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
-    public class DigAction : VhAction {
+    public class DigAction : AbstractAction {
 
         private Position position;
 
@@ -17,7 +18,6 @@ namespace VH.Game.World.Beings.Actions {
         }
 
         public override bool Perform() {
-            base.Perform();
             if (performer is IEquipmentBeing && performer is ISkillsBeing) {
                 Equipment equipment = (performer as IEquipmentBeing).Equipment;
                 EquipmentSlot slot = equipment["weapon-slot"];

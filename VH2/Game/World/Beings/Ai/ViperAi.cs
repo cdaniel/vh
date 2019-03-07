@@ -15,7 +15,7 @@ namespace VH.Game.World.Beings.Ai {
         public ViperAi() : base() { }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction && Rng.Random.NextFloat() < POISONING_ATACK_RATE) {
                 action = new CausePoisoningAction((action as AttackAction).Attackee);
             }

@@ -36,7 +36,7 @@ namespace VH.Game.World.Beings.Ai {
 
         #region public
 
-        public override object SelectTarget(object[] objects, AbstractAction action) {
+        public override object SelectTarget(object[] objects, Engine.World.Beings.Actions.AbstractAction action) {
             return objects[0];
         }
 

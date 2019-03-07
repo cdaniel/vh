@@ -7,7 +7,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class CausePoisoningAction: AbstractAction {
+    public class CausePoisoningAction: Engine.World.Beings.Actions.AbstractAction {
 
         private const float RESISTANCE = 0.3f;
 

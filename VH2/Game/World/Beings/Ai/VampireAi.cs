@@ -12,7 +12,7 @@ namespace VH.Game.World.Beings.Ai {
         public VampireAi() : base() { }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction) {
                 action = new SuckStrengthAction(Being, (action as AttackAction).Attackee);
             }

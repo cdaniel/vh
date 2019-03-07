@@ -5,16 +5,16 @@ using System.Text;
 using VH.Engine.Game;
 using VH.Engine.Levels;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class SearchAction: VhAction {
+    public class SearchAction: Engine.World.Beings.Actions.AbstractAction {
 
         public SearchAction() : base(null) { }
         public SearchAction(Being being): base(being) { }
 
         public override bool Perform() {
-            base.Perform();
             for (int x = -1; x <= 1; ++x) {
                 for (int y = -1; y <= 1; ++y) {
                     Step step = new Step(x, y);

@@ -6,7 +6,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ConsumeToadVenomAction: AbstractAction {
+    public class ConsumeToadVenomAction: Engine.World.Beings.Actions.AbstractAction {
 
 
         public ConsumeToadVenomAction() : base(null) { }

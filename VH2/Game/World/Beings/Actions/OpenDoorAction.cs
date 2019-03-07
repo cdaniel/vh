@@ -10,7 +10,7 @@ using VH.Engine.Random;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class OpenDoorAction: VhAction {
+    public class OpenDoorAction: AbstractAction {
 
         Step direction;
 
@@ -25,7 +25,6 @@ namespace VH.Game.World.Beings.Actions {
             }
             if (performer is VhMonster && !((VhMonster)performer).CanOpenDoor) {
                 notify("bash-door");
-                base.Perform();
                 return true;
             }
             if (Rng.Random.Next(10) > 7) {
@@ -34,7 +33,6 @@ namespace VH.Game.World.Beings.Actions {
                 GameController.Instance.Map[doorPosition] = Terrain.Get("open-door").Character;
                 notify("open-door");
             }
-            base.Perform();
             return true;
         }
     }

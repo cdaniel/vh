@@ -8,7 +8,7 @@ using VH.Engine.Random;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class IncreaseStrengthAction: AbstractAction {
+    public class IncreaseStrengthAction: Engine.World.Beings.Actions.AbstractAction {
 
         public IncreaseStrengthAction(): base(null) { }
 

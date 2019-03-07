@@ -15,7 +15,7 @@ namespace VH.Game.World.Beings.Ai {
         public CmukAi() : base() { }
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
             if (action is AttackAction && Rng.Random.NextFloat() < CAUSE_BLINDNESS_RATE) {
                 action = new CauseBlindnessAction(getOponent());
             }

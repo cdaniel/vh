@@ -31,7 +31,7 @@ namespace VH.Game.World.Beings.Ai {
         #region public methods
 
         public override AbstractAction SelectAction() {
-            AbstractAction action = base.SelectAction();
+            Engine.World.Beings.Actions.AbstractAction action = base.SelectAction();
 
             if (Rng.Random.NextFloat() < JUMP_RATE) return new JumpAction(Being);
 

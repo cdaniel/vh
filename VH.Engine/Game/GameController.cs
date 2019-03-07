@@ -256,9 +256,12 @@ namespace VH.Engine.Game {
                 if (!QuitGame) { // <-- fix for the "PC being killed twice in one round by two separate Monsters" issue
                     Monster monster = Level.Monsters[i];
                     monster.Move(gametimeTicks);
+                    runBaseAction(monster);
                 }
             }
         }
+
+        protected abstract void runBaseAction(Being performer);
 
         protected virtual void beforeLevelChange() { }
 

@@ -9,7 +9,7 @@ using VH.Engine.Game;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class CloseDoorAction: VhAction {
+    public class CloseDoorAction: Engine.World.Beings.Actions.AbstractAction {
 
         public CloseDoorAction(Being performer): base(performer) { }
 
@@ -28,7 +28,6 @@ namespace VH.Game.World.Beings.Actions {
             }
             GameController.Instance.Map[doorPosition] = Terrain.Get("closed-door").Character;
             notify("close-door");
-            base.Perform();
             return true;
         }
     }

@@ -11,7 +11,7 @@ using VH.Engine.Random;
 
 namespace VH.Game.World.Beings.Actions {
     
-    public class AttackAction: VhAction {
+    public class AttackAction: AbstractAction {
 
         private Being attackee;
         private GameController controller = GameController.Instance;
@@ -40,7 +40,6 @@ namespace VH.Game.World.Beings.Actions {
                 attackee.Ai.Notify("killed");
                 attackee.Kill();
             }
-            base.Perform();
             return true;
         }
 

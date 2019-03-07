@@ -6,10 +6,11 @@ using VH.Engine.Game;
 using VH.Engine.Levels;
 using VH.Engine.Random;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ChopAction: VhAction {
+    public class ChopAction: Engine.World.Beings.Actions.AbstractAction {
 
         private Position position;
 
@@ -20,7 +21,6 @@ namespace VH.Game.World.Beings.Actions {
         public object ItemGenerator { get; private set; }
 
         public override bool Perform() {
-            base.Perform();
             if (performer is IEquipmentBeing && performer is IStatBeing) {
                 Equipment equipment = (performer as IEquipmentBeing).Equipment;
                 EquipmentSlot slot = equipment["weapon-slot"];

@@ -7,7 +7,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
-    public class ConsumeRueOilAction: AbstractAction {
+    public class ConsumeRueOilAction: Engine.World.Beings.Actions.AbstractAction {
 
         private const float PETRIFICATION_RESISTANCE_RATE = 0.5f;
 

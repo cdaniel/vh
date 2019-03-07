@@ -5,10 +5,11 @@ using System.Text;
 using VH.Engine.World.Beings;
 using VH.Engine.Levels;
 using VH.Engine.Game;
+using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class CastLightAction: VhAction {
+    public class CastLightAction: Engine.World.Beings.Actions.AbstractAction {
 
         private const int RANGE = 4;
 

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using VH.Game.World.Items;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
 
-    public class ReadAction: VhAction {
+    public class ReadAction: AbstractAction{
 
          private UsableItem item;
 
@@ -26,7 +27,6 @@ namespace VH.Game.World.Beings.Actions {
             else {
                 notify("read-failed", item);
             }
-            base.Perform();
             return true;
         }
     }
