@@ -20,7 +20,7 @@ namespace VH.Game.World.Beings {
 
         #region fields
 
-        private bool canOpenDoor = true;
+        private bool canOpenDoor = false;
         private TempSet temps = new TempSet();
 
         #endregion

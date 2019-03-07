@@ -85,6 +85,7 @@ namespace VH.Engine.Display {
 
         public void ShowMessage(string key, AbstractEntity performer) {
             ShowMessage(key, performer, null);
+            GameController.Instance.Console.Refresh();
         }
 
         public void ShowDirectMessage(string message) {

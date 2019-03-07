@@ -258,7 +258,7 @@ namespace VH.Engine.VhConsole {
 
         private void write() {
             Point p = new Point(cursorX * fontWidth, cursorY * fontHeight);
-            Rectangle rec = new Rectangle(p.X + 1, p.Y + 1, fontWidth, fontHeight);
+            Rectangle rec = new Rectangle(p.X + 1, p.Y + 1, fontWidth + 1, fontHeight);
             g.FillRectangle(deleteBrush, rec);
             g.DrawString("" + outputBuffer, font, brush, p);
             GoTo(cursorX + outputBuffer.Length, cursorY);
