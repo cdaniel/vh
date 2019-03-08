@@ -50,6 +50,7 @@
     <Compile Include="Display\ExtendedWindow.cs" />
     <Compile Include="Display\LetterMenu.cs" />
     <Compile Include="Display\MessageWindow.cs" />
+    <Compile Include="Display\ScrollingVerticalMessageWindow.cs" />
     <Compile Include="Display\SystemConsole.cs" />
     <Compile Include="Display\VerticalMessageWindow.cs" />
     <Compile Include="Display\YesNoMenu.cs" />

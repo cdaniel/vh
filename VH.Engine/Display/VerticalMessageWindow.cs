@@ -16,7 +16,7 @@ namespace VH.Engine.Display {
 
         #region fields
 
-        private int row = 0;
+        protected int row = 0;
 
         #endregion
 
@@ -48,14 +48,15 @@ namespace VH.Engine.Display {
 
         #endregion
 
-        #region private methods
+        #region protected methods
 
-        private void showMessage(string message) {
+        protected virtual void showMessage(string message) {
             if (message.Length <= Width) showSimpleMessage(message);
             else split(message);
         }
 
-        private void showSimpleMessage(string message) {
+        protected virtual void showSimpleMessage(string message) {
+            //if (row > height / 2) Clear();
             base.GoTo(0, row++);
             if (row == Height - 1) {
                 base.Write(ENTER);
@@ -66,6 +67,10 @@ namespace VH.Engine.Display {
             }
             base.Write(message);
         }
+
+        #endregion
+
+        #region private methods
 
         private void split(string message) {
             string submessage = message.Substring(0, Width);

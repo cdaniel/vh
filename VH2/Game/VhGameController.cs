@@ -145,7 +145,7 @@ namespace VH.Game {
             // in-game actions. 
             // these are actions performed by the pc.
             action = pc.Ai.SelectAction();
-            MessageWindow.Clear();
+            //MessageWindow.Clear();
 
             // perform selected pc action, if there is one.
             if (action != null && action.Perform()) {
@@ -202,7 +202,7 @@ namespace VH.Game {
                 new VhConsole();
             console.ForegroundColor = ConsoleColor.Gray;
             fieldOfVision = new RaycastingFieldOfVision();
-            messageWindow = new VerticalMessageWindow(50, 1, 28, 48, console);
+            messageWindow = new ScrollingVerticalMessageWindow(50, 1, 28, 48, console);
             messageManager = new MessageManager(messageWindow);
             console.CursorVisible = false;
             console.Height = 50;
