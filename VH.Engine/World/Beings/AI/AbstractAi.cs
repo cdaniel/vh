@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using VH.Engine.Tools;
 using VH.Engine.Persistency;
+using VH.Engine.Levels;
 
 namespace VH.Engine.World.Beings.AI {
 
@@ -51,6 +52,8 @@ namespace VH.Engine.World.Beings.AI {
         #endregion
 
         #region public methods
+
+        public virtual bool InteractWithEnvironment(Position position) { return false; }
 
         /// <summary>
         /// Selects the next AbstractAction 

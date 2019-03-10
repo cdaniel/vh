@@ -10,7 +10,7 @@ using VH.Engine.World.Items;
 using VH.Engine.Display;
 using VH.Engine.Random;
 
-namespace VH.Game.World.Beings.Actions {
+namespace VH.Engine.World.Beings.Actions {
 
     public class MoveAction: AbstractAction {
 
@@ -65,12 +65,12 @@ namespace VH.Game.World.Beings.Actions {
             Being being = controller.GetBeingAt(newPosition);
             if (being != null && being != performer) return new AttackAction(performer, being).Perform();
 
-            // check if performer is able to walk through whatever is at the level at new position
-            // moving onto a wall results in an attept to dig through it
+            // check if performer is able to walk through whatever is at the level at new position, otherwise
+            // interact with the terrain at the new position
+            // for example:moving onto a wall results in an attept to dig through it
             char feature = controller.ViewPort.GetDisplayCharacter(controller.Map[newPosition]);
             if (!performer.CanWalkOn(feature)) {
-                if (new DigAction(performer, newPosition).Perform()) return true;
-                if (new ChopAction(performer, newPosition).Perform()) return true;
+                if (Performer.Ai.InteractWithEnvironment(newPosition)) return true;
             }
             if (!performer.CanWalkOn(feature)  || (being != null && being != performer)) {
                 if ((Performer as ITempsBeing).Temps["blind"]) notify("boom");

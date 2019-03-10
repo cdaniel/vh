@@ -6,10 +6,10 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Beings;
 using VH.Engine.Game;
 using VH.Engine.World.Items;
-using VH.Game.World.Beings.Ai.Stimuli;
+using VH.Engine.World.Beings.AI.Stimuli;
 using VH.Engine.Random;
 
-namespace VH.Game.World.Beings.Actions {
+namespace VH.Engine.World.Beings.Actions {
     
     public class AttackAction: AbstractAction {
 

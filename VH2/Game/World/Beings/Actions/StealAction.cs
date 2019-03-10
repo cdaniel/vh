@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using VH.Engine.Random;
 using VH.Engine.World.Beings;
+using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Items;
 
 namespace VH.Game.World.Beings.Actions {
+
     public class StealAction : AttackAction {
 
         public StealAction(Being performer, Being attackee) : base(performer, attackee) {

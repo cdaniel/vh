@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VH.Engine.World.Beings;
-using VH.Game.World.Beings.Actions;
 using VH.Engine.World.Beings.Actions;
 
-namespace VH.Game.World.Beings.Ai {
+namespace VH.Engine.World.Beings.AI {
 
     public class FleeBehavior: OponentDependantBehaviour {
 

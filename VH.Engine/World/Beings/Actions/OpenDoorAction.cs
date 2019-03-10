@@ -8,7 +8,7 @@ using VH.Engine.World.Beings;
 using VH.Engine.Game;
 using VH.Engine.Random;
 
-namespace VH.Game.World.Beings.Actions {
+namespace VH.Engine.World.Beings.Actions {
 
     public class OpenDoorAction: AbstractAction {
 
@@ -23,7 +23,8 @@ namespace VH.Game.World.Beings.Actions {
             if (GameController.Instance.Map[doorPosition] != Terrain.Get("closed-door").Character) {
                 return false;
             }
-            if (performer is VhMonster && !((VhMonster)performer).CanOpenDoor) {
+            // TODO move CanOpenDoor to Being class. Implement as return true in Pc class.
+            if (performer is Monster && !((Monster)performer).CanOpenDoor) {
                 notify("bash-door");
                 return true;
             }

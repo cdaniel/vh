@@ -16,7 +16,7 @@ using VH.Game.World.Items;
 
 namespace VH.Game.World.Beings.Ai {
 
-    public class PcAi: VH.Engine.World.Beings.AI.AbstractAi {
+    public class PcAi: AbstractAi {
 
         #region fields
 
@@ -53,12 +53,18 @@ namespace VH.Game.World.Beings.Ai {
             else if (command == "south-west") action = new MoveAction(pc, Step.SOUTH_WEST);
             else if (command == "take-stairs") action = new TakeStairsAction(pc);
             else if (command == "close-door") action = new CloseDoorAction(pc);
-            else if (command == "pick-up") action = new PickUpAction(pc);
+            else if (command == "pick-up") action = new VhPickUpAction(pc);
             else if (command == "drop") action = new DropAction(pc);
             else if (command == "use") action = new UseItemAction(pc);
             else if (command == "manage-equipment") action = new ManageEquipmentAction(pc);
             //
             return action;
+        }
+        
+        public override bool InteractWithEnvironment(Position position) {
+            if (new DigAction(Being, position).Perform()) return true;
+            if (new ChopAction(Being, position).Perform()) return true;
+            return base.InteractWithEnvironment(position);
         }
 
         public override object SelectTarget(object[] objects, Engine.World.Beings.Actions.AbstractAction action) {

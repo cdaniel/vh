@@ -5,7 +5,7 @@ using System.Text;
 using VH.Engine.World.Beings.AI;
 using VH.Engine.World.Beings;
 
-namespace VH.Game.World.Beings.Ai.Stimuli {
+namespace VH.Engine.World.Beings.AI.Stimuli {
 
     public class AttackStimulus: Stimulus {
 

@@ -9,6 +9,7 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.Game;
 using VH.Engine.World.Items;
 using VH.Engine.World.Beings.AI;
+using VH.Engine.Levels;
 
 namespace VH.Engine.World.Beings {
 
@@ -25,6 +26,8 @@ namespace VH.Engine.World.Beings {
         private const string MAX_HEALTH = "max-health";
         private const string DISTANCE_ATTACK = "distance-attack";
         private const string TICKS_AVAILABLE = "ticks-available";
+        private const string CAN_OPEN_DOOR = "can-open-door";
+
 
 
         #endregion
@@ -36,6 +39,8 @@ namespace VH.Engine.World.Beings {
         private int attack;
         private int defense;
         private int distanceAttack;
+        private bool canOpenDoor = false;
+
         private int ticksAvailable;
 
         #endregion 
@@ -71,6 +76,10 @@ namespace VH.Engine.World.Beings {
             get { return distanceAttack; }
         }
 
+        public bool CanOpenDoor {
+            get { return canOpenDoor; }
+        }
+
         #endregion
 
         #region public methods
@@ -82,6 +91,7 @@ namespace VH.Engine.World.Beings {
             attack = GetIntAttribute(ATTACK);
             defense = GetIntAttribute(DEFENSE);
             distanceAttack = GetIntAttribute(DISTANCE_ATTACK);
+            canOpenDoor = GetBoolAttribute(CAN_OPEN_DOOR);
             ticksAvailable = GetIntAttribute(TICKS_AVAILABLE);
         }
 
@@ -92,6 +102,7 @@ namespace VH.Engine.World.Beings {
             AddAttribute(ATTACK, attack);
             AddAttribute(DEFENSE, defense);
             AddAttribute(DISTANCE_ATTACK, distanceAttack);
+            AddAttribute(CAN_OPEN_DOOR, canOpenDoor);
             AddAttribute(TICKS_AVAILABLE, ticksAvailable);
             return element;
         }
@@ -117,6 +128,9 @@ namespace VH.Engine.World.Beings {
             maxHealth = health = int.Parse(prototype.Attributes[HEALTH].Value);
             attack = int.Parse(prototype.Attributes[ATTACK].Value);
             defense = int.Parse(prototype.Attributes[DEFENSE].Value);
+            if (prototype.Attributes[CAN_OPEN_DOOR] != null) {
+                canOpenDoor = bool.Parse(prototype.Attributes[CAN_OPEN_DOOR].Value);
+            }
             //
             string aiTypeName = prototype.Attributes[AI_TYPE_NAME].Value;
             string aiAssemblyName = prototype.Attributes[AI_ASSEMBLY_NAME].Value;
@@ -127,6 +141,10 @@ namespace VH.Engine.World.Beings {
         public override void Kill() {
             base.Kill();
             GameController.Instance.Level.Monsters.Remove(this);
+        }
+
+        public override bool CanWalkOn(char c) {
+            return base.CanWalkOn(c) || canOpenDoor && c == Terrain.Get("closed-door").Character;
         }
 
         #endregion

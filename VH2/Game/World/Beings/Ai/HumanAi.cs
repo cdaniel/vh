@@ -9,7 +9,7 @@ using VH.Engine.Levels;
 using VH.Engine.Game;
 using VH.Engine.World.Items;
 using VH.Engine.World.Beings.AI;
-using VH.Game.World.Beings.Ai.Stimuli;
+using VH.Engine.World.Beings.AI.Stimuli;
 
 namespace VH.Game.World.Beings.Ai {
 

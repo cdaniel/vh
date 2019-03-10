@@ -7,7 +7,7 @@ using VH.Engine.Game;
 using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.AI;
 
-namespace VH.Game.World.Beings.Ai {
+namespace VH.Engine.World.Beings.AI {
     public abstract class OponentDependantBehaviour: BaseAi {
 
         private const string OPONENT_UUID = "oponent-uuid";

@@ -6,21 +6,19 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.Display;
 using VH.Engine.Levels;
 using VH.Engine.Game;
-using VH.Game.World.Beings.Actions;
 using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.AI;
 using VH.Engine.World.Items;
 using VH.Engine.Pathfinding;
 using System.Collections;
-using VH.Game.World.Beings.Ai.Stimuli;
 
-namespace VH.Game.World.Beings.Ai {
+namespace VH.Engine.World.Beings.AI {
 
     public abstract class BaseAi: AbstractAi {
 
         #region fields
 
-        MessageWindow messageWindow = ((VhGameController)GameController.Instance).MessageWindow;
+        MessageWindow messageWindow = GameController.Instance.MessageWindow;
         MessageManager messageManager = GameController.Instance.MessageManager;
         protected Pathfinder pathfinder = new SimplePathfinder();
 

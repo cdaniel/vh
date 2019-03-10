@@ -71,21 +71,15 @@
     <Compile Include="Game\World\Beings\Actions\IncreaseStrengthAction.cs" />
     <Compile Include="Game\World\Beings\Actions\JumpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\PickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SearchAction.cs" />
     <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckLifeAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckStrengthAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\TakeStairsAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\AttackAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\CloseDoorAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\MoveAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\OpenDoorAction.cs" />
     <Compile Include="Game\World\Beings\Actions\DrinkAction.cs" />
     <Compile Include="Game\World\Beings\Actions\UseItemAction.cs" />
     <Compile Include="Game\World\Beings\Actions\VhAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\WaitAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\VhPickUpAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ZapAction.cs" />
     <Compile Include="Game\World\Beings\Ai\AnimalAi.cs" />
     <Compile Include="Game\World\Beings\Ai\BobokAi.cs" />
@@ -94,15 +88,9 @@
     <Compile Include="Game\World\Beings\Ai\MothAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HumanAi.cs" />
     <Compile Include="Game\World\Beings\Ai\NymphAi.cs" />
-    <Compile Include="Game\World\Beings\Ai\OponentDependantBehaviour.cs" />
-    <Compile Include="Game\World\Beings\Ai\Stimuli\AttackStimulus.cs" />
-    <Compile Include="Game\World\Beings\Ai\ChaseBehavior.cs" />
     <Compile Include="Game\World\Beings\Ai\FlyingAnimalAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HauntBehavior.cs" />
-    <Compile Include="Game\World\Beings\Ai\NeutralBehavior.cs" />
     <Compile Include="Game\World\Beings\Ai\PcAi.cs" />
-    <Compile Include="Game\World\Beings\Ai\BaseAi.cs" />
-    <Compile Include="Game\World\Beings\Ai\FleeBehavior.cs" />
     <Compile Include="Game\World\Beings\Ai\SicknessAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HostileAi.cs" />
     <Compile Include="Game\World\Beings\Ai\StrixAi.cs" />
@@ -157,6 +145,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Game\World\Beings\Ai\Stimuli\" />
     <Folder Include="Game\World\Items\Headgear\" />
     <Folder Include="Game\World\Items\Missles\" />
     <Folder Include="Game\World\Items\MissleWeapons\" />

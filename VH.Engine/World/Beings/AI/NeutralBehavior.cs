@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VH.Engine.Random;
-using VH.Game.World.Beings.Actions;
 using VH.Engine.Levels;
 using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Beings;
 using VH.Engine.World.Items;
 using VH.Engine.Game;
 
-namespace VH.Game.World.Beings.Ai {
+namespace VH.Engine.World.Beings.AI {
 
     public class NeutralBehavior: BaseAi {
 
@@ -25,7 +24,7 @@ namespace VH.Game.World.Beings.Ai {
             if (Being is IBackPackBeing) {
                 IEnumerable<Item> items = GameController.Instance.Level.GetItemsAt(Being.Position);
                 if (items.Count() > 0 && !((IBackPackBeing)Being).BackPack.Full) {
-                    return new PickUpAction(Being);
+                   // TODO return new PickUpAction(Being);
                 }
             }
             // try to move in a random direction

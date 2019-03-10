@@ -6,9 +6,9 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.World.Beings;
 using VH.Engine.Levels;
 
-namespace VH.Game.World.Beings.Actions {
+namespace VH.Engine.World.Beings.Actions {
 
-    public class WaitAction: Engine.World.Beings.Actions.AbstractAction {
+    public class WaitAction: AbstractAction {
 
         public WaitAction(Being performer) : base(performer) { }
 

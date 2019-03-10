@@ -7,9 +7,9 @@ using VH.Engine.World.Beings;
 using VH.Engine.Game;
 using VH.Engine.Levels;
 
-namespace VH.Game.World.Beings.Actions {
+namespace VH.Engine.World.Beings.Actions {
 
-    public class TakeStairsAction : Engine.World.Beings.Actions.AbstractAction {
+    public class TakeStairsAction : AbstractAction {
 
 
         public TakeStairsAction(Being performer): base(performer) { }

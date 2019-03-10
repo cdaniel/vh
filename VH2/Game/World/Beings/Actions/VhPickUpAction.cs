@@ -6,18 +6,17 @@ using VH.Engine.World.Beings;
 using VH.Engine.World.Beings.Actions;
 
 namespace VH.Game.World.Beings.Actions {
+    public class VhPickUpAction : PickUpAction {
 
-    public class SuckLifeAction: AttackAction {
+        public VhPickUpAction(): base(null) { }
 
-        public SuckLifeAction(Being performer, Being attackee) : base(performer, attackee) { }
+        public VhPickUpAction(Being performer) : base(performer) { }
 
         public override bool Perform() {
             bool result = base.Perform();
-            if (Performer.Health + damage < Performer.MaxHealth) {
-                Performer.Health += damage;
-                notify("suck-life", Attackee);
-            }
+            if (result) new ExamineItemAction(performer, item).Perform();
             return result;
         }
+
     }
 }

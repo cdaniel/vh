@@ -7,6 +7,7 @@ using VH.Engine.World.Beings.Actions;
 using VH.Engine.Levels;
 using VH.Game.World.Beings.Actions;
 using VH.Engine.Game;
+using VH.Engine.World.Beings.AI;
 
 namespace VH.Game.World.Beings.Ai {
 
