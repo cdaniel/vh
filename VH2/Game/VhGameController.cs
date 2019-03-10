@@ -121,6 +121,7 @@ namespace VH.Game {
 
         protected override void tearDownGame() {
             saveInHof();
+            Application.Exit();
         }
 
         protected override void runTurn() {

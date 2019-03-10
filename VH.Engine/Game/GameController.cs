@@ -218,6 +218,7 @@ namespace VH.Engine.Game {
             // main gameloop
             while (!QuitGame) runTurn();
             tearDownGame();
+            Application.Exit();
         }
 
         public Being GetBeingAt(Position position) {

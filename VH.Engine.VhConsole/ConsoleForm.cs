@@ -289,11 +289,11 @@ namespace VH.Engine.VhConsole {
                 case ConsoleColor.Cyan: return Color.Cyan;
                 case ConsoleColor.DarkBlue: return Color.DarkBlue;
                 case ConsoleColor.DarkCyan: return Color.DarkCyan;
-                case ConsoleColor.DarkGray: return Color.DarkGray;
+                case ConsoleColor.DarkGray: return Color.FromArgb(100, 100, 100);
                 case ConsoleColor.DarkGreen: return Color.DarkGreen;
                 case ConsoleColor.DarkMagenta: return Color.DarkMagenta;
                 case ConsoleColor.DarkRed: return Color.DarkRed;
-                case ConsoleColor.DarkYellow: return Color.Brown;
+                case ConsoleColor.DarkYellow: return Color.SaddleBrown;
                 case ConsoleColor.Gray: return Color.Gray;
                 case ConsoleColor.Green: return Color.Green;
                 case ConsoleColor.Magenta: return Color.Magenta;
