@@ -17,7 +17,7 @@ namespace VH.Game.World.Beings.Ai {
 
         #region types
 
-        private enum State {
+        protected enum State {
             neutral,
             angry,
             afraid
@@ -34,7 +34,7 @@ namespace VH.Game.World.Beings.Ai {
 
         #region fields
 
-        private State state = State.neutral;
+        protected State state = State.neutral;
         private Being oponent = null;
         private List<Being> hostileBeings = new List<Being>();
 
@@ -92,7 +92,10 @@ namespace VH.Game.World.Beings.Ai {
             // state transitions
             switch (state) {
                 case State.neutral:
-                    if (oponent != null) state = State.angry;
+                    if (oponent != null) {
+                        state = State.angry;
+                        Notify("become-hostile");
+                    }
                     break;
                 case State.angry:
                     if (Being.Health / (float)Being.MaxHealth < LOW_HEALTH) {

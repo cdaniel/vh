@@ -156,6 +156,7 @@ namespace VH.Game {
                 runBaseAction(Pc);
             } else {
                 // out-of-game actions. 
+
                 // these are actions performed by the player.
                 // these actions do not take up gametime.
                 if      (Command == "backpack") showPcInventory();

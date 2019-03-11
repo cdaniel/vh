@@ -24,7 +24,7 @@ namespace VH.Game.World.Beings.Actions {
             if (performer is IEquipmentBeing && performer is IStatBeing) {
                 Equipment equipment = (performer as IEquipmentBeing).Equipment;
                 EquipmentSlot slot = equipment["weapon-slot"];
-                if (slot != null && slot.Item.HasTag("chopping") ) {
+                if (slot != null && slot.Item != null && slot.Item.HasTag("chopping") ) {
                     char terrain = GameController.Instance.Level.Map[position];
                     if (terrain == Terrain.Get("tree").Character) {
                         if (stCheck()) {

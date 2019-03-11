@@ -73,6 +73,7 @@
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SearchAction.cs" />
+    <Compile Include="Game\World\Beings\Actions\SimpleDigAction.cs" />
     <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckLifeAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckStrengthAction.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Game\World\Beings\Ai\AnimalAi.cs" />
     <Compile Include="Game\World\Beings\Ai\BobokAi.cs" />
     <Compile Include="Game\World\Beings\Ai\CmukAi.cs" />
+    <Compile Include="Game\World\Beings\Ai\GnomeAi.cs" />
     <Compile Include="Game\World\Beings\Ai\LeshyAi.cs" />
     <Compile Include="Game\World\Beings\Ai\MothAi.cs" />
     <Compile Include="Game\World\Beings\Ai\HumanAi.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Game\World\Beings\Ai\WillOWispAi.cs" />
     <Compile Include="Game\World\Beings\Animal.cs" />
     <Compile Include="Game\World\Beings\ArmorSlot.cs" />
+    <Compile Include="Game\World\Beings\Gnome.cs" />
     <Compile Include="Game\World\Beings\HeadgearSlot.cs" />
     <Compile Include="Game\World\Beings\Humanoid.cs" />
     <Compile Include="Game\World\Beings\NeckwearSlot.cs" />

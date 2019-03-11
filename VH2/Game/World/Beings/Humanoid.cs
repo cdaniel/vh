@@ -24,7 +24,7 @@ namespace VH.Game.World.Beings {
 
         #endregion
 
-        #region constructors
+        #region properties
 
         public BackPack BackPack {
             get { return backPack; }
