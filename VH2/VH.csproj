@@ -73,7 +73,6 @@
     <Compile Include="Game\World\Beings\Actions\ManageEquipmentAction.cs" />
     <Compile Include="Game\World\Beings\Actions\ReadAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SearchAction.cs" />
-    <Compile Include="Game\World\Beings\Actions\SimpleDigAction.cs" />
     <Compile Include="Game\World\Beings\Actions\StealAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckLifeAction.cs" />
     <Compile Include="Game\World\Beings\Actions\SuckStrengthAction.cs" />
