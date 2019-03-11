@@ -140,7 +140,7 @@ namespace VH.Game {
             // select next action
             GameController.Instance.Console.ClearBuffer();
             char c = GameController.Instance.Console.ReadKey();
-            Engine.World.Beings.Actions.AbstractAction action = null; // resets the action on each turn
+            AbstractAction action = null; // resets the action on each turn
             command = keybindings[c];
 
             // in-game actions. 
