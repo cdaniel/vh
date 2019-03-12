@@ -34,6 +34,7 @@ namespace VH.Engine.Display {
         /// </summary>
         /// <param name="message">The message to show.</param>
         public override void ShowMessage(string message) {
+            message = message.Substring(0, 1).ToUpper() + message.Substring(1);
             console.ForegroundColor = ConsoleColor.Gray;
             string[] messages = message.Split(new char[] {'\n', '\r'});
             for (int i = 0; i < messages.Length; ++i) {
