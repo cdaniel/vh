@@ -13,6 +13,7 @@ namespace VH.Engine.Levels {
         private int MIN_ROOM_SIZE = 5;
         private int MAX_ROOMS = 100;
         private float HIDDEN_DOOR_RATE = 0.02f;
+        private float OPEN_DOOR_RATE = 0.2f;
 
         #endregion
 
@@ -224,6 +225,7 @@ namespace VH.Engine.Levels {
 
         private char getDoor() {
             if (Rng.Random.NextFloat() < HIDDEN_DOOR_RATE) return Terrain.Get("hidden-door").Character;
+            else if (Rng.Random.NextFloat() < OPEN_DOOR_RATE) return Terrain.Get("open-door").Character;
             else return Terrain.Get("closed-door").Character;
         }
 
