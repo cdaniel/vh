@@ -42,9 +42,10 @@ namespace VH.Engine.VhConsole {
         int cursorY = 0;
         int fontWidth = 14;
         int fontHeight = 20;
+        int xOffset = 0;
 
         Bitmap bitmap;
-        Graphics g;
+        Graphics graphics;
         Font font = new Font("Courier", 10, FontStyle.Bold);
         SolidBrush brush = new SolidBrush(Color.LightGreen);
         Brush deleteBrush = new SolidBrush(Color.Black);
@@ -192,14 +193,10 @@ namespace VH.Engine.VhConsole {
         }
 
         public char ReadKey() {
-            Debug.WriteLine("ReadKey>inputBuffer 1: " + inputBuffer);
             if (inputBuffer.Length == 0) {
-                Debug.WriteLine("ReadKey>[before]mri.WaitOne(); inputBuffer 2: " + inputBuffer);
                 mri.Reset();
                 mri.WaitOne();
-                Debug.WriteLine("ReadKey>[after]mri.WaitOne(); inputBuffer 2: " + inputBuffer);
             }
-            Debug.WriteLine("ReadKey>mri.Reset(); inputBuffer 2: " + inputBuffer);
             mri.Reset();
             int key = inputBuffer[0];
             inputBuffer = inputBuffer.Substring(1);
@@ -209,7 +206,6 @@ namespace VH.Engine.VhConsole {
         public string ReadLine() {
             int i = inputBuffer.IndexOf(NEWLINE);
             if (i < 0) mri2.WaitOne();
-            Debug.WriteLine("ReadLine>mri2.Reset(); inputBuffer: " + inputBuffer);
             mri2.Reset();
             i = inputBuffer.IndexOf(NEWLINE);
             string line = inputBuffer.Substring(0, i);
@@ -228,16 +224,16 @@ namespace VH.Engine.VhConsole {
         /// Clears the whole IConsole
         /// </summary>
         public void Clear() {
-            g.Clear(Color.Black);
+            graphics.Clear(Color.Black);
         }
 
         public void Clear(int x, int y, int width, int height) {
-            x *= fontWidth;
+            x = x * fontWidth + xOffset;
             y *= fontHeight;
             width *= fontWidth;
             height *= fontHeight;
             Rectangle rec = new Rectangle(x, y, width, height);
-            g.FillRectangle(deleteBrush, rec);
+            graphics.FillRectangle(deleteBrush, rec);
         }
 
         #endregion
@@ -247,9 +243,9 @@ namespace VH.Engine.VhConsole {
         private void writeLine() {
             Point p = new Point(cursorX * fontWidth, cursorY * fontHeight);
             for (int i = 0; i < outputBuffer.Length; ++i) {
-                p.X = cursorX * fontWidth;
+                p.X = cursorX * fontWidth + xOffset;
                 p.Y = cursorY * fontHeight;
-                g.DrawString("" + outputBuffer[i], font, brush, p);
+                graphics.DrawString("" + outputBuffer[i], font, brush, p);
                 GoTo(cursorX + 1, CursorY);
             }
             FeedLine();
@@ -257,19 +253,17 @@ namespace VH.Engine.VhConsole {
         }
 
         private void write() {
-            Point p = new Point(cursorX * fontWidth, cursorY * fontHeight);
+            Point p = new Point(cursorX * fontWidth + xOffset, cursorY * fontHeight);
             Rectangle rec = new Rectangle(p.X + 1, p.Y + 1, fontWidth + 1, fontHeight);
-            g.FillRectangle(deleteBrush, rec);
-            g.DrawString("" + outputBuffer, font, brush, p);
+            graphics.FillRectangle(deleteBrush, rec);
+            graphics.DrawString("" + outputBuffer, font, brush, p);
             GoTo(cursorX + outputBuffer.Length, cursorY);
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e) {
             inputBuffer += e.KeyChar;
-            Debug.WriteLine("Form1_KeyPress>mri.Set(); inputBuffer: " + inputBuffer);
             mri.Set();
             if (e.KeyChar == NEWLINE) {
-                Debug.WriteLine("Form1_KeyPress>mri2.Set(); inputBuffer: " + inputBuffer);
                 mri2.Set();
             }
             if (echo) {
@@ -308,7 +302,7 @@ namespace VH.Engine.VhConsole {
             int hRes = ClientRectangle.Width;
             int vRes = ClientRectangle.Height;
             bitmap = new Bitmap(hRes, vRes, PixelFormat.Format24bppRgb);
-            g = Graphics.FromImage(bitmap);
+            graphics = Graphics.FromImage(bitmap);
 
             string s = "12345678";
 
@@ -316,14 +310,16 @@ namespace VH.Engine.VhConsole {
             SizeF stringSize;
             do {
                 Font font = new Font(FONT_NAME, fontSize, FontStyle.Bold);
-                stringSize = g.MeasureString(s, font);
+                stringSize = graphics.MeasureString(s, font);
                 fontSize++;
             } while (stringSize.Width * 10 <= hRes && stringSize.Height * 50 <= vRes);
             fontSize--;
             this.font = new Font(FONT_NAME, fontSize, FontStyle.Bold);
-            stringSize = g.MeasureString(s, this.font);
+            stringSize = graphics.MeasureString(s, this.font);
             this.fontWidth = (int)(stringSize.Width / 8.0f);
             this.fontHeight = (int)stringSize.Height - 2;
+
+            xOffset = (int)(hRes - stringSize.Width * 10) / 2;
 
             Text = Application.ProductName;
             ready = true;
